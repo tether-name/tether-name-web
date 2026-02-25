@@ -7,7 +7,7 @@ export function Footer() {
           <a href="/privacy" className="text-sm text-gray-600 hover:text-black transition-colors">Privacy</a>
           <a href="/terms" className="text-sm text-gray-600 hover:text-black transition-colors">Terms</a>
           <a
-            href="https://github.com/Commit451?q=tether"
+            href="https://github.com/orgs/tether-name/repositories"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-600 hover:text-black transition-colors"
