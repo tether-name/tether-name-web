@@ -1,0 +1,60 @@
+import { Link } from 'react-router-dom';
+import { useAuth } from '../auth';
+import logo from '../assets/logo.svg';
+
+export function Navbar() {
+  const { user, logout } = useAuth();
+
+  return (
+    <nav className="bg-white border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center space-x-2 text-xl font-bold text-black hover:text-gray-700">
+              <img src={logo} alt="Tether.name" className="h-8 w-8 rounded" />
+              <span>Tether.name</span>
+            </Link>
+          </div>
+
+          <div className="flex items-center space-x-2 sm:space-x-4 min-w-0">
+            {user ? (
+              <>
+                <span className="text-gray-600 text-sm hidden md:inline truncate max-w-[200px]">
+                  {user.email}
+                </span>
+                <Link
+                  to="/dashboard"
+                  className="text-gray-700 hover:text-black px-2 sm:px-3 py-2 text-sm font-medium whitespace-nowrap"
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={logout}
+                  className="border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-black px-2 sm:px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/challenge"
+                  className="border border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Verify
+                </Link>
+                <Link
+                  to="/auth"
+                  className="border border-black bg-black text-white hover:bg-gray-800 px-4 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center space-x-1"
+                >
+                  <span>Sign In</span>
+                  <span>→</span>
+                </Link>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
