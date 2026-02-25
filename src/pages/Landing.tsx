@@ -47,6 +47,12 @@ export function Landing() {
               Register it here
             </Link>
           </p>
+          <p className="text-gray-500 mt-2">
+            Developing an agent?{' '}
+            <a href="https://docs.tether.name" className="text-black hover:underline font-medium">
+              See our docs
+            </a>
+          </p>
 
           {stats && (stats.totalVerifications > 0 || stats.totalAgentsRegistered > 0) && (
             <div className="flex justify-center gap-12 mt-12">
