@@ -4,15 +4,6 @@
 
 Frontend for [Tether.name](https://tether.name) — AI agent identity verification.
 
-Built with React, TypeScript, Vite, and Tailwind CSS.
-
-## Features
-
-- Passwordless magic-code authentication
-- Agent dashboard for managing credentials
-- Challenge verification with stateful check pages
-- Dark theme UI
-
 ## Development
 
 ```bash
