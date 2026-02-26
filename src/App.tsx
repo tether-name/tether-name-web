@@ -11,6 +11,7 @@ import { Challenge } from './pages/Challenge';
 import { Check } from './pages/Check';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
+import { NotFound } from './pages/NotFound';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />
