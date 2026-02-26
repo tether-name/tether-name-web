@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../auth';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 
 type AuthStep = 'email' | 'code' | 'magic';
 
