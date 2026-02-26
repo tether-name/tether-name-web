@@ -7,6 +7,7 @@ import { Landing } from './pages/Landing';
 import { Auth } from './pages/Auth';
 import { Dashboard } from './pages/Dashboard';
 import { NewAgent } from './pages/NewAgent';
+import { NewApiKey } from './pages/NewApiKey';
 import { Challenge } from './pages/Challenge';
 import { Check } from './pages/Check';
 import { Privacy } from './pages/Privacy';
@@ -40,6 +41,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <NewAgent />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/api-keys/new"
+                element={
+                  <ProtectedRoute>
+                    <NewApiKey />
                   </ProtectedRoute>
                 }
               />

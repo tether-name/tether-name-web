@@ -14,6 +14,25 @@ export interface Agent {
   lastVerifiedAt: number;
 }
 
+export interface ApiKeyCreateResponse {
+  id: string;
+  key: string;
+  name: string;
+  keyPrefix: string;
+  expiresAt: string | null;
+  createdAt: string;
+}
+
+export interface ApiKeyListItem {
+  id: string;
+  name: string;
+  keyPrefix: string;
+  expiresAt: string | null;
+  createdAt: string;
+  lastUsedAt: string | null;
+  revoked: boolean;
+}
+
 export interface AuthResponse {
   accessToken: string;
   refreshToken: string;
@@ -169,6 +188,21 @@ export const api = {
     apiRequest<{ valid: boolean; verifyUrl?: string; email?: string; registeredSince?: number; agentName?: string }>('/challenge/verify', {
       method: 'POST',
       body: JSON.stringify({ challenge, proof, credentialId }),
+    }),
+
+  // API Key endpoints
+  createApiKey: (name: string, expiresInDays?: number) =>
+    apiRequest<ApiKeyCreateResponse>('/api-keys', {
+      method: 'POST',
+      body: JSON.stringify({ name, ...(expiresInDays !== undefined && { expiresInDays }) }),
+    }),
+
+  getApiKeys: () =>
+    apiRequest<ApiKeyListItem[]>('/api-keys'),
+
+  revokeApiKey: (id: string) =>
+    apiRequest<{ message: string }>(`/api-keys/${id}`, {
+      method: 'DELETE',
     }),
 
   getStats: () =>
