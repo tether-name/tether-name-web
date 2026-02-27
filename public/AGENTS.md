@@ -94,11 +94,11 @@ If `valid` is `false`, the `error` field tells you what went wrong:
 | Error                            | Meaning                                                                                                                             |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | `challenge_not_found_or_expired` | Challenge doesn't exist or expired (10 min TTL). Ask the challenger for a new one.                                                  |
-| `challenge_already_used`         | This challenge was already verified or invalidated. Challenges are single-use.                                                      |
+| `challenge_already_used`         | This challenge was already verified. Challenges are single-use once successfully verified.                                          |
 | `credential_not_found`           | The `credentialId` doesn't match any registered credential. Check your credential ID.                                               |
 | `credential_missing_public_key`  | The credential exists but has no public key on file. Re-register with your owner.                                                   |
 | `credential_owner_not_found`     | The credential's owner account was not found. Contact your owner.                                                                   |
-| `signature_invalid`              | The signature didn't match. Make sure you're signing the exact challenge string with the correct private key using `SHA256withRSA`. |
+| `signature_invalid`              | The signature didn't match. Make sure you're signing the exact challenge string with the correct private key using `SHA256withRSA`. The challenge is **not** consumed — you can retry with the same challenge code. |
 | `internal_error`                 | Something went wrong on the server. Try again.                                                                                      |
 
 ### If you are the Challenger (verifying an agent)
@@ -156,17 +156,27 @@ Status will be `pending`, `verified`, `invalid`, or `not_found`.
 # Decode your base64 private key to a DER file
 echo "$PRIVATE_KEY_BASE64" | base64 -d > /tmp/agent.der
 
-# Sign the challenge
-PROOF=$(echo -n "$CHALLENGE" | openssl dgst -sha256 -sign /tmp/agent.der | base64 | tr '+/' '-_' | tr -d '=')
+# Convert PKCS8 DER to PEM (openssl dgst -sign requires PEM, not raw DER)
+openssl pkcs8 -inform DER -in /tmp/agent.der -nocrypt 2>/dev/null \
+  | openssl rsa -traditional -out /tmp/agent.pem 2>/dev/null
+
+# Sign the challenge (use -w0 on Linux to disable base64 line wrapping)
+PROOF=$(echo -n "$CHALLENGE" | openssl dgst -sha256 -sign /tmp/agent.pem \
+  | base64 -w0 2>/dev/null || base64)
+PROOF=$(echo -n "$PROOF" | tr '+/' '-_' | tr -d '=' | tr -d '\n')
 
 # Clean up
-rm /tmp/agent.der
+rm /tmp/agent.der /tmp/agent.pem
 
 # Submit
 curl -X POST https://api.tether.name/challenge/verify \
   -H "Content-Type: application/json" \
   -d "{\"challenge\":\"$CHALLENGE\",\"proof\":\"$PROOF\",\"credentialId\":\"$CREDENTIAL_ID\"}"
 ```
+
+> **⚠️ Common pitfalls:**
+> - `base64` on Linux wraps output at 76 characters by default, corrupting the proof. Use `base64 -w0` (Linux) or `base64` (macOS, which doesn't wrap by default).
+> - `openssl dgst -sign` requires a PEM key file. Passing a PKCS8 DER file directly will silently produce an invalid signature. Always convert to PEM first.
 
 ## API Reference
 
@@ -208,6 +218,6 @@ Content-Type: application/json
 ## Key Rules
 
 - **Challenges expire after 10 minutes.** Don't wait too long to sign.
-- **Challenges are single-use.** Once verified or invalidated, they cannot be reused.
+- **Challenges are single-use once verified.** A successfully verified challenge cannot be reused. Failed attempts (e.g. `signature_invalid`) do **not** consume the challenge — you can retry.
 - **Never generate your own challenge.** Only sign challenges given to you by others.
 - **Keep your private key secret.** Never share it. If compromised, ask your owner to revoke and reissue.
