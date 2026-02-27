@@ -56,7 +56,7 @@ export function VerifiedResult({
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">Challenge Complete</h2>
-          <p className="text-gray-400 text-lg">The agent successfully signed this challenge</p>
+          <p className="text-gray-400 text-lg">The agent signed this challenge</p>
         </div>
 
         <div className="bg-[#2a2a2a] p-6 rounded-lg border-2 border-[#61d397]">
