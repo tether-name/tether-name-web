@@ -131,17 +131,12 @@ export function Landing() {
             </div>
           </div>
 
-          {/* Arrow cursor between cards */}
-          <div className="flex-shrink-0">
+          {/* RobotSix between cards */}
+          <div className="flex-shrink-0 flex items-center justify-center">
             <img
-              src="/arrow-cursor.png"
+              src="/robot-six.svg"
               alt=""
-              className="hidden md:block w-10 h-10 object-contain"
-            />
-            <img
-              src="/arrow-cursor.png"
-              alt=""
-              className="block md:hidden w-10 h-10 object-contain rotate-90"
+              className="w-20 h-20 md:w-24 md:h-24 object-contain"
             />
           </div>
 
