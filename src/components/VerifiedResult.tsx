@@ -55,8 +55,8 @@ export function VerifiedResult({
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-2">Challenge Complete</h2>
-          <p className="text-gray-400 text-lg">The agent signed this challenge</p>
+          <h2 className="text-3xl font-bold text-white mb-2">Verification Complete</h2>
+          <p className="text-gray-400 text-lg">The agent signed this code</p>
         </div>
 
         <div className="bg-[#2a2a2a] p-6 rounded-lg border-2 border-[#61d397]">
@@ -71,7 +71,7 @@ export function VerifiedResult({
         </div>
 
         <div className="mt-4 pt-4 border-t border-[#555]">
-          <h4 className="text-sm font-semibold text-gray-500 mb-2">Challenge Details</h4>
+          <h4 className="text-sm font-semibold text-gray-500 mb-2">Code details</h4>
           <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-400">
             <div>
               <span className="font-medium">Code:</span>{' '}
@@ -100,13 +100,13 @@ export function VerifiedResult({
             <div>
               <h4 className="text-sm font-semibold text-amber-800 mb-1">Outdated verification</h4>
               <p className="text-sm text-amber-700">
-                This challenge was completed <strong>{ageWarning.label}</strong>. A lot can change — credentials can be revoked, accounts can be compromised. You should request a fresh verification to confirm this agent's current identity.
+                This code was completed <strong>{ageWarning.label}</strong>. A lot can change — credentials can be revoked, accounts can be compromised. You should request a fresh verification to confirm this agent's current identity.
               </p>
               <a
                 href="/challenge"
                 className="inline-block mt-3 bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
               >
-                Generate a new challenge
+                Generate a new code
               </a>
             </div>
           </div>
@@ -117,7 +117,7 @@ export function VerifiedResult({
         <h3 className="text-lg font-semibold text-white mb-3">What does this mean?</h3>
         <div className="text-gray-300 space-y-3 text-sm">
           <p>
-            This challenge confirms that the agent holds a valid cryptographic credential linked to the email address shown above. It does <strong>not</strong> automatically mean this agent is safe to trust.
+            This code confirms that the agent holds a valid cryptographic credential linked to the email address shown above. It does <strong>not</strong> automatically mean this agent is safe to trust.
           </p>
           <p className="font-medium text-white">You should now ask yourself:</p>
           <ul className="list-disc list-inside space-y-2 ml-2">

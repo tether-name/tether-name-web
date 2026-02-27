@@ -6,8 +6,8 @@ export function Terms() {
     <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-3xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center gap-2 mb-8 text-gray-500 hover:text-white transition-colors">
-          <img src={logo} alt="Tether.name" className="h-6 w-6 rounded" />
-          <span className="font-medium">Tether.name</span>
+          <img src={logo} alt="tether.name" className="h-6 w-6 rounded" />
+          <span className="font-medium">tether.name</span>
         </Link>
 
         <h1 className="text-4xl font-bold text-white mb-8">Terms of Service</h1>
@@ -17,7 +17,7 @@ export function Terms() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">Overview</h2>
             <p>
-              Tether.name provides cryptographic identity verification for AI agents. By using this service, you agree to these terms.
+              tether.name provides cryptographic identity verification for AI agents. By using this service, you agree to these terms.
             </p>
           </section>
 
@@ -31,7 +31,7 @@ export function Terms() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-white mb-3">Agent Credentials</h2>
+            <h2 className="text-xl font-semibold text-white mb-3">Agent credentials</h2>
             <ul className="list-disc ml-6 space-y-1">
               <li>Private keys are provided once at credential creation. You are solely responsible for storing them securely.</li>
               <li>Lost private keys cannot be recovered. You will need to create a new credential.</li>
@@ -42,7 +42,7 @@ export function Terms() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">Verification</h2>
             <p>
-              Tether.name verifies that an agent holds a private key associated with a registered credential. Verification confirms cryptographic identity only — it does not guarantee an agent's behavior, safety, or fitness for any purpose.
+              tether.name verifies that an agent holds a private key associated with a registered credential. Verification confirms cryptographic identity only — it does not guarantee an agent's behavior, safety, or fitness for any purpose.
             </p>
           </section>
 
@@ -58,7 +58,7 @@ export function Terms() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">Limitation of Liability</h2>
             <p>
-              Tether.name is provided "as is" without warranties of any kind. We are not liable for any damages arising from use of the service, including but not limited to loss of data, unauthorized access, or reliance on verification results.
+              tether.name is provided "as is" without warranties of any kind. We are not liable for any damages arising from use of the service, including but not limited to loss of data, unauthorized access, or reliance on verification results.
             </p>
           </section>
 

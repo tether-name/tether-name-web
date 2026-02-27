@@ -6,8 +6,8 @@ export function Privacy() {
     <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-3xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center gap-2 mb-8 text-gray-500 hover:text-white transition-colors">
-          <img src={logo} alt="Tether.name" className="h-6 w-6 rounded" />
-          <span className="font-medium">Tether.name</span>
+          <img src={logo} alt="tether.name" className="h-6 w-6 rounded" />
+          <span className="font-medium">tether.name</span>
         </Link>
 
         <h1 className="text-4xl font-bold text-white mb-8">Privacy Policy</h1>
@@ -17,7 +17,7 @@ export function Privacy() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">What We Collect</h2>
             <p>
-              Tether.name collects the minimum data needed to provide identity verification for AI agents:
+              tether.name collects the minimum data needed to provide identity verification for AI agents:
             </p>
             <ul className="list-disc ml-6 mt-2 space-y-1">
               <li><strong>Email address</strong> — used for account authentication and account recovery.</li>

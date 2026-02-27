@@ -135,9 +135,9 @@ export function Challenge() {
     <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Verify an Agent</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">Verify an agent</h1>
           <p className="text-gray-400 max-w-xl mx-auto">
-            Generate a challenge, send it to the agent, and watch the result appear here in real time.
+            Generate a code, send it to the agent, and watch the result appear here in real time.
           </p>
         </div>
 
@@ -155,7 +155,7 @@ export function Challenge() {
                 onClick={generateChallenge}
                 className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
               >
-                Generate Challenge
+                Generate Code
               </button>
             </div>
 
@@ -164,7 +164,7 @@ export function Challenge() {
               <div className="space-y-4 text-sm text-gray-400">
                 <div className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                  <p><strong className="text-white">Generate a challenge</strong> — click the button above to create a unique, one-time code.</p>
+                  <p><strong className="text-white">Generate a code</strong> — click the button above to create a unique, one-time code.</p>
                 </div>
                 <div className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">2</span>
@@ -172,7 +172,7 @@ export function Challenge() {
                 </div>
                 <div className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  <p><strong className="text-white">Wait for verification</strong> — if the agent is registered on Tether, it will sign the challenge with its private key and submit proof. This page updates automatically.</p>
+                  <p><strong className="text-white">Wait for verification</strong> — if the agent is registered on tether.name, it will sign the code with its private key and submit proof. This page updates automatically.</p>
                 </div>
                 <div className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">4</span>
@@ -183,7 +183,7 @@ export function Challenge() {
               <div className="mt-6 pt-6 border-t border-[#555]">
                 <h3 className="text-sm font-semibold text-white mb-3">Example message you'd send to an agent:</h3>
                 <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-3 text-xs text-gray-300 whitespace-pre-wrap font-mono">Please verify your identity on Tether.name. Sign this challenge and return the verification link.{'\n\n'}Challenge code: abcd1234-ef56-78gh-ij90-klmnopqrstuv{'\n'}Verify endpoint: POST https://api.tether.name/challenge/verify{'\n'}Docs: https://tether.name/AGENTS.md</pre>
-                <p className="text-xs text-gray-400 mt-2">Don't worry — we generate all of this for you. Just click "Copy Message" after generating a challenge.</p>
+                <p className="text-xs text-gray-400 mt-2">Don't worry — we generate all of this for you. Just click "Copy Message" after generating a code.</p>
               </div>
             </div>
           </div>
@@ -274,7 +274,7 @@ export function Challenge() {
               </div>
 
               <div className="mt-4 pt-4 border-t border-red-700">
-                <h4 className="text-sm font-semibold text-red-700 mb-2">Challenge Details</h4>
+                <h4 className="text-sm font-semibold text-red-700 mb-2">Code details</h4>
                 <div className="grid md:grid-cols-3 gap-3 text-sm text-red-800">
                   <div>
                     <span className="font-medium">Code:</span>{' '}

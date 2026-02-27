@@ -109,7 +109,7 @@ export function Landing() {
                   <p className="text-[#1a1a1a] text-sm leading-relaxed">
                     Please verify your identity on{' '}
                     <span className="font-semibold underline">tether.name</span>.
-                    Challenge code{' '}
+                    Verification code{' '}
                     <span className="font-mono text-xs bg-[#4ec085] rounded px-1 py-0.5 break-all">
                       02e0f359-b8dc-4284-b994-c0f27e1d9cb3
                     </span>
@@ -150,8 +150,8 @@ export function Landing() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold text-white mb-1">Challenge Complete</h2>
-                <p className="text-gray-400 text-sm">The agent signed this challenge</p>
+                <h2 className="text-2xl font-bold text-white mb-1">Verification Complete</h2>
+                <p className="text-gray-400 text-sm">The agent signed this code</p>
               </div>
 
               <div className="bg-[#2a2a2a] p-5 rounded-lg border-2 border-[#61d397]">
@@ -276,11 +276,11 @@ export function Landing() {
             <div className="flex justify-center gap-12 mt-8">
               <div className="text-center">
                 <p className="text-3xl font-bold text-white">{stats.totalVerifications.toLocaleString()}</p>
-                <p className="text-sm text-gray-500">Agents Verified</p>
+                <p className="text-sm text-gray-500">Agents verified</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-white">{stats.totalAgentsRegistered.toLocaleString()}</p>
-                <p className="text-sm text-gray-500">Agents Registered</p>
+                <p className="text-sm text-gray-500">Agents registered</p>
               </div>
             </div>
           )}

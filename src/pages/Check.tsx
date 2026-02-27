@@ -63,7 +63,7 @@ export function Check() {
       <div className="min-h-screen bg-[#1f1f1f] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#555] mx-auto mb-4"></div>
-          <p className="text-gray-400">Looking up challenge...</p>
+          <p className="text-gray-400">Looking up code...</p>
         </div>
       </div>
     );
@@ -75,13 +75,13 @@ export function Check() {
       <div className="min-h-screen bg-[#1f1f1f]">
         <div className="max-w-4xl mx-auto px-4 py-16">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-white mb-4">Challenge Verification</h1>
+            <h1 className="text-3xl font-bold text-white mb-4">Code verification</h1>
             <p className="text-gray-400 mb-8">
               To verify an agent, go to the{' '}
               <a href="/challenge" className="text-[#f4b049] underline font-medium">
                 Verify an Agent
               </a>{' '}
-              page to generate a challenge.
+              page to generate a code.
             </p>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function Check() {
                 </div>
                 <h2 className="text-2xl font-bold text-yellow-700 mb-2">Pending</h2>
                 <p className="text-yellow-700">
-                  Challenge <code className="font-mono font-semibold">{result.challenge}</code> has been issued but not yet signed by an agent.
+                  Code <code className="font-mono font-semibold">{result.challenge}</code> has been issued but not yet signed by an agent.
                 </p>
                 <p className="text-yellow-600 text-sm mt-2">
                   Issued: {formatDateTime(result.createdAt)}
@@ -159,12 +159,12 @@ export function Check() {
                 </div>
                 <h2 className="text-2xl font-bold text-red-700 mb-2">Verification Failed</h2>
                 <p className="text-red-700">
-                  The agent's signature for this challenge was invalid. This agent could not prove its identity.
+                  The agent's signature for this code was invalid. This agent could not prove its identity.
                 </p>
               </div>
 
               <div className="mt-4 pt-4 border-t border-red-700">
-                <h4 className="text-sm font-semibold text-red-700 mb-2">Challenge Details</h4>
+                <h4 className="text-sm font-semibold text-red-700 mb-2">Code details</h4>
                 <div className="grid md:grid-cols-3 gap-3 text-sm text-red-800">
                   <div>
                     <span className="font-medium">Code:</span>{' '}
@@ -210,7 +210,7 @@ export function Check() {
                     <strong>Share these details.</strong> Give them this verification link and the context of how the agent contacted you so they can investigate.
                   </li>
                   <li>
-                    <strong>Try again.</strong> If you believe this was a technical error, generate a new challenge and ask the agent to verify once more.
+                    <strong>Try again.</strong> If you believe this was a technical error, generate a new code and ask the agent to verify once more.
                   </li>
                 </ul>
               </div>
@@ -238,7 +238,7 @@ export function Check() {
                 </div>
                 <h2 className="text-2xl font-bold text-gray-300 mb-2">Not Found</h2>
                 <p className="text-gray-400">
-                  Challenge <code className="font-mono font-semibold">{challengeCode}</code> was not found. It may have expired or never existed.
+                  Code <code className="font-mono font-semibold">{challengeCode}</code> was not found. It may have expired or never existed.
                 </p>
               </div>
             </div>

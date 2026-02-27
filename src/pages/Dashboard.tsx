@@ -219,7 +219,7 @@ export function Dashboard() {
           ) : (
             <div className="border border-[#555] rounded-lg p-12 text-center">
               <p className="text-gray-500 text-lg mb-2">No API keys yet</p>
-              <p className="text-gray-400 text-sm">Create an API key to access the Tether API programmatically.</p>
+              <p className="text-gray-400 text-sm">Create an API key to access the tether.name API programmatically.</p>
             </div>
           )}
         </div>

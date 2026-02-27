@@ -89,7 +89,7 @@ export function Auth() {
       <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f]">
         <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
-            <img src={logo} alt="Tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
+            <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Confirm Sign In</h2>
             <p className="text-gray-400 mt-2">
               Signing in as <strong>{email}</strong>
@@ -107,7 +107,7 @@ export function Auth() {
             disabled={loading}
             className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
           >
-            {loading ? 'Signing in...' : 'Sign in to Tether.name'}
+            {loading ? 'Signing in...' : 'Sign in to tether.name'}
           </button>
 
           <div className="text-center mt-6">
@@ -128,7 +128,7 @@ export function Auth() {
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#1f1f1f]">
         <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
-            <img src={logo} alt="Tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
+            <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Sign In</h2>
             <p className="text-gray-400 mt-2">Enter your email to receive a verification code</p>
           </div>

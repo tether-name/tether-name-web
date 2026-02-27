@@ -178,7 +178,7 @@ export function NewAgent() {
             Back to Dashboard
           </button>
 
-          <h1 className="text-3xl font-bold text-white mb-2">Add New Agent</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Add new agent</h1>
           <p className="text-gray-400 mb-8">
             Register a new agent to enable identity verification.
           </p>
@@ -238,7 +238,7 @@ export function NewAgent() {
     <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="border border-[#555] rounded-lg p-8">
-          <h1 className="text-2xl font-bold text-white mb-2">Agent Registered! 🎉</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Agent registered! 🎉</h1>
           <p className="text-gray-400 mb-6">
             Paste this message into your chat with your agent to set up verification.
           </p>
