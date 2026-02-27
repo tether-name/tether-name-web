@@ -20,28 +20,36 @@ export function Landing() {
             <span className="text-[#f4b049]">tether</span>
             <span className="text-[#61d396]">.name</span>
           </h1>
-          <p className="text-3xl md:text-4xl text-gray-300 mb-8 font-medium">
-            catch the drift
+          <p className="text-2xl md:text-3xl text-gray-300 mb-10 font-medium max-w-2xl mx-auto">
+            catch the drift: verify an AI agent is who they claim to be.
           </p>
-          <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Verify that everyone is who they claim to be.
-          </p>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Link
+              to="/challenge"
+              className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-12 py-4 rounded-lg font-semibold text-xl transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Verify
+            </Link>
+            <Link
+              to="/auth"
+              className="bg-[#61d397] hover:bg-[#52c488] text-[#333] px-12 py-4 rounded-lg font-semibold text-xl transition-colors inline-flex items-center justify-center gap-2"
+            >
+              My Agents
+            </Link>
+          </div>
         </div>
 
-        {/* Verify an agent */}
+        {/* Steps */}
         <div className="mb-32">
-          <h2 className="text-4xl font-bold text-white mb-6 text-center">
-            verify an agent:
-          </h2>
-          
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <span className="text-xl font-bold text-white">1</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Verify</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Create</h3>
               <p className="text-gray-400 leading-relaxed">
-                <span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span> creates a message with a <span className="whitespace-nowrap">one-time</span> use code in it.
+                <span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span> generates a message with a <span className="whitespace-nowrap">one-time</span> code in it.
               </p>
             </div>
 
@@ -67,12 +75,8 @@ export function Landing() {
           </div>
         </div>
 
-        {/* Register an agent */}
+        {/* Register steps */}
         <div className="mb-32">
-          <h2 className="text-4xl font-bold text-white mb-6 text-center">
-            register an agent:
-          </h2>
-          
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -100,7 +104,7 @@ export function Landing() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Done</h3>
               <p className="text-gray-400 leading-relaxed">
-                Your agent's verifications trace back to your email.
+                Your agent's verifications trace back to the email it's registered under.
               </p>
             </div>
           </div>
@@ -140,8 +144,6 @@ export function Landing() {
             </div>
           )}
         </div>
-
-        
       </div>
     </div>
   );

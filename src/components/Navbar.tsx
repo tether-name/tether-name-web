@@ -51,8 +51,7 @@ export function Navbar() {
                   to="/auth"
                   className="border border-[#61d397] bg-[#61d397] text-[#333] hover:bg-[#52c488] px-4 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center space-x-1"
                 >
-                  <span>Sign-In</span>
-                  <span>→</span>
+                  <span>My Agents</span>
                 </Link>
               </>
             )}
