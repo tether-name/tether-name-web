@@ -94,7 +94,7 @@ export function NewApiKey() {
             <div className="space-y-3">
               <button
                 onClick={handleCopy}
-                className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-white py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center gap-2"
               >
                 {copied ? (
                   <>
@@ -185,7 +185,7 @@ export function NewApiKey() {
             <button
               type="submit"
               disabled={creating}
-              className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-3 px-4 rounded-md font-medium transition-colors"
+              className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-[#333] py-3 px-4 rounded-md font-medium transition-colors"
             >
               {creating ? 'Creating...' : 'Create API Key'}
             </button>

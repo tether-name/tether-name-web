@@ -105,7 +105,7 @@ export function Auth() {
           <button
             onClick={handleMagicVerify}
             disabled={loading}
-            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
           >
             {loading ? 'Signing in...' : 'Sign in to Tether.name'}
           </button>
@@ -158,7 +158,7 @@ export function Auth() {
             <button
               type="submit"
               disabled={loading || !email.trim()}
-              className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-2 px-4 rounded-md font-medium transition-colors"
+              className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-[#333] py-2 px-4 rounded-md font-medium transition-colors"
             >
               {loading ? 'Sending Code...' : 'Continue'}
             </button>
@@ -211,7 +211,7 @@ export function Auth() {
           <button
             type="submit"
             disabled={loading || code.length !== 6}
-            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-2 px-4 rounded-md font-medium transition-colors"
+            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-[#333] py-2 px-4 rounded-md font-medium transition-colors"
           >
             {loading ? 'Verifying...' : 'Verify'}
           </button>

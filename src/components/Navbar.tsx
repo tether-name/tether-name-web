@@ -43,7 +43,7 @@ export function Navbar() {
               <>
                 <Link
                   to="/challenge"
-                  className="border border-[#f4b049] bg-[#f4b049] text-white hover:bg-[#e5a03a] px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="border border-[#f4b049] bg-[#f4b049] text-[#333] hover:bg-[#e5a03a] px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   Verify
                 </Link>

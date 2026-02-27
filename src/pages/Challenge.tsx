@@ -153,7 +153,7 @@ export function Challenge() {
             <div className="text-center">
               <button
                 onClick={generateChallenge}
-                className="bg-[#f4b049] hover:bg-[#e5a03a] text-white px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
+                className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
               >
                 Generate Challenge
               </button>
@@ -163,19 +163,19 @@ export function Challenge() {
               <h2 className="text-lg font-semibold text-white mb-4">How it works</h2>
               <div className="space-y-4 text-sm text-gray-400">
                 <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">1</span>
                   <p><strong className="text-white">Generate a challenge</strong> — click the button above to create a unique, one-time code.</p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">2</span>
                   <p><strong className="text-white">Send it to the agent</strong> — copy the message and paste it into your conversation with the AI agent you want to verify.</p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">3</span>
                   <p><strong className="text-white">Wait for verification</strong> — if the agent is registered on Tether, it will sign the challenge with its private key and submit proof. This page updates automatically.</p>
                 </div>
                 <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">4</span>
                   <p><strong className="text-white">See the result</strong> — you'll see who the agent is, who registered it, and when. If verification fails, you'll know something's off.</p>
                 </div>
               </div>
@@ -207,7 +207,7 @@ export function Challenge() {
               <div className="mt-4">
                 <button
                   onClick={copyToClipboard}
-                  className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-white py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center gap-2"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -328,7 +328,7 @@ export function Challenge() {
             <div className="text-center">
               <button
                 onClick={resetFlow}
-                className="bg-[#f4b049] hover:bg-[#e5a03a] text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-6 py-3 rounded-lg font-medium transition-colors"
               >
                 Generate New Challenge
               </button>

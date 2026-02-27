@@ -228,7 +228,7 @@ export function Dashboard() {
         <div className="space-y-4">
           <button
             onClick={() => navigate('/dashboard/new')}
-            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-white py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
           >
             Add New Agent
           </button>
