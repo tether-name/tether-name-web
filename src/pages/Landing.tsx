@@ -45,7 +45,7 @@ export function Landing() {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-xl font-bold text-white">1</span>
+                <span className="text-xl font-bold text-[#333]">1</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Create</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -55,7 +55,7 @@ export function Landing() {
 
             <div className="text-center">
               <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-xl font-bold text-white">2</span>
+                <span className="text-xl font-bold text-[#333]">2</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Send</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -65,7 +65,7 @@ export function Landing() {
 
             <div className="text-center">
               <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-xl font-bold text-white">3</span>
+                <span className="text-xl font-bold text-[#333]">3</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Done</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -80,7 +80,7 @@ export function Landing() {
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-xl font-bold text-white">1</span>
+                <span className="text-xl font-bold text-[#333]">1</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Create</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -90,7 +90,7 @@ export function Landing() {
 
             <div className="text-center">
               <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-xl font-bold text-white">2</span>
+                <span className="text-xl font-bold text-[#333]">2</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Register</h3>
               <p className="text-gray-400 leading-relaxed">
@@ -100,7 +100,7 @@ export function Landing() {
 
             <div className="text-center">
               <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-6 flex items-center justify-center">
-                <span className="text-xl font-bold text-white">3</span>
+                <span className="text-xl font-bold text-[#333]">3</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Done</h3>
               <p className="text-gray-400 leading-relaxed">
