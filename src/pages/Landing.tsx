@@ -63,11 +63,11 @@ export function Landing() {
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
             src="/hero.svg"
-            alt="tether.name — verify AI agents are who they claim to be"
+            alt="tether.name — verify AI agents are who they say they are"
             className="w-full max-w-3xl mx-auto object-contain"
           />
           <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center mt-4">
-            catch the drift: verify AI agents are who they claim to be.
+            catch the drift: verify AI agents are who they say they are.
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export function Landing() {
 
         {/* How to Verify — Steps with wavy rope */}
         <div className="mb-24">
-          <h2 className="text-center text-2xl font-bold text-white mb-12">How to verify</h2>
+          
           <div className="relative">
 
 
@@ -211,7 +211,7 @@ export function Landing() {
 
         {/* How to Register — Steps with wavy rope */}
         <div className="mb-24">
-          <h2 className="text-center text-2xl font-bold text-white mb-12">How to register</h2>
+          
           <div className="relative">
 
 
