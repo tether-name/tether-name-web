@@ -109,7 +109,8 @@ export function Dashboard() {
   return (
     <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
-      <div className="max-w-4xl mx-auto px-4 py-16">
+      <div className="max-w-4xl mx-auto px-4 py-16 relative">
+        <img src="/robot-lurk.svg" alt="" className="absolute -top-6 left-6 w-16 h-16 z-20" />
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2">Your Agents</h1>
           <p className="text-gray-400">
