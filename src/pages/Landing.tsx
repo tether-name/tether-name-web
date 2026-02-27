@@ -12,7 +12,7 @@ export function Landing() {
 
   return (
     <div className="min-h-screen bg-[#333]">
-      <div className="max-w-6xl mx-auto px-4 py-32">
+      <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="text-center mb-32">
           <img src={logo} alt="Tether.name" className="h-40 w-40 rounded-xl mx-auto mb-8" />
