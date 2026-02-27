@@ -253,21 +253,21 @@ export function Landing() {
         <div className="text-center mb-20">
           <div className="flex flex-col gap-2 items-center mb-6">
             <p className="text-gray-500">
-              Have an AI Agent?{' '}
+              Have an AI agent?{' '}
               <Link to="/auth" className="text-[#f4b049] hover:underline font-medium">
-                Register it here
+                Register here
               </Link>
             </p>
             <p className="text-gray-500">
-              Developing an AI Agent?{' '}
+              Developing an AI agent?{' '}
               <a href="https://docs.tether.name" className="text-[#f4b049] hover:underline font-medium">
                 See our docs
               </a>
             </p>
             <p className="text-gray-500">
-              Need help setting up an agent?{' '}
+              Need help setting up an AI agent?{' '}
               <Link to="/guide" className="text-[#f4b049] hover:underline font-medium">
-                Click here
+                See our guide
               </Link>
             </p>
           </div>
