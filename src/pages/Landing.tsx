@@ -17,9 +17,8 @@ export function Landing() {
         <div className="text-center mb-32">
           <img src={logo} alt="Tether.name" className="h-40 w-40 rounded-xl mx-auto mb-8" />
           <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-[#61d397]">tether</span>
-            <span className="text-[#f4b049]">.</span>
-            <span className="text-white">name</span>
+            <span className="text-[#f4b049]">tether</span>
+            <span className="text-[#61d396]">.name</span>
           </h1>
           <p className="text-2xl text-gray-300 mb-8 font-medium">
             connect and protect
@@ -32,30 +31,30 @@ export function Landing() {
             <br />
             You can't go above it. You can't get around it.
             <br />
-            Let <Link to="/" className="text-[#f4b049] hover:underline">tether.name</Link> help you go through it.
+            <Link to="/" className="hover:underline"><span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span></Link> can help you get through it.
           </p>
           <p className="text-base md:text-xl text-gray-400 mb-16 max-w-3xl mx-auto leading-relaxed">
-            AI agents help us with tasks both mundane and important. Now, with tether.name,
-            you can be sure an agent is who they claim to be and no one can claim to be you or your agent.
-            Verification isn't new, but it just got a lot more accessible with <Link to="/" className="text-[#f4b049] hover:underline">tether.name</Link>.
+            Sooner rather than later, everyone will have an AI agent to help get things done.
+            With <Link to="/" className="hover:underline"><span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span></Link> you
+            can be sure whoever you're interacting with is who they claim to be and no one is impersonating you or your agent.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
             <Link
               to="/challenge"
-              className="bg-[#f4b049] hover:bg-[#e5a03a] text-white px-12 py-4 rounded-lg font-semibold text-xl transition-colors inline-flex items-center justify-center gap-2"
+              className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-12 py-4 rounded-lg font-semibold text-xl transition-colors inline-flex items-center justify-center gap-2"
             >
-              Verify an agent <span>→</span>
+              Verify Agent <span>→</span>
             </Link>
           </div>
           <p className="text-gray-500">
-            Own an AI agent?{' '}
+            Have an AI Agent?{' '}
             <Link to="/auth" className="text-[#f4b049] hover:underline font-medium">
               Register it here
             </Link>
           </p>
           <p className="text-gray-500 mt-2">
-            Developing an agent?{' '}
+            Developing an AI Agent?{' '}
             <a href="https://docs.tether.name" className="text-[#f4b049] hover:underline font-medium">
               See our docs
             </a>
@@ -65,7 +64,7 @@ export function Landing() {
             <div className="flex justify-center gap-12 mt-12">
               <div className="text-center">
                 <p className="text-3xl font-bold text-white">{stats.totalVerifications.toLocaleString()}</p>
-                <p className="text-sm text-gray-500">Verifications</p>
+                <p className="text-sm text-gray-500">Agent Verifications</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-white">{stats.totalAgentsRegistered.toLocaleString()}</p>
@@ -77,17 +76,17 @@ export function Landing() {
 
         <div className="mb-32">
           <h2 className="text-4xl font-bold text-white mb-6 text-center">
-            HOW IT WORKS:
+            verify an agent:
           </h2>
-          <p className="text-center text-gray-400 mb-16 text-lg">No accounts. 30 seconds.</p>
+          
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <span className="text-xl font-bold text-white">1</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Click "Verify"</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Verify</h3>
               <p className="text-gray-400 leading-relaxed">
-                Tether.name generates a unique, one-time challenge code and lets you copy a message to send to the inquiring AI Agent.
+                <span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span> creates a message with a one-time use code in it.
               </p>
             </div>
 
@@ -97,7 +96,7 @@ export function Landing() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Send</h3>
               <p className="text-gray-400 leading-relaxed">
-                Paste the message wherever you're chatting with the agent. If it's legit, it will know what to do.
+                Paste the message wherever you're chatting with an agent.
               </p>
             </div>
 
@@ -107,7 +106,7 @@ export function Landing() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Done</h3>
               <p className="text-gray-400 leading-relaxed">
-                The page will update in real time. You'll see the email that the agent is associated to. No links, no extra clicks.
+                The page updates. Green means verified; red means unverified.
               </p>
             </div>
           </div>
@@ -115,9 +114,9 @@ export function Landing() {
 
         <div className="mb-32">
           <h2 className="text-4xl font-bold text-white mb-6 text-center">
-            HAVE AN AGENT:
+            register an agent:
           </h2>
-          <p className="text-center text-gray-400 mb-16 text-lg">One account. 2 minutes.</p>
+          
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
               <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -125,7 +124,7 @@ export function Landing() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Create</h3>
               <p className="text-gray-400 leading-relaxed">
-                Sign up using your email. No passwords, just codes.
+                Sign up with just your email.
               </p>
             </div>
 
@@ -135,7 +134,7 @@ export function Landing() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Register</h3>
               <p className="text-gray-400 leading-relaxed">
-                Name your agent and Tether.name generates secure credentials. Copy and paste it into your agent's instructions.
+                Name your agent and <span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span> gives you a setup message to paste into your agent.
               </p>
             </div>
 
@@ -143,9 +142,9 @@ export function Landing() {
               <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <span className="text-xl font-bold text-white">3</span>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Finish</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Done</h3>
               <p className="text-gray-400 leading-relaxed">
-                That's it. Every verification traces back to your email.
+                Every verification for your agent traces back to your email.
               </p>
             </div>
           </div>

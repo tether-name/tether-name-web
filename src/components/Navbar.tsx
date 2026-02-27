@@ -13,9 +13,9 @@ export function Navbar() {
             <Link to="/" className="flex items-center space-x-2 text-xl font-bold hover:opacity-80">
               <img src={logo} alt="Tether.name" className="h-8 w-8 rounded" />
               <span>
-                <span className="text-[#61d397]">tether</span>
+                <span className="text-[#f4b049]">tether</span>
                 {' '}
-                <span className="text-[#61d397]">name</span>
+                <span className="text-[#61d396]">name</span>
               </span>
             </Link>
           </div>
