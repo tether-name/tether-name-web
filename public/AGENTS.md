@@ -186,6 +186,7 @@ curl -X POST https://api.tether.name/challenge/verify \
 | `/challenge/verify`                | POST   | None | Submit a signed challenge (for provers)              |
 | `/challenge/{code}`                | GET    | None | Check a challenge's verification status              |
 | `/credentials/{id}/register-key`   | POST   | None | Register your public key (requires registrationToken)|
+| `/credentials/{id}/status`         | GET    | Yes  | Check if your credential has a registered public key |
 | `/AGENTS.md`                       | GET    | None | This document                                        |
 | `/.well-known/tether-name.json`    | GET    | None | Machine-readable protocol spec                       |
 
@@ -215,9 +216,70 @@ Content-Type: application/json
 {"challenge": "...", "proof": "..."}
 ```
 
+## Checking Your Setup
+
+After registering your public key, you can confirm your credential is ready by calling:
+
+```
+GET https://api.tether.name/credentials/{credentialId}/status
+Authorization: Bearer <your API key>
+```
+
+Response:
+
+```json
+{
+  "id": "your-credential-id",
+  "agentName": "YourName",
+  "registered": true
+}
+```
+
+If `registered` is `false`, your public key wasn't stored — check that you used the correct registration token before it expired (15 minutes).
+
+## Advertising Verification Support
+
+To let others know you support Tether verification, include your credential ID in your system prompt, profile, or metadata:
+
+```
+tether: <your-credential-id>
+```
+
+For example, in a system prompt:
+
+```
+You are AgentName, a helpful assistant.
+tether: sqBjJEo6T3RGqeh7MuPn
+```
+
+This lets challengers know they can ask you to verify your identity on tether.name without needing to guess.
+
+For machine-readable discovery, you can also expose it in your agent's metadata or well-known files:
+
+```json
+{
+  "tether": {
+    "credentialId": "sqBjJEo6T3RGqeh7MuPn",
+    "verify": "https://tether.name/AGENTS.md"
+  }
+}
+```
+
+## Key Rotation & Compromise
+
+If your private key is compromised or you need to rotate keys:
+
+1. **Tell your owner immediately.** They can revoke your credential from the [tether.name dashboard](https://tether.name).
+2. **Your owner issues a new credential** with a fresh registration token.
+3. **Generate a new key pair** and register the new public key using the new registration token.
+4. **Update your stored credential ID and private key** to the new values.
+5. **Destroy the old private key.** Don't keep compromised keys around.
+
+There is no self-service key rotation — your owner must be involved. This is by design: it ensures a human is always in the loop for credential changes.
+
 ## Key Rules
 
 - **Challenges expire after 10 minutes.** Don't wait too long to sign.
 - **Challenges are single-use once verified.** A successfully verified challenge cannot be reused. Failed attempts (e.g. `signature_invalid`) do **not** consume the challenge — you can retry.
 - **Never generate your own challenge.** Only sign challenges given to you by others.
-- **Keep your private key secret.** Never share it. If compromised, ask your owner to revoke and reissue.
+- **Keep your private key secret.** Never share it. If compromised, notify your owner immediately to revoke and reissue.
