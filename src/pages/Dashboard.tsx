@@ -99,24 +99,24 @@ export function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-black"></div>
+      <div className="min-h-screen bg-[#333] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#555]"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#333]">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-black mb-2">Your Agents</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-white mb-2">Your Agents</h1>
+          <p className="text-gray-400">
             Manage your verified agents &middot; {user?.email}
           </p>
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6">
+          <div className="bg-red-900/30 border border-red-700 text-red-700 px-4 py-3 rounded mb-6">
             {error}
           </div>
         )}
@@ -125,14 +125,14 @@ export function Dashboard() {
         {agents.length > 0 ? (
           <div className="mb-8 space-y-4">
             {agents.map((agent) => (
-              <div key={agent.id} className="relative border border-gray-200 p-5 rounded-lg flex items-start justify-between">
+              <div key={agent.id} className="relative border border-[#555] p-5 rounded-lg flex items-start justify-between">
                 {deleting === agent.id && (
-                  <div className="absolute inset-0 bg-white/70 rounded-lg flex items-center justify-center z-10">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
+                  <div className="absolute inset-0 bg-[#333]/70 rounded-lg flex items-center justify-center z-10">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
                   </div>
                 )}
                 <div>
-                  <h3 className="text-lg font-semibold text-black">{agent.agentName}</h3>
+                  <h3 className="text-lg font-semibold text-white">{agent.agentName}</h3>
                   {agent.description && (
                     <p className="text-gray-500 mt-1">{agent.description}</p>
                   )}
@@ -153,7 +153,7 @@ export function Dashboard() {
             ))}
           </div>
         ) : (
-          <div className="mb-8 border border-gray-200 rounded-lg p-12 text-center">
+          <div className="mb-8 border border-[#555] rounded-lg p-12 text-center">
             <p className="text-gray-500 text-lg mb-2">No agents registered yet</p>
             <p className="text-gray-400 text-sm">Add your first agent to get started with identity verification.</p>
           </div>
@@ -162,10 +162,10 @@ export function Dashboard() {
         {/* API Keys section */}
         <div className="mb-8 mt-12">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold text-black">API Keys</h2>
+            <h2 className="text-2xl font-bold text-white">API Keys</h2>
             <button
               onClick={() => navigate('/dashboard/api-keys/new')}
-              className="border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-black px-4 py-2 rounded-md text-sm font-medium transition-colors"
+              className="border border-[#555] hover:border-gray-500 text-gray-300 hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Create API Key
             </button>
@@ -176,16 +176,16 @@ export function Dashboard() {
               {apiKeys.map((key) => (
                 <div
                   key={key.id}
-                  className={`relative border border-gray-200 p-5 rounded-lg flex items-start justify-between ${key.revoked ? 'opacity-60' : ''}`}
+                  className={`relative border border-[#555] p-5 rounded-lg flex items-start justify-between ${key.revoked ? 'opacity-60' : ''}`}
                 >
                   {revoking === key.id && (
-                    <div className="absolute inset-0 bg-white/70 rounded-lg flex items-center justify-center z-10">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
+                    <div className="absolute inset-0 bg-[#333]/70 rounded-lg flex items-center justify-center z-10">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
                     </div>
                   )}
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className={`text-lg font-semibold text-black ${key.revoked ? 'line-through' : ''}`}>
+                      <h3 className={`text-lg font-semibold text-white ${key.revoked ? 'line-through' : ''}`}>
                         {key.name}
                       </h3>
                       {key.revoked && (
@@ -217,7 +217,7 @@ export function Dashboard() {
               ))}
             </div>
           ) : (
-            <div className="border border-gray-200 rounded-lg p-12 text-center">
+            <div className="border border-[#555] rounded-lg p-12 text-center">
               <p className="text-gray-500 text-lg mb-2">No API keys yet</p>
               <p className="text-gray-400 text-sm">Create an API key to access the Tether API programmatically.</p>
             </div>
@@ -228,20 +228,20 @@ export function Dashboard() {
         <div className="space-y-4">
           <button
             onClick={() => navigate('/dashboard/new')}
-            className="w-full bg-black hover:bg-gray-800 text-white py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-white py-3 px-4 rounded-md font-medium transition-colors text-lg"
           >
             Add New Agent
           </button>
 
           <div className="flex items-center gap-4">
-            <div className="flex-1 border-t border-gray-200"></div>
+            <div className="flex-1 border-t border-[#555]"></div>
             <span className="text-gray-400 text-sm">or</span>
-            <div className="flex-1 border-t border-gray-200"></div>
+            <div className="flex-1 border-t border-[#555]"></div>
           </div>
 
           <button
             onClick={() => navigate('/challenge')}
-            className="w-full border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-black py-3 px-4 rounded-md font-medium transition-colors"
+            className="w-full border border-[#555] hover:border-gray-500 text-gray-300 hover:text-white py-3 px-4 rounded-md font-medium transition-colors"
           >
             Verify an Agent
           </button>

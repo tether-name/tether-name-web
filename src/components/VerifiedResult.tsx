@@ -48,20 +48,20 @@ export function VerifiedResult({
 
   return (
     <div className="space-y-6">
-      <div className="bg-gray-50 border border-gray-200 p-8 rounded-lg">
+      <div className="bg-[#2a2a2a] border border-[#555] p-8 rounded-lg">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-16 h-16 bg-[#f4b049] rounded-full mx-auto mb-4 flex items-center justify-center">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
-          <h2 className="text-3xl font-bold text-black mb-2">Challenge Complete</h2>
-          <p className="text-gray-600 text-lg">The agent successfully signed this challenge</p>
+          <h2 className="text-3xl font-bold text-white mb-2">Challenge Complete</h2>
+          <p className="text-gray-400 text-lg">The agent successfully signed this challenge</p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg border-2 border-black">
-          <p className="text-center text-gray-600 text-sm mb-2">This agent represents</p>
-          <p className="text-center text-2xl font-bold text-black mb-1">{email || 'Unknown'}</p>
+        <div className="bg-[#2a2a2a] p-6 rounded-lg border-2 border-[#61d397]">
+          <p className="text-center text-gray-400 text-sm mb-2">This agent represents</p>
+          <p className="text-center text-2xl font-bold text-white mb-1">{email || 'Unknown'}</p>
           {agentName && (
             <p className="text-center text-gray-500">Agent name: {agentName}</p>
           )}
@@ -70,9 +70,9 @@ export function VerifiedResult({
           </p>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-[#555]">
           <h4 className="text-sm font-semibold text-gray-500 mb-2">Challenge Details</h4>
-          <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-600">
+          <div className="grid md:grid-cols-3 gap-3 text-sm text-gray-400">
             <div>
               <span className="font-medium">Code:</span>{' '}
               <code className="font-mono">{challenge}</code>
@@ -90,7 +90,7 @@ export function VerifiedResult({
       </div>
 
       {ageWarning && (
-        <div className="bg-amber-50 border border-amber-300 p-5 rounded-lg">
+        <div className="bg-amber-900/30 border border-amber-600 p-5 rounded-lg">
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 mt-0.5">
               <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,13 +113,13 @@ export function VerifiedResult({
         </div>
       )}
 
-      <div className="border border-gray-200 bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-lg font-semibold text-black mb-3">What does this mean?</h3>
-        <div className="text-gray-700 space-y-3 text-sm">
+      <div className="border border-[#555] bg-[#2a2a2a] p-6 rounded-lg">
+        <h3 className="text-lg font-semibold text-white mb-3">What does this mean?</h3>
+        <div className="text-gray-300 space-y-3 text-sm">
           <p>
             This challenge confirms that the agent holds a valid cryptographic credential linked to the email address shown above. It does <strong>not</strong> automatically mean this agent is safe to trust.
           </p>
-          <p className="font-medium text-black">You should now ask yourself:</p>
+          <p className="font-medium text-white">You should now ask yourself:</p>
           <ul className="list-disc list-inside space-y-2 ml-2">
             <li>
               <strong>Do I recognize this email?</strong> Does it belong to the person or organization the agent claimed to represent?
@@ -138,14 +138,14 @@ export function VerifiedResult({
         {onVerifyAnother ? (
           <button
             onClick={onVerifyAnother}
-            className="inline-block border border-black text-black px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+            className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
           >
             Verify another agent
           </button>
         ) : (
           <a
             href={verifyAnotherHref}
-            className="inline-block border border-black text-black px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+            className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
           >
             Verify another agent
           </a>

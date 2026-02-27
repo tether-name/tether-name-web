@@ -60,10 +60,10 @@ export function Check() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-[#333] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black mx-auto mb-4"></div>
-          <p className="text-gray-600">Looking up challenge...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#555] mx-auto mb-4"></div>
+          <p className="text-gray-400">Looking up challenge...</p>
         </div>
       </div>
     );
@@ -72,13 +72,13 @@ export function Check() {
   // No challenge code provided
   if (!challengeCode) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-[#333]">
         <div className="max-w-4xl mx-auto px-4 py-16">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-black mb-4">Challenge Verification</h1>
-            <p className="text-gray-600 mb-8">
+            <h1 className="text-3xl font-bold text-white mb-4">Challenge Verification</h1>
+            <p className="text-gray-400 mb-8">
               To verify an agent, go to the{' '}
-              <a href="/challenge" className="text-black underline font-medium">
+              <a href="/challenge" className="text-[#f4b049] underline font-medium">
                 Verify an Agent
               </a>{' '}
               page to generate a challenge.
@@ -90,14 +90,14 @@ export function Check() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#333]">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-black mb-2">Challenge Verification</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Challenge Verification</h1>
         </div>
 
         {error && (
-          <div className="bg-red-50 border border-red-200 p-6 rounded-lg mb-8">
+          <div className="bg-red-900/30 border border-red-700 p-6 rounded-lg mb-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -123,9 +123,9 @@ export function Check() {
 
         {result && result.status === 'pending' && (
           <div className="space-y-6">
-            <div className="bg-yellow-50 border border-yellow-200 p-8 rounded-lg">
+            <div className="bg-yellow-900/30 border border-yellow-600 p-8 rounded-lg">
               <div className="text-center">
-                <div className="w-16 h-16 bg-yellow-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div className="w-16 h-16 bg-yellow-900/300 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -143,7 +143,7 @@ export function Check() {
             <div className="text-center">
               <a
                 href="/challenge"
-                className="inline-block border border-black text-black px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
               >
                 Verify another agent
               </a>
@@ -153,7 +153,7 @@ export function Check() {
 
         {result && result.status === 'invalid' && (
           <div className="space-y-6">
-            <div className="bg-red-50 border border-red-200 p-8 rounded-lg">
+            <div className="bg-red-900/30 border border-red-700 p-8 rounded-lg">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +166,7 @@ export function Check() {
                 </p>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-red-200">
+              <div className="mt-4 pt-4 border-t border-red-700">
                 <h4 className="text-sm font-semibold text-red-700 mb-2">Challenge Details</h4>
                 <div className="grid md:grid-cols-3 gap-3 text-sm text-red-800">
                   <div>
@@ -185,7 +185,7 @@ export function Check() {
               </div>
             </div>
 
-            <div className="border border-red-200 bg-red-50 p-6 rounded-lg">
+            <div className="border border-red-700 bg-red-900/30 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-red-800 mb-3">What does this mean?</h3>
               <div className="text-red-800 space-y-3 text-sm">
                 <p>
@@ -199,9 +199,9 @@ export function Check() {
               </div>
             </div>
 
-            <div className="border border-gray-200 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-black mb-3">Recommended Next Steps</h3>
-              <div className="text-gray-700 space-y-3 text-sm">
+            <div className="border border-[#555] p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-white mb-3">Recommended Next Steps</h3>
+              <div className="text-gray-300 space-y-3 text-sm">
                 <ul className="list-disc list-inside space-y-2 ml-2">
                   <li>
                     <strong>Do not trust this agent's claimed identity.</strong> Treat any claims it made about who it represents with skepticism.
@@ -222,7 +222,7 @@ export function Check() {
             <div className="text-center">
               <a
                 href="/challenge"
-                className="inline-block border border-black text-black px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
               >
                 Verify another agent
               </a>
@@ -232,15 +232,15 @@ export function Check() {
 
         {result && result.status === 'not_found' && (
           <div className="space-y-6">
-            <div className="bg-gray-50 border border-gray-200 p-8 rounded-lg">
+            <div className="bg-[#2a2a2a] border border-[#555] p-8 rounded-lg">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gray-400 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold text-gray-700 mb-2">Not Found</h2>
-                <p className="text-gray-600">
+                <h2 className="text-2xl font-bold text-gray-300 mb-2">Not Found</h2>
+                <p className="text-gray-400">
                   Challenge <code className="font-mono font-semibold">{challengeCode}</code> was not found. It may have expired or never existed.
                 </p>
               </div>
@@ -249,7 +249,7 @@ export function Check() {
             <div className="text-center">
               <a
                 href="/challenge"
-                className="inline-block border border-black text-black px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-medium"
+                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
               >
                 Verify another agent
               </a>

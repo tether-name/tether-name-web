@@ -86,18 +86,18 @@ export function Auth() {
 
   if (step === 'magic') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="max-w-md w-full bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
+      <div className="min-h-screen flex items-center justify-center bg-[#333]">
+        <div className="max-w-md w-full bg-[#333] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
             <img src={logo} alt="Tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-black">Confirm Sign In</h2>
-            <p className="text-gray-600 mt-2">
+            <h2 className="text-3xl font-bold text-white">Confirm Sign In</h2>
+            <p className="text-gray-400 mt-2">
               Signing in as <strong>{email}</strong>
             </p>
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6">
+            <div className="bg-red-900/30 border border-red-700 text-red-700 px-4 py-3 rounded mb-6">
               {error}
             </div>
           )}
@@ -105,7 +105,7 @@ export function Auth() {
           <button
             onClick={handleMagicVerify}
             disabled={loading}
-            className="w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-3 px-4 rounded-md font-medium transition-colors text-lg"
           >
             {loading ? 'Signing in...' : 'Sign in to Tether.name'}
           </button>
@@ -113,7 +113,7 @@ export function Auth() {
           <div className="text-center mt-6">
             <button
               onClick={() => { setStep('email'); setEmail(''); setCode(''); setError(''); }}
-              className="text-black hover:text-gray-700 text-sm font-medium"
+              className="text-[#f4b049] hover:text-[#e5a03a] text-sm font-medium"
             >
               ← Use a different email
             </button>
@@ -125,30 +125,30 @@ export function Auth() {
 
   if (step === 'email') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-        <div className="max-w-md w-full bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#333]">
+        <div className="max-w-md w-full bg-[#333] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
             <img src={logo} alt="Tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-black">Sign In</h2>
-            <p className="text-gray-600 mt-2">Enter your email to receive a verification code</p>
+            <h2 className="text-3xl font-bold text-white">Sign In</h2>
+            <p className="text-gray-400 mt-2">Enter your email to receive a verification code</p>
           </div>
 
           <form onSubmit={handleSendCode} className="space-y-6">
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+              <div className="bg-red-900/30 border border-red-700 text-red-700 px-4 py-3 rounded">
                 {error}
               </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Email
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
+                className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
                 placeholder="your@email.com"
                 required
                 autoFocus
@@ -158,7 +158,7 @@ export function Auth() {
             <button
               type="submit"
               disabled={loading || !email.trim()}
-              className="w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white py-2 px-4 rounded-md font-medium transition-colors"
+              className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-2 px-4 rounded-md font-medium transition-colors"
             >
               {loading ? 'Sending Code...' : 'Continue'}
             </button>
@@ -175,31 +175,31 @@ export function Auth() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
+    <div className="min-h-screen flex items-center justify-center bg-[#333]">
+      <div className="max-w-md w-full bg-[#333] p-8 rounded-lg border border-[#555] ">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-black">Enter Verification Code</h2>
-          <p className="text-gray-600 mt-2">
+          <h2 className="text-3xl font-bold text-white">Enter Verification Code</h2>
+          <p className="text-gray-400 mt-2">
             We sent a code to <strong>{email}</strong>
           </p>
         </div>
 
         <form onSubmit={handleVerifyCode} className="space-y-6">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+            <div className="bg-red-900/30 border border-red-700 text-red-700 px-4 py-3 rounded">
               {error}
             </div>
           )}
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
               6-digit code
             </label>
             <input
               type="text"
               value={code}
               onChange={handleCodeChange}
-              className="w-full px-3 py-2 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-black text-center text-2xl tracking-widest font-mono"
+              className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049] text-center text-2xl tracking-widest font-mono"
               placeholder="000000"
               maxLength={6}
               required
@@ -211,7 +211,7 @@ export function Auth() {
           <button
             type="submit"
             disabled={loading || code.length !== 6}
-            className="w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white py-2 px-4 rounded-md font-medium transition-colors"
+            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-white py-2 px-4 rounded-md font-medium transition-colors"
           >
             {loading ? 'Verifying...' : 'Verify'}
           </button>
@@ -220,7 +220,7 @@ export function Auth() {
         <div className="text-center mt-6">
           <button
             onClick={handleBack}
-            className="text-black hover:text-gray-700 text-sm font-medium"
+            className="text-[#f4b049] hover:text-[#e5a03a] text-sm font-medium"
           >
             ← Back to email
           </button>
