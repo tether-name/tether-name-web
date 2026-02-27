@@ -4,33 +4,33 @@ import { api } from '../api';
 
 /* Scattered floating dots — pure CSS positioned elements */
 const DOTS = [
-  { top: '5%', left: '8%', size: 3, opacity: 0.3 },
-  { top: '12%', left: '85%', size: 2, opacity: 0.25 },
-  { top: '18%', left: '45%', size: 2, opacity: 0.2 },
-  { top: '22%', left: '92%', size: 3, opacity: 0.35 },
-  { top: '28%', left: '15%', size: 2, opacity: 0.2 },
-  { top: '32%', left: '72%', size: 3, opacity: 0.3 },
-  { top: '38%', left: '5%', size: 2, opacity: 0.25 },
-  { top: '42%', left: '55%', size: 2, opacity: 0.15 },
-  { top: '48%', left: '88%', size: 3, opacity: 0.3 },
-  { top: '52%', left: '30%', size: 2, opacity: 0.2 },
-  { top: '58%', left: '78%', size: 2, opacity: 0.25 },
-  { top: '62%', left: '12%', size: 3, opacity: 0.3 },
-  { top: '68%', left: '60%', size: 2, opacity: 0.2 },
-  { top: '72%', left: '95%', size: 2, opacity: 0.25 },
-  { top: '78%', left: '40%', size: 3, opacity: 0.3 },
-  { top: '82%', left: '20%', size: 2, opacity: 0.2 },
-  { top: '88%', left: '70%', size: 2, opacity: 0.25 },
-  { top: '92%', left: '50%', size: 3, opacity: 0.15 },
-  { top: '7%', left: '35%', size: 2, opacity: 0.2 },
-  { top: '15%', left: '65%', size: 3, opacity: 0.25 },
-  { top: '35%', left: '25%', size: 2, opacity: 0.2 },
-  { top: '45%', left: '10%', size: 2, opacity: 0.3 },
-  { top: '55%', left: '48%', size: 3, opacity: 0.2 },
-  { top: '65%', left: '82%', size: 2, opacity: 0.25 },
-  { top: '75%', left: '3%', size: 3, opacity: 0.3 },
-  { top: '85%', left: '58%', size: 2, opacity: 0.2 },
-  { top: '95%', left: '25%', size: 2, opacity: 0.15 },
+  { top: '5%', left: '8%', size: 6, opacity: 0.5 },
+  { top: '12%', left: '85%', size: 4, opacity: 0.4 },
+  { top: '18%', left: '45%', size: 3, opacity: 0.35 },
+  { top: '22%', left: '92%', size: 5, opacity: 0.5 },
+  { top: '28%', left: '15%', size: 4, opacity: 0.4 },
+  { top: '32%', left: '72%', size: 6, opacity: 0.5 },
+  { top: '38%', left: '5%', size: 3, opacity: 0.35 },
+  { top: '42%', left: '55%', size: 4, opacity: 0.3 },
+  { top: '48%', left: '88%', size: 5, opacity: 0.45 },
+  { top: '52%', left: '30%', size: 4, opacity: 0.35 },
+  { top: '58%', left: '78%', size: 3, opacity: 0.4 },
+  { top: '62%', left: '12%', size: 6, opacity: 0.5 },
+  { top: '68%', left: '60%', size: 4, opacity: 0.35 },
+  { top: '72%', left: '95%', size: 3, opacity: 0.4 },
+  { top: '78%', left: '40%', size: 5, opacity: 0.45 },
+  { top: '82%', left: '20%', size: 4, opacity: 0.35 },
+  { top: '88%', left: '70%', size: 3, opacity: 0.4 },
+  { top: '92%', left: '50%', size: 5, opacity: 0.35 },
+  { top: '7%', left: '35%', size: 4, opacity: 0.4 },
+  { top: '15%', left: '65%', size: 5, opacity: 0.45 },
+  { top: '35%', left: '25%', size: 3, opacity: 0.35 },
+  { top: '45%', left: '10%', size: 4, opacity: 0.45 },
+  { top: '55%', left: '48%', size: 5, opacity: 0.4 },
+  { top: '65%', left: '82%', size: 4, opacity: 0.4 },
+  { top: '75%', left: '3%', size: 6, opacity: 0.5 },
+  { top: '85%', left: '58%', size: 4, opacity: 0.35 },
+  { top: '95%', left: '25%', size: 3, opacity: 0.3 },
 ];
 
 export function Landing() {
@@ -173,24 +173,7 @@ export function Landing() {
         <div className="mb-24">
           <h2 className="text-center text-2xl font-bold text-white mb-12">How to verify</h2>
           <div className="relative">
-            {/* Wavy rope connector — desktop only */}
-            <svg
-              className="hidden md:block absolute top-6 left-[15%] w-[70%] h-12 pointer-events-none"
-              viewBox="0 0 700 48"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 24 C50 8, 100 40, 175 24 S300 8, 350 24 S475 40, 525 24 S650 8, 700 24"
-                stroke="#f4b049"
-                strokeWidth="3"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
 
-            {/* Vertical connector — mobile only */}
-            <div className="md:hidden absolute left-1/2 top-10 bottom-10 w-0.5 bg-[#f4b049] -translate-x-1/2 opacity-40" />
 
             <div className="relative grid md:grid-cols-3 gap-10 md:gap-12">
               <div className="text-center">
@@ -235,24 +218,7 @@ export function Landing() {
         <div className="mb-24">
           <h2 className="text-center text-2xl font-bold text-white mb-12">How to register</h2>
           <div className="relative">
-            {/* Wavy rope connector — desktop only */}
-            <svg
-              className="hidden md:block absolute top-6 left-[15%] w-[70%] h-12 pointer-events-none"
-              viewBox="0 0 700 48"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M0 24 C50 8, 100 40, 175 24 S300 8, 350 24 S475 40, 525 24 S650 8, 700 24"
-                stroke="#61d397"
-                strokeWidth="3"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
 
-            {/* Vertical connector — mobile only */}
-            <div className="md:hidden absolute left-1/2 top-10 bottom-10 w-0.5 bg-[#61d397] -translate-x-1/2 opacity-40" />
 
             <div className="relative grid md:grid-cols-3 gap-10 md:gap-12">
               <div className="text-center">
