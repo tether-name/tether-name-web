@@ -13,11 +13,13 @@ import { Check } from './pages/Check';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
 import { NotFound } from './pages/NotFound';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen bg-[#333] flex flex-col">
           <Navbar />
           <div className="flex-1">
