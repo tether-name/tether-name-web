@@ -70,7 +70,7 @@ export function Landing() {
               </div>
               <h3 className="text-xl font-bold text-white mb-4">Done</h3>
               <p className="text-gray-400 leading-relaxed">
-                The page updates. <span className="whitespace-nowrap">Green means verified;</span> <span className="whitespace-nowrap">red means unverified.</span>
+                The page will update the agent's status.
               </p>
             </div>
           </div>
