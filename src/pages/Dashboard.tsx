@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth';
 import { api, ApiError } from '../api';
 import type { Agent, ApiKeyListItem } from '../api';
+import { StarField } from '../components/StarField';
 
 function formatDate(timestamp: number): string {
   if (!timestamp) return 'Unknown';
@@ -106,7 +107,8 @@ export function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1f1f1f]">
+    <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2">Your Agents</h1>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
 import type { ApiKeyCreateResponse } from '../api';
+import { StarField } from '../components/StarField';
 
 const EXPIRATION_OPTIONS = [
   { label: 'Never', value: undefined },
@@ -49,7 +50,8 @@ export function NewApiKey() {
   // After creation — show the key
   if (result) {
     return (
-      <div className="min-h-screen bg-[#1f1f1f]">
+      <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
         <div className="max-w-2xl mx-auto px-4 py-16">
           <div className="border border-[#555] p-8 rounded-lg">
             <h1 className="text-2xl font-bold text-white mb-2">API Key Created</h1>
@@ -70,12 +72,12 @@ export function NewApiKey() {
 
             {/* Key display */}
             <div className="relative mb-6">
-              <div className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 font-mono text-sm text-gray-200 break-all select-all">
+              <div className="bg-[#333] border border-[#555] rounded-md p-4 font-mono text-sm text-gray-200 break-all select-all">
                 {result.key}
               </div>
               <button
                 onClick={handleCopy}
-                className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#3d3d3d] transition-colors"
+                className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#444] transition-colors"
                 title="Copy to clipboard"
               >
                 {copied ? (
@@ -128,7 +130,8 @@ export function NewApiKey() {
 
   // Form phase
   return (
-    <div className="min-h-screen bg-[#1f1f1f]">
+    <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
       <div className="max-w-2xl mx-auto px-4 py-16">
         <button
           onClick={() => navigate('/dashboard')}
@@ -161,7 +164,7 @@ export function NewApiKey() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
                 placeholder="e.g. Production API, CI/CD Pipeline"
                 required
               />
@@ -173,7 +176,7 @@ export function NewApiKey() {
               <select
                 value={expiresInDays ?? ''}
                 onChange={(e) => setExpiresInDays(e.target.value ? Number(e.target.value) : undefined)}
-                className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
               >
                 {EXPIRATION_OPTIONS.map((opt) => (
                   <option key={opt.label} value={opt.value ?? ''}>

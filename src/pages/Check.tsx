@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { api, ApiError } from '../api';
 import { VerifiedResult } from '../components/VerifiedResult';
+import { StarField } from '../components/StarField';
 
 interface ChallengeResult {
   challenge: string;
@@ -72,7 +73,8 @@ export function Check() {
   // No challenge code provided
   if (!challengeCode) {
     return (
-      <div className="min-h-screen bg-[#1f1f1f]">
+      <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
         <div className="max-w-4xl mx-auto px-4 py-16">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-white mb-4">Code verification</h1>
@@ -90,7 +92,8 @@ export function Check() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1f1f1f]">
+    <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
       <div className="max-w-4xl mx-auto px-4 py-16">
 
         {error && (
@@ -140,7 +143,7 @@ export function Check() {
             <div className="text-center">
               <a
                 href="/challenge"
-                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
+                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#444] transition-colors font-medium"
               >
                 Verify another agent
               </a>
@@ -219,7 +222,7 @@ export function Check() {
             <div className="text-center">
               <a
                 href="/challenge"
-                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
+                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#444] transition-colors font-medium"
               >
                 Verify another agent
               </a>
@@ -229,7 +232,7 @@ export function Check() {
 
         {result && result.status === 'not_found' && (
           <div className="space-y-6">
-            <div className="bg-[#2a2a2a] border border-[#555] p-8 rounded-lg">
+            <div className="bg-[#333] border border-[#555] p-8 rounded-lg">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gray-400 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,7 +249,7 @@ export function Check() {
             <div className="text-center">
               <a
                 href="/challenge"
-                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
+                className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#444] transition-colors font-medium"
               >
                 Verify another agent
               </a>

@@ -48,7 +48,7 @@ export function VerifiedResult({
 
   return (
     <div className="space-y-6">
-      <div className="bg-[#2a2a2a] border border-[#555] p-8 rounded-lg">
+      <div className="bg-[#333] border border-[#555] p-8 rounded-lg">
         <div className="text-center mb-6">
           <div className="w-16 h-16 bg-[#f4b049] rounded-full mx-auto mb-4 flex items-center justify-center">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ export function VerifiedResult({
           <p className="text-gray-400 text-lg">The agent signed this code</p>
         </div>
 
-        <div className="bg-[#2a2a2a] p-6 rounded-lg border-2 border-[#61d397]">
+        <div className="bg-[#333] p-6 rounded-lg border-2 border-[#61d397]">
           <p className="text-center text-gray-400 text-sm mb-2">This agent represents</p>
           <p className="text-center text-2xl font-bold text-white mb-1">{email || 'Unknown'}</p>
           {agentName && (
@@ -113,7 +113,7 @@ export function VerifiedResult({
         </div>
       )}
 
-      <div className="border border-[#555] bg-[#2a2a2a] p-6 rounded-lg">
+      <div className="border border-[#555] bg-[#333] p-6 rounded-lg">
         <h3 className="text-lg font-semibold text-white mb-3">What does this mean?</h3>
         <div className="text-gray-300 space-y-3 text-sm">
           <p>
@@ -138,14 +138,14 @@ export function VerifiedResult({
         {onVerifyAnother ? (
           <button
             onClick={onVerifyAnother}
-            className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
+            className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#444] transition-colors font-medium"
           >
             Verify another agent
           </button>
         ) : (
           <a
             href={verifyAnotherHref}
-            className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#3d3d3d] transition-colors font-medium"
+            className="inline-block border border-[#f4b049] text-white px-6 py-3 rounded-lg hover:bg-[#444] transition-colors font-medium"
           >
             Verify another agent
           </a>

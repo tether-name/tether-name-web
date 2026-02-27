@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
 import { VerifiedResult } from '../components/VerifiedResult';
+import { StarField } from '../components/StarField';
 
 type Status = 'idle' | 'generating' | 'waiting' | 'verified' | 'invalid' | 'expired';
 
@@ -132,13 +133,12 @@ export function Challenge() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1f1f1f]">
+    <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Verify an agent</h1>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Generate a code, send it to the agent, and watch the result appear here in real time.
-          </p>
+          <h1 className="text-4xl font-bold text-white mb-4">Verify an AI Agent</h1>
+
         </div>
 
         {error && (
@@ -150,7 +150,8 @@ export function Challenge() {
         {/* Step 1: Generate */}
         {status === 'idle' && (
           <div className="space-y-10">
-            <div className="text-center">
+            <div className="text-center relative">
+              <img src="/robot-lurk.svg" alt="" className="absolute -top-16 left-1/2 -translate-x-1/2 w-16 h-16 z-20" />
               <button
                 onClick={generateChallenge}
                 className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
@@ -182,7 +183,7 @@ export function Challenge() {
 
               <div className="mt-6 pt-6 border-t border-[#555]">
                 <h3 className="text-sm font-semibold text-white mb-3">Example message you'd send to an agent:</h3>
-                <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-3 text-xs text-gray-300 whitespace-pre-wrap font-mono">Please verify your identity on Tether.name. Sign this challenge and return the verification link.{'\n\n'}Challenge code: abcd1234-ef56-78gh-ij90-klmnopqrstuv{'\n'}Verify endpoint: POST https://api.tether.name/challenge/verify{'\n'}Docs: https://tether.name/AGENTS.md</pre>
+                <pre className="bg-[#333] border border-[#555] rounded-md p-3 text-xs text-gray-300 whitespace-pre-wrap font-mono">Please verify your identity on Tether.name. Sign this challenge and return the verification link.{'\n\n'}Challenge code: abcd1234-ef56-78gh-ij90-klmnopqrstuv{'\n'}Verify endpoint: POST https://api.tether.name/challenge/verify{'\n'}Docs: https://tether.name/AGENTS.md</pre>
                 <p className="text-xs text-gray-400 mt-2">Don't worry — we generate all of this for you. Just click "Copy Message" after generating a code.</p>
               </div>
             </div>
@@ -201,7 +202,7 @@ export function Challenge() {
           <div className="space-y-6">
             <div className="border border-[#555] p-6 rounded-lg">
               <p className="text-gray-400 text-sm mb-3">Copy this message and send it to the agent:</p>
-              <pre className="text-sm font-mono text-white whitespace-pre-wrap bg-[#2a2a2a] border border-[#555] rounded-md p-4">
+              <pre className="text-sm font-mono text-white whitespace-pre-wrap bg-[#333] border border-[#555] rounded-md p-4">
                 {agentMessage}
               </pre>
               <div className="mt-4">
@@ -224,7 +225,7 @@ export function Challenge() {
                   <span className="text-lg font-medium text-gray-300">Waiting for agent to respond...</span>
                 </div>
               </div>
-              <div className="w-full bg-[#3d3d3d] rounded-full h-1.5">
+              <div className="w-full bg-[#444] rounded-full h-1.5">
                 <div
                   className="bg-[#61d397] h-1.5 rounded-full transition-all duration-500"
                   style={{ width: `${Math.min((pollCount / maxAttempts) * 100, 100)}%` }}
@@ -313,7 +314,7 @@ export function Challenge() {
         {/* Expired */}
         {status === 'expired' && (
           <div className="space-y-6">
-            <div className="bg-[#2a2a2a] border border-[#555] p-8 rounded-lg text-center">
+            <div className="bg-[#333] border border-[#555] p-8 rounded-lg text-center">
               <div className="w-16 h-16 bg-gray-400 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

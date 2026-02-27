@@ -1,9 +1,11 @@
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
+import { StarField } from '../components/StarField';
 
 export function Terms() {
   return (
-    <div className="min-h-screen bg-[#1f1f1f]">
+    <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center gap-2 mb-8 text-gray-500 hover:text-white transition-colors">
           <img src={logo} alt="tether.name" className="h-6 w-6 rounded" />

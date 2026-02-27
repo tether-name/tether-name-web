@@ -1,37 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
+import { StarField } from '../components/StarField';
 
-/* Scattered floating dots — pure CSS positioned elements */
-const DOTS = [
-  { top: '5%', left: '8%', size: 6, opacity: 0.5 },
-  { top: '12%', left: '85%', size: 4, opacity: 0.4 },
-  { top: '18%', left: '45%', size: 3, opacity: 0.35 },
-  { top: '22%', left: '92%', size: 5, opacity: 0.5 },
-  { top: '28%', left: '15%', size: 4, opacity: 0.4 },
-  { top: '32%', left: '72%', size: 6, opacity: 0.5 },
-  { top: '38%', left: '5%', size: 3, opacity: 0.35 },
-  { top: '42%', left: '55%', size: 4, opacity: 0.3 },
-  { top: '48%', left: '88%', size: 5, opacity: 0.45 },
-  { top: '52%', left: '30%', size: 4, opacity: 0.35 },
-  { top: '58%', left: '78%', size: 3, opacity: 0.4 },
-  { top: '62%', left: '12%', size: 6, opacity: 0.5 },
-  { top: '68%', left: '60%', size: 4, opacity: 0.35 },
-  { top: '72%', left: '95%', size: 3, opacity: 0.4 },
-  { top: '78%', left: '40%', size: 5, opacity: 0.45 },
-  { top: '82%', left: '20%', size: 4, opacity: 0.35 },
-  { top: '88%', left: '70%', size: 3, opacity: 0.4 },
-  { top: '92%', left: '50%', size: 5, opacity: 0.35 },
-  { top: '7%', left: '35%', size: 4, opacity: 0.4 },
-  { top: '15%', left: '65%', size: 5, opacity: 0.45 },
-  { top: '35%', left: '25%', size: 3, opacity: 0.35 },
-  { top: '45%', left: '10%', size: 4, opacity: 0.45 },
-  { top: '55%', left: '48%', size: 5, opacity: 0.4 },
-  { top: '65%', left: '82%', size: 4, opacity: 0.4 },
-  { top: '75%', left: '3%', size: 6, opacity: 0.5 },
-  { top: '85%', left: '58%', size: 4, opacity: 0.35 },
-  { top: '95%', left: '25%', size: 3, opacity: 0.3 },
-];
+
 
 export function Landing() {
   const [stats, setStats] = useState<{ totalVerifications: number; totalAgentsRegistered: number } | null>(null);
@@ -42,20 +14,7 @@ export function Landing() {
 
   return (
     <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
-      {/* Floating dots */}
-      {DOTS.map((dot, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full bg-white pointer-events-none"
-          style={{
-            top: dot.top,
-            left: dot.left,
-            width: dot.size,
-            height: dot.size,
-            opacity: dot.opacity,
-          }}
-        />
-      ))}
+      <StarField />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
@@ -90,12 +49,12 @@ export function Landing() {
         {/* Example Section — Chat Demo + Verification Result */}
         <div className="mb-28 flex flex-col md:flex-row items-center gap-4 md:gap-3 max-w-5xl mx-auto">
           {/* Left Card — Chat bubbles */}
-          <div className="border border-[#555] bg-[#2a2a2a] rounded-2xl p-5 flex-1 min-w-0 w-full">
+          <div className="border border-[#555] bg-[#333] rounded-2xl p-5 flex-1 min-w-0 w-full">
             <p className="text-gray-500 text-xs mb-4 uppercase tracking-wide">Example</p>
             <div className="flex flex-col gap-4">
               {/* Agent message */}
               <div className="flex justify-start">
-                <div className="bg-[#3d3d3d] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
+                <div className="bg-[#444] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
                   <p className="text-gray-200 text-sm leading-relaxed">
                     Hey, this is the Hotel Sol agent, letting you know your room
                     changed to room 451 for your upcoming stay.
@@ -119,7 +78,7 @@ export function Landing() {
 
               {/* Agent verified message */}
               <div className="flex justify-start">
-                <div className="bg-[#3d3d3d] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
+                <div className="bg-[#444] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
                   <p className="text-gray-200 text-sm leading-relaxed">
                     Verified! ✅ Here's the link:{' '}
                     <span className="text-[#f4b049] underline break-all">
@@ -141,7 +100,7 @@ export function Landing() {
           </div>
 
           {/* Right Card — Verification result */}
-          <div className="border border-[#555] bg-[#2a2a2a] rounded-2xl p-5 flex-1 min-w-0 w-full">
+          <div className="border border-[#555] bg-[#333] rounded-2xl p-5 flex-1 min-w-0 w-full">
             <p className="text-gray-500 text-xs mb-4 uppercase tracking-wide">What you'll see</p>
             <div className="bg-[#1f1f1f] border border-[#555] p-6 rounded-lg">
               <div className="text-center mb-5">
@@ -154,7 +113,7 @@ export function Landing() {
                 <p className="text-gray-400 text-sm">The agent signed this code</p>
               </div>
 
-              <div className="bg-[#2a2a2a] p-5 rounded-lg border-2 border-[#61d397]">
+              <div className="bg-[#333] p-5 rounded-lg border-2 border-[#61d397]">
                 <p className="text-center text-gray-400 text-sm mb-2">This agent represents</p>
                 <p className="text-center text-xl font-bold text-white mb-1">concierge@hotelsol.com</p>
                 <p className="text-center text-gray-500 text-sm">Agent name: Hotel Sol Agent</p>

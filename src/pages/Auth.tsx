@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../auth';
 import logo from '../assets/logo.png';
+import { StarField } from '../components/StarField';
 
 type AuthStep = 'email' | 'code' | 'magic';
 
@@ -86,7 +87,8 @@ export function Auth() {
 
   if (step === 'magic') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f]">
+      <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
         <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
             <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
@@ -125,8 +127,11 @@ export function Auth() {
 
   if (step === 'email') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#1f1f1f]">
-        <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
+        <div className="max-w-md w-full relative">
+          <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
+          <div className="bg-[#1f1f1f] p-8 rounded-lg border border-[#555] relative">
           <div className="text-center mb-8">
             <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Sign In</h2>
@@ -148,7 +153,7 @@ export function Auth() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
                 placeholder="your@email.com"
                 required
                 autoFocus
@@ -164,6 +169,7 @@ export function Auth() {
             </button>
           </form>
         </div>
+        </div>
 
         <div className="max-w-md w-full mt-6 px-2">
           <p className="text-sm text-gray-500 text-center leading-relaxed">
@@ -175,8 +181,11 @@ export function Auth() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f]">
-      <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
+    <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
+      <div className="max-w-md w-full relative">
+        <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
+        <div className="bg-[#1f1f1f] p-8 rounded-lg border border-[#555] relative">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white">Enter Verification Code</h2>
           <p className="text-gray-400 mt-2">
@@ -199,7 +208,7 @@ export function Auth() {
               type="text"
               value={code}
               onChange={handleCodeChange}
-              className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049] text-center text-2xl tracking-widest font-mono"
+              className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049] text-center text-2xl tracking-widest font-mono"
               placeholder="000000"
               maxLength={6}
               required
@@ -225,6 +234,7 @@ export function Auth() {
             ← Back to email
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

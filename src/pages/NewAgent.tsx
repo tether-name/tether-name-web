@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
+import { StarField } from '../components/StarField';
 
 function buildAgentInstructions(agentName: string, credentialId: string, registrationToken: string): string {
   return `You are "${agentName}", a verified agent on Tether.name (https://tether.name).
@@ -166,7 +167,8 @@ export function NewAgent() {
   // Phase 1: Registration form
   if (phase === 'form') {
     return (
-      <div className="min-h-screen bg-[#1f1f1f]">
+      <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
         <div className="max-w-2xl mx-auto px-4 py-16">
           <button
             onClick={() => navigate('/dashboard')}
@@ -199,7 +201,7 @@ export function NewAgent() {
                   type="text"
                   value={agentName}
                   onChange={(e) => setAgentName(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                  className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
                   placeholder="my-awesome-agent"
                   required
                 />
@@ -212,7 +214,7 @@ export function NewAgent() {
                   type="text"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#2a2a2a] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                  className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
                   placeholder="What does this agent do? (Only you will see this)"
                 />
               </div>
@@ -235,7 +237,8 @@ export function NewAgent() {
   const instructions = buildAgentInstructions(newAgent.agentName, newAgent.credentialId, newAgent.registrationToken);
 
   return (
-    <div className="min-h-screen bg-[#1f1f1f]">
+    <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
+      <StarField />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="border border-[#555] rounded-lg p-8">
           <h1 className="text-2xl font-bold text-white mb-2">Agent registered! 🎉</h1>
@@ -245,12 +248,12 @@ export function NewAgent() {
 
           {/* Agent instructions */}
           <div className="relative mb-4">
-            <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
+            <pre className="bg-[#333] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
               {instructions}
             </pre>
             <button
               onClick={handleCopy}
-              className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#3d3d3d] transition-colors"
+              className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#444] transition-colors"
               title="Copy to clipboard"
             >
               {copied ? (
@@ -267,7 +270,7 @@ export function NewAgent() {
           </div>
 
           {/* Status indicator */}
-          <div className={`mb-6 px-4 py-3 rounded-md text-sm flex items-center gap-2 ${registered ? 'bg-green-900/30 border border-green-700 text-green-800' : 'bg-[#2a2a2a] border border-[#555] text-gray-400'}`}>
+          <div className={`mb-6 px-4 py-3 rounded-md text-sm flex items-center gap-2 ${registered ? 'bg-green-900/30 border border-green-700 text-green-800' : 'bg-[#333] border border-[#555] text-gray-400'}`}>
             {registered ? (
               <>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" viewBox="0 0 20 20" fill="currentColor">
@@ -341,7 +344,7 @@ export function NewAgent() {
                   <button
                     onClick={handleFallbackGenerate}
                     disabled={fallbackGenerating}
-                    className="w-full bg-[#3d3d3d] hover:bg-[#444] disabled:bg-[#2a2a2a] text-gray-300 py-2 px-4 rounded-md text-sm font-medium transition-colors"
+                    className="w-full bg-[#444] hover:bg-[#444] disabled:bg-[#333] text-gray-300 py-2 px-4 rounded-md text-sm font-medium transition-colors"
                   >
                     {fallbackGenerating ? 'Generating...' : 'Generate Key Pair in Browser'}
                   </button>
@@ -351,12 +354,12 @@ export function NewAgent() {
               {fallbackKey && (
                 <div className="mt-4">
                   <div className="relative mb-4">
-                    <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
+                    <pre className="bg-[#333] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
                       {buildFallbackPrompt(newAgent.agentName, newAgent.credentialId, fallbackKey.privateKey)}
                     </pre>
                     <button
                       onClick={handleFallbackCopy}
-                      className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#3d3d3d] transition-colors"
+                      className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#444] transition-colors"
                       title="Copy to clipboard"
                     >
                       {fallbackCopied ? (
