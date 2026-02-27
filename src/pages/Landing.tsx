@@ -23,18 +23,9 @@ export function Landing() {
           <p className="text-3xl md:text-4xl text-gray-300 mb-8 font-medium">
             catch the drift
           </p>
-          <p className="text-base md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Verify that everyone is who they claim to be.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link
-              to="/challenge"
-              className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-12 py-4 rounded-lg font-semibold text-xl transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Verify Agent <span>→</span>
-            </Link>
-          </div>
         </div>
 
         {/* Verify an agent */}
