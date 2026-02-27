@@ -114,7 +114,7 @@ async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promi
     try {
       const body = await response.text();
       const parsed = JSON.parse(body);
-      errorMessage = parsed.error || parsed.message || body || errorMessage;
+      errorMessage = parsed.message || parsed.error || body || errorMessage;
     } catch {
       // If not JSON, keep default
     }
