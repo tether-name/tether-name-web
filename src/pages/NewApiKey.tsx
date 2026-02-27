@@ -49,7 +49,7 @@ export function NewApiKey() {
   // After creation — show the key
   if (result) {
     return (
-      <div className="min-h-screen bg-[#333]">
+      <div className="min-h-screen bg-[#1f1f1f]">
         <div className="max-w-2xl mx-auto px-4 py-16">
           <div className="border border-[#555] p-8 rounded-lg">
             <h1 className="text-2xl font-bold text-white mb-2">API Key Created</h1>
@@ -75,7 +75,7 @@ export function NewApiKey() {
               </div>
               <button
                 onClick={handleCopy}
-                className="absolute top-3 right-3 p-2 bg-[#333] border border-[#555] rounded-md hover:bg-[#3d3d3d] transition-colors"
+                className="absolute top-3 right-3 p-2 bg-[#1f1f1f] border border-[#555] rounded-md hover:bg-[#3d3d3d] transition-colors"
                 title="Copy to clipboard"
               >
                 {copied ? (
@@ -128,7 +128,7 @@ export function NewApiKey() {
 
   // Form phase
   return (
-    <div className="min-h-screen bg-[#333]">
+    <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-2xl mx-auto px-4 py-16">
         <button
           onClick={() => navigate('/dashboard')}

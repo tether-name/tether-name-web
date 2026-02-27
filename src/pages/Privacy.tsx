@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export function Privacy() {
   return (
-    <div className="min-h-screen bg-[#333]">
+    <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-3xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center gap-2 mb-8 text-gray-500 hover:text-white transition-colors">
           <img src={logo} alt="Tether.name" className="h-6 w-6 rounded" />

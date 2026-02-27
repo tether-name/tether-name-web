@@ -86,8 +86,8 @@ export function Auth() {
 
   if (step === 'magic') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#333]">
-        <div className="max-w-md w-full bg-[#333] p-8 rounded-lg border border-[#555] ">
+      <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f]">
+        <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
             <img src={logo} alt="Tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Confirm Sign In</h2>
@@ -125,8 +125,8 @@ export function Auth() {
 
   if (step === 'email') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#333]">
-        <div className="max-w-md w-full bg-[#333] p-8 rounded-lg border border-[#555] ">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#1f1f1f]">
+        <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
             <img src={logo} alt="Tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Sign In</h2>
@@ -175,8 +175,8 @@ export function Auth() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#333]">
-      <div className="max-w-md w-full bg-[#333] p-8 rounded-lg border border-[#555] ">
+    <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f]">
+      <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white">Enter Verification Code</h2>
           <p className="text-gray-400 mt-2">

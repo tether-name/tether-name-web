@@ -99,14 +99,14 @@ export function Dashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#333] flex items-center justify-center">
+      <div className="min-h-screen bg-[#1f1f1f] flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#555]"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#333]">
+    <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2">Your Agents</h1>
@@ -127,7 +127,7 @@ export function Dashboard() {
             {agents.map((agent) => (
               <div key={agent.id} className="relative border border-[#555] p-5 rounded-lg flex items-start justify-between">
                 {deleting === agent.id && (
-                  <div className="absolute inset-0 bg-[#333]/70 rounded-lg flex items-center justify-center z-10">
+                  <div className="absolute inset-0 bg-[#1f1f1f]/70 rounded-lg flex items-center justify-center z-10">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
                   </div>
                 )}
@@ -179,7 +179,7 @@ export function Dashboard() {
                   className={`relative border border-[#555] p-5 rounded-lg flex items-start justify-between ${key.revoked ? 'opacity-60' : ''}`}
                 >
                   {revoking === key.id && (
-                    <div className="absolute inset-0 bg-[#333]/70 rounded-lg flex items-center justify-center z-10">
+                    <div className="absolute inset-0 bg-[#1f1f1f]/70 rounded-lg flex items-center justify-center z-10">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
                     </div>
                   )}

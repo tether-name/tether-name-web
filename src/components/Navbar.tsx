@@ -1,22 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth';
-import logo from '../assets/logo.png';
 
 export function Navbar() {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="bg-[#2a2a2a] border-b border-[#444] sticky top-0 z-50">
+    <nav className="bg-[#1a1a1a] border-b border-[#444] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center space-x-2 text-xl font-bold hover:opacity-80">
-              <img src={logo} alt="Tether.name" className="h-8 w-8 rounded" />
-              <span>
-                <span className="text-[#f4b049]">tether</span>
-                {' '}
-                <span className="text-[#61d396]">name</span>
-              </span>
+            <Link to="/" className="flex items-center hover:opacity-80">
+              <img src="/hero.svg" alt="tether.name" className="h-10" />
             </Link>
           </div>
 

@@ -60,7 +60,7 @@ export function Check() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#333] flex items-center justify-center">
+      <div className="min-h-screen bg-[#1f1f1f] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#555] mx-auto mb-4"></div>
           <p className="text-gray-400">Looking up challenge...</p>
@@ -72,7 +72,7 @@ export function Check() {
   // No challenge code provided
   if (!challengeCode) {
     return (
-      <div className="min-h-screen bg-[#333]">
+      <div className="min-h-screen bg-[#1f1f1f]">
         <div className="max-w-4xl mx-auto px-4 py-16">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-white mb-4">Challenge Verification</h1>
@@ -90,7 +90,7 @@ export function Check() {
   }
 
   return (
-    <div className="min-h-screen bg-[#333]">
+    <div className="min-h-screen bg-[#1f1f1f]">
       <div className="max-w-4xl mx-auto px-4 py-16">
 
         {error && (
