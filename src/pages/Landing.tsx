@@ -59,20 +59,20 @@ export function Landing() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
-        <div className="flex flex-col items-center mb-4">
+        <div className="flex flex-col items-center">
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
             src="/hero.svg"
             alt="tether.name — verify AI agents are who they say they are"
             className="w-full max-w-3xl mx-auto object-contain"
           />
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center mt-4">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center mt-1">
             catch the drift: verify AI agents are who they say they are.
           </p>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-row gap-4 justify-center mb-20">
+        <div className="flex flex-row gap-4 justify-center mt-8 mb-20">
           <Link
             to="/challenge"
             className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-10 py-3 rounded-lg font-semibold text-lg transition-colors"
