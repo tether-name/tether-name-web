@@ -245,7 +245,7 @@ export function NewAgent() {
 
           {/* Agent instructions */}
           <div className="relative mb-4">
-            <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 text-sm text-gray-800 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
+            <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
               {instructions}
             </pre>
             <button
@@ -341,7 +341,7 @@ export function NewAgent() {
                   <button
                     onClick={handleFallbackGenerate}
                     disabled={fallbackGenerating}
-                    className="w-full bg-[#3d3d3d] hover:bg-[#444] disabled:bg-[#2a2a2a] text-gray-800 py-2 px-4 rounded-md text-sm font-medium transition-colors"
+                    className="w-full bg-[#3d3d3d] hover:bg-[#444] disabled:bg-[#2a2a2a] text-gray-300 py-2 px-4 rounded-md text-sm font-medium transition-colors"
                   >
                     {fallbackGenerating ? 'Generating...' : 'Generate Key Pair in Browser'}
                   </button>
@@ -351,7 +351,7 @@ export function NewAgent() {
               {fallbackKey && (
                 <div className="mt-4">
                   <div className="relative mb-4">
-                    <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 text-sm text-gray-800 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
+                    <pre className="bg-[#2a2a2a] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
                       {buildFallbackPrompt(newAgent.agentName, newAgent.credentialId, fallbackKey.privateKey)}
                     </pre>
                     <button
