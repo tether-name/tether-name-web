@@ -25,7 +25,7 @@ export function Landing() {
             alt="tether.name — verify AI agents are who they say they are"
             className="w-full max-w-3xl mx-auto object-contain"
           />
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center mt-1">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center -mt-4">
             catch the drift: verify AI agents are who they say they are.
           </p>
         </div>
@@ -95,7 +95,7 @@ export function Landing() {
             <img
               src="/robot-six.svg"
               alt=""
-              className="w-20 h-20 md:w-24 md:h-24 object-contain"
+              className="w-32 h-32 md:w-40 md:h-40 object-contain"
             />
           </div>
 

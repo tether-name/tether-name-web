@@ -7,10 +7,10 @@ export function Navbar() {
   return (
     <nav className="bg-[#1a1a1a] border-b border-[#444] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center hover:opacity-80">
-              <img src="/hero.svg" alt="tether.name" className="h-10" />
+              <img src="/logo.svg" alt="tether.name" className="h-14" />
             </Link>
           </div>
 
