@@ -38,9 +38,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         .then((profile) => {
           // Map MeResponse to User interface
           const user: User = {
-            id: profile.userId,
             email: profile.email,
-            verified: true, // All users are verified now
+            verified: true,
           };
           setUser(user);
         })
@@ -64,9 +63,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const response = await api.verifyCode(email, code);
     // Create a user object from the response
     const user: User = {
-      id: response.userId,
       email: response.email,
-      verified: true, // All users are verified now with magic code auth
+      verified: true,
     };
     setUser(user);
     setToken(response.accessToken);

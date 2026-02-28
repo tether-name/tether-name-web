@@ -1,7 +1,6 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export interface User {
-  id: string;
   email: string;
   verified: boolean;
 }
@@ -36,7 +35,6 @@ export interface ApiKeyListItem {
 export interface AuthResponse {
   accessToken: string;
   refreshToken: string;
-  userId: string;
   email: string;
 }
 
