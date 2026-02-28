@@ -125,13 +125,13 @@ export function Landing() {
           </div>
         </div>
 
-        {/* How to Verify — Steps with wavy rope */}
+        {/* How to Verify — Steps */}
         <div className="mb-24">
-          
           <div className="relative">
-
-
             <div className="relative grid md:grid-cols-3 gap-10 md:gap-12">
+              {/* Connector lines (desktop only) */}
+              <div className="hidden md:block absolute top-6 left-1/6 right-1/6 h-0 border-t-2 border-dashed border-[#f4b049]/30 z-0" style={{ left: '20%', right: '20%' }} />
+
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
                   <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
@@ -160,19 +160,18 @@ export function Landing() {
                 <p className="text-gray-400 leading-relaxed text-sm">
                   The page will update with the agent's status.
                 </p>
-
               </div>
             </div>
           </div>
         </div>
 
-        {/* How to Register — Steps with wavy rope */}
+        {/* How to Register — Steps */}
         <div className="mb-24">
-          
           <div className="relative">
-
-
             <div className="relative grid md:grid-cols-3 gap-10 md:gap-12">
+              {/* Connector lines (desktop only) */}
+              <div className="hidden md:block absolute top-6 left-1/6 right-1/6 h-0 border-t-2 border-dashed border-[#61d397]/30 z-0" style={{ left: '20%', right: '20%' }} />
+
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
                   <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
