@@ -240,7 +240,7 @@ export function Landing() {
       {/* Bottom robot mascot */}
       <div className="flex justify-center pointer-events-none -mb-4">
         <img
-          src="/robot-lurk.svg"
+          src="/robot-six.svg"
           alt=""
           className="w-28 md:w-36 object-contain"
         />
