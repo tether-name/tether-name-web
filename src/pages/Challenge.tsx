@@ -8,7 +8,6 @@ type Status = 'idle' | 'generating' | 'waiting' | 'verified' | 'invalid' | 'expi
 
 interface VerifiedResult {
   agentName?: string;
-  email?: string;
   registeredSince?: number;
   createdAt?: number;
   verifiedAt?: number;
@@ -251,7 +250,6 @@ export function Challenge() {
         {status === 'verified' && result && (
           <VerifiedResult
             challenge={challenge || ''}
-            email={result.email}
             agentName={result.agentName}
             registeredSince={result.registeredSince}
             createdAt={result.createdAt}

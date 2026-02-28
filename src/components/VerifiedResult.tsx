@@ -1,6 +1,5 @@
 interface VerifiedResultProps {
   challenge: string;
-  email?: string;
   agentName?: string;
   registeredSince?: number;
   createdAt?: number;
@@ -36,7 +35,6 @@ const getAgeWarning = (timestamp?: number): { stale: boolean; label: string } | 
 
 export function VerifiedResult({
   challenge,
-  email,
   agentName,
   registeredSince,
   createdAt,
@@ -60,11 +58,8 @@ export function VerifiedResult({
         </div>
 
         <div className="bg-[#333] p-6 rounded-lg border-2 border-[#61d397]">
-          <p className="text-center text-gray-400 text-sm mb-2">This agent represents</p>
-          <p className="text-center text-2xl font-bold text-white mb-1">{email || 'Unknown'}</p>
-          {agentName && (
-            <p className="text-center text-gray-500">Agent name: {agentName}</p>
-          )}
+          <p className="text-center text-gray-400 text-sm mb-2">Verified agent</p>
+          <p className="text-center text-2xl font-bold text-white mb-1">{agentName || 'Unknown Agent'}</p>
           <p className="text-center text-gray-400 text-sm mt-2">
             Member since {formatDate(registeredSince)}
           </p>
@@ -117,18 +112,18 @@ export function VerifiedResult({
         <h3 className="text-lg font-semibold text-white mb-3">What does this mean?</h3>
         <div className="text-gray-300 space-y-3 text-sm">
           <p>
-            This code confirms that the agent holds a valid cryptographic credential linked to the email address shown above. It does <strong>not</strong> automatically mean this agent is safe to trust.
+            This code confirms that the agent holds a valid cryptographic credential registered on tether.name. It does <strong>not</strong> automatically mean this agent is safe to trust.
           </p>
           <p className="font-medium text-white">You should now ask yourself:</p>
           <ul className="list-disc list-inside space-y-2 ml-2">
             <li>
-              <strong>Do I recognize this email?</strong> Does it belong to the person or organization the agent claimed to represent?
+              <strong>Does the agent name match?</strong> Is this the agent you expected to be talking to?
             </li>
             <li>
-              <strong>Does the agent name match?</strong> Is this the agent I expected to be talking to?
+              <strong>Do you recognize the owner?</strong> Does the agent's claimed affiliation match who contacted you?
             </li>
             <li>
-              <strong>Am I comfortable?</strong> If anything looks off — wrong email, unfamiliar name, unexpected timing — do not trust the agent and contact the person directly through a channel you already trust.
+              <strong>Am I comfortable?</strong> If anything looks off — unfamiliar name, unexpected timing — do not trust the agent and contact the person directly through a channel you already trust.
             </li>
           </ul>
         </div>

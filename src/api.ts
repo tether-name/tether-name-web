@@ -214,7 +214,6 @@ export const api = {
       status: 'pending' | 'verified' | 'invalid' | 'not_found';
       createdAt?: number;
       agentName?: string;
-      email?: string;
       registeredSince?: number;
       verifiedAt?: number;
       poll?: { intervalMs: number; maxAttempts: number };
