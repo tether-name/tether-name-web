@@ -12,6 +12,7 @@ import { Challenge } from './pages/Challenge';
 import { Check } from './pages/Check';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
+import { Guide } from './pages/Guide';
 import { NotFound } from './pages/NotFound';
 import { ScrollToTop } from './components/ScrollToTop';
 
@@ -30,6 +31,7 @@ function App() {
               <Route path="/check" element={<Check />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
+              <Route path="/guide" element={<Guide />} />
               <Route
                 path="/dashboard"
                 element={

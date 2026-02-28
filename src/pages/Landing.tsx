@@ -19,11 +19,14 @@ export function Landing() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="flex flex-col items-center">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center mb-4">
+            catch the drift: verify AI agents are who they say they are.
+          </p>
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
             src="/hero.svg"
             alt="tether.name — verify AI agents are who they say they are"
-            className="w-full max-w-3xl mx-auto object-contain"
+            className="w-full max-w-4xl mx-auto object-contain"
           />
           <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center -mt-8">
             catch the drift: verify AI agents are who they say they are.
@@ -158,11 +161,7 @@ export function Landing() {
                 <p className="text-gray-400 leading-relaxed text-sm">
                   The page will update with the agent's status.
                 </p>
-                <img
-                  src="/robot-small.png"
-                  alt="Robot"
-                  className="w-16 h-16 mx-auto mt-3 object-contain"
-                />
+
               </div>
             </div>
           </div>
