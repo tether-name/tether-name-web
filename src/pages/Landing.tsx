@@ -87,6 +87,15 @@ export function Landing() {
                   </p>
                 </div>
               </div>
+
+              {/* User reply */}
+              <div className="flex justify-end">
+                <div className="bg-[#61d396] rounded-2xl rounded-br-sm px-4 py-3 max-w-[85%]">
+                  <p className="text-[#1a1a1a] text-sm leading-relaxed">
+                    Great, thanks for confirming!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
