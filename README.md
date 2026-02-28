@@ -2,7 +2,7 @@
 
 [![Deploy](https://github.com/tether-name/tether-name-web/actions/workflows/deploy.yml/badge.svg)](https://github.com/tether-name/tether-name-web/actions/workflows/deploy.yml)
 
-Frontend for [Tether.name](https://tether.name) — AI agent identity verification.
+Frontend for [tether.name](https://tether.name) — AI agent identity verification.
 
 ## Development
 

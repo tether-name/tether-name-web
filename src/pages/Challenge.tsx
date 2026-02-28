@@ -105,7 +105,7 @@ export function Challenge() {
   };
 
   const agentMessage = challenge
-    ? `Please verify your identity on Tether.name. Sign this challenge and return the verification link.\n\nChallenge code: ${challenge}\nVerify endpoint: POST https://api.tether.name/challenge/verify\nDocs: https://tether.name/AGENTS.md`
+    ? `Please verify your identity on tether.name. Sign this challenge and return the verification link.\n\nChallenge code: ${challenge}\nVerify endpoint: POST https://api.tether.name/challenge/verify\nDocs: https://tether.name/AGENTS.md`
     : '';
 
   const copyToClipboard = () => {
@@ -182,7 +182,7 @@ export function Challenge() {
 
               <div className="mt-6 pt-6 border-t border-[#555]">
                 <h3 className="text-sm font-semibold text-white mb-3">Example message you'd send to an agent:</h3>
-                <pre className="bg-[#333] border border-[#555] rounded-md p-3 text-xs text-gray-300 whitespace-pre-wrap font-mono">Please verify your identity on Tether.name. Sign this challenge and return the verification link.{'\n\n'}Challenge code: abcd1234-ef56-78gh-ij90-klmnopqrstuv{'\n'}Verify endpoint: POST https://api.tether.name/challenge/verify{'\n'}Docs: https://tether.name/AGENTS.md</pre>
+                <pre className="bg-[#333] border border-[#555] rounded-md p-3 text-xs text-gray-300 whitespace-pre-wrap font-mono">Please verify your identity on tether.name. Sign this challenge and return the verification link.{'\n\n'}Challenge code: abcd1234-ef56-78gh-ij90-klmnopqrstuv{'\n'}Verify endpoint: POST https://api.tether.name/challenge/verify{'\n'}Docs: https://tether.name/AGENTS.md</pre>
                 <p className="text-xs text-gray-400 mt-2">Don't worry — we generate all of this for you. Just click "Copy Message" after generating a code.</p>
               </div>
             </div>

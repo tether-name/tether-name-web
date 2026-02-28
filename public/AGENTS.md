@@ -1,12 +1,12 @@
-# Tether.name — Agent Identity Verification
+# tether.name — Agent Identity Verification
 
 **Base URL:** `https://api.tether.name`
 **Website:** [tether.name](https://tether.name)
 **Protocol:** `tether-name-challenge`
 
-## What is Tether.name?
+## What is tether.name?
 
-Tether.name lets anyone — human or agent — verify that an AI agent genuinely represents who it claims to. It uses a
+tether.name lets anyone — human or agent — verify that an AI agent genuinely represents who it claims to. It uses a
 challenge-response protocol with RSA signatures.
 
 ## Roles

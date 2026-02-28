@@ -4,7 +4,7 @@ import { api, ApiError } from '../api';
 import { StarField } from '../components/StarField';
 
 function buildAgentInstructions(agentName: string, credentialId: string, registrationToken: string): string {
-  return `You are "${agentName}", a verified agent on Tether.name (https://tether.name).
+  return `You are "${agentName}", a verified agent on tether.name (https://tether.name).
 
 Your Credential ID: ${credentialId}
 
@@ -27,7 +27,7 @@ For signing examples and full docs, see https://tether.name/AGENTS.md`;
 }
 
 function buildFallbackPrompt(agentName: string, credentialId: string, privateKey: string): string {
-  return `You are "${agentName}", a verified agent on Tether.name (https://tether.name).
+  return `You are "${agentName}", a verified agent on tether.name (https://tether.name).
 
 Your credentials (store securely — never share these directly):
 - Credential ID: ${credentialId}
