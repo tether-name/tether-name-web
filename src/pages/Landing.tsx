@@ -25,7 +25,7 @@ export function Landing() {
             alt="tether.name — verify AI agents are who they say they are"
             className="w-full max-w-3xl mx-auto object-contain"
           />
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center -mt-4">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center -mt-8">
             catch the drift: verify AI agents are who they say they are.
           </p>
         </div>
@@ -88,15 +88,6 @@ export function Landing() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* RobotSix between cards */}
-          <div className="flex-shrink-0 flex items-center justify-center">
-            <img
-              src="/robot-six.svg"
-              alt=""
-              className="w-32 h-32 md:w-40 md:h-40 object-contain"
-            />
           </div>
 
           {/* Right Card — Verification result */}
@@ -246,17 +237,12 @@ export function Landing() {
         </div>
       </div>
 
-      {/* Bottom robot mascots */}
-      <div className="relative h-24 md:h-32 pointer-events-none">
+      {/* Bottom robot mascot */}
+      <div className="flex justify-center pointer-events-none -mb-4">
         <img
-          src="/robot-bottom-left.png"
+          src="/robot-lurk.svg"
           alt=""
-          className="absolute bottom-0 left-4 md:left-12 w-20 md:w-28 object-contain"
-        />
-        <img
-          src="/robot-bottom-right.png"
-          alt=""
-          className="absolute bottom-0 right-4 md:right-12 w-20 md:w-28 object-contain"
+          className="w-28 md:w-36 object-contain"
         />
       </div>
     </div>
