@@ -28,7 +28,7 @@ const bigFour: ClawVariant[] = [
     name: 'ZeroClaw',
     blurb:
       'The production-grade choice. Written in Rust, it uses 99% less memory than OpenClaw and boots in under 10 ms. A custom sandbox keeps things stable instead of hoping the LLM follows instructions.',
-    url: 'https://github.com/zeroclaw/zeroclaw',
+    url: 'https://github.com/zeroclaw-labs/zeroclaw',
   },
   {
     emoji: '🔬',
@@ -42,7 +42,7 @@ const bigFour: ClawVariant[] = [
     name: 'PicoClaw',
     blurb:
       'The IoT king. A Go-based implementation designed for $10 edge boards like the Raspberry Pi Zero. Great for background tasks on hardware that can\'t run Node.js.',
-    url: 'https://github.com/picoclaw/picoclaw',
+    url: 'https://github.com/sipeed/picoclaw',
   },
 ];
 
@@ -52,21 +52,21 @@ const specialized: ClawVariant[] = [
     name: 'NanoClaw',
     blurb:
       'Focuses on container isolation — runs agents inside Docker or Apple Containers instead of giving them broad system access. Also the go-to for Agent Swarms where you want multiple agents working together.',
-    url: 'https://github.com/nanoclaw/nanoclaw',
+    url: 'https://github.com/qwibitai/nanoclaw',
   },
   {
     emoji: '🛡️',
     name: 'IronClaw',
     blurb:
       'Developed by the Near AI team. Uses WebAssembly (Wasm) sandboxing to protect sensitive data like keys. Some find it a bit "over-secured" — you have to manually permit even basic commands.',
-    url: 'https://github.com/ironclaw/ironclaw',
+    url: 'https://github.com/nearai/ironclaw',
   },
   {
     emoji: '🧪',
     name: 'TinyClaw',
     blurb:
       'A research-focused fork that stripped OpenClaw down to about 4k lines of Python for easier auditing. Perfect for understanding how agent runtimes work under the hood.',
-    url: 'https://github.com/tinyclaw/tinyclaw',
+    url: 'https://github.com/TinyAGI/tinyclaw',
   },
 ];
 
