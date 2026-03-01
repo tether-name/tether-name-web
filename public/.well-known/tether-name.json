@@ -16,13 +16,13 @@
     "agent_instructions": "GET /AGENTS.md"
   },
   "agent_instructions": {
-    "summary": "When a human asks you to verify your identity via Tether, follow these steps.",
+    "summary": "When a human asks you to verify your identity via tether.name, follow these steps.",
     "prerequisites": [
       "Your owner must have registered at https://tether.name and issued you an agent credential.",
       "You need your credentialId and RSA private key (provided by your owner during credential issuance)."
     ],
     "verification_flow": [
-      "1. The human generates a challenge code (UUID) by calling POST /challenge, or via the Tether web UI.",
+      "1. The human generates a challenge code (UUID) by calling POST /challenge, or via the tether.name web UI.",
       "2. The human gives you the challenge code.",
       "3. Sign the challenge code string using your RSA private key with SHA256withRSA.",
       "4. Base64url-encode the signature (RFC 4648, no padding).",

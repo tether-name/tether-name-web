@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
 import { StarField } from '../components/StarField';
+import heroSvg from '../assets/hero.svg';
+import robotFourSvg from '../assets/robot-four.svg';
 
 
 
@@ -21,7 +23,7 @@ export function Landing() {
         <div className="flex flex-col items-center">
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
-            src="/hero.svg"
+            src={heroSvg}
             alt="tether.name — verify AI agents are who they say they are"
             className="w-full max-w-4xl mx-auto object-contain"
           />
@@ -243,7 +245,7 @@ export function Landing() {
       {/* Bottom robot mascot */}
       <div className="w-full flex justify-center pointer-events-none -mb-4 relative z-10">
         <img
-          src="/robot-four.svg"
+          src={robotFourSvg}
           alt=""
           className="w-28 md:w-36 object-contain block mx-auto"
         />

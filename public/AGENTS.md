@@ -161,7 +161,7 @@ openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out agent.pem
 # Extract public key as base64 for registration
 PUBLIC_KEY=$(openssl rsa -in agent.pem -pubout -outform DER 2>/dev/null | base64)
 
-# Register with Tether
+# Register with tether.name
 curl -X POST "https://api.tether.name/credentials/$CREDENTIAL_ID/register-key" \
   -H "Content-Type: application/json" \
   -d "{\"registrationToken\":\"$REGISTRATION_TOKEN\",\"publicKey\":\"$PUBLIC_KEY\"}"
@@ -257,7 +257,7 @@ If `registered` is `false`, your public key wasn't stored — check that you use
 
 ## Advertising Verification Support
 
-To let others know you support Tether verification, include your credential ID in your system prompt, profile, or metadata:
+To let others know you support tether.name verification, include your credential ID in your system prompt, profile, or metadata:
 
 ```
 tether: <your-credential-id>

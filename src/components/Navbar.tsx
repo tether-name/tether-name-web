@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../auth';
+import logoSvg from '../assets/logo.svg';
 
 export function Navbar() {
   const { user, logout } = useAuth();
@@ -10,7 +11,7 @@ export function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center hover:opacity-80">
-              <img src="/logo.svg" alt="tether.name" className="h-14" />
+              <img src={logoSvg} alt="tether.name" className="h-14" />
             </Link>
           </div>
 

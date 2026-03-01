@@ -4,6 +4,7 @@ import { useAuth } from '../auth';
 import { api, ApiError } from '../api';
 import type { Agent, ApiKeyListItem } from '../api';
 import { StarField } from '../components/StarField';
+import robotThreeSvg from '../assets/robot-three.svg';
 
 function formatDate(timestamp: number): string {
   if (!timestamp) return 'Unknown';
@@ -111,7 +112,7 @@ export function Dashboard() {
       <StarField />
       <div className="max-w-4xl mx-auto px-4 py-16 relative">
         <div className="mb-8 flex items-center gap-4">
-          <img src="/robot-three.svg" alt="" className="w-20 h-20" />
+          <img src={robotThreeSvg} alt="" className="w-20 h-20" />
           <div>
             <h1 className="text-3xl font-bold mb-2">
               <span className="text-[#f4b049]">AI Agent</span>{' '}

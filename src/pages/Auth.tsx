@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../auth';
-const logo = '/logo.svg';
+import logo from '../assets/logo.svg';
+import robotLurkSvg from '../assets/robot-lurk.svg';
 import { StarField } from '../components/StarField';
 
 type AuthStep = 'email' | 'code' | 'magic';
@@ -130,7 +131,7 @@ export function Auth() {
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
         <div className="max-w-md w-full relative">
-          <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
+          <img src={robotLurkSvg} alt="" className="absolute -top-[45px] left-2 w-16 h-16 z-20" />
           <div className="bg-[#424242] p-8 rounded-lg border border-[#555] relative">
           <div className="text-center mb-8">
             <img src={logo} alt="tether.name" className="h-10 mx-auto mb-4" />
@@ -181,7 +182,7 @@ export function Auth() {
     <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
       <div className="max-w-md w-full relative">
-        <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
+        <img src={robotLurkSvg} alt="" className="absolute -top-[45px] left-2 w-16 h-16 z-20" />
         <div className="bg-[#424242] p-8 rounded-lg border border-[#555] relative">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white">Enter Verification Code</h2>
