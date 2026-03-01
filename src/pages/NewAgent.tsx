@@ -180,10 +180,7 @@ export function NewAgent() {
             Back to Dashboard
           </button>
 
-          <h1 className="text-3xl font-bold text-white mb-2">Add new agent</h1>
-          <p className="text-gray-400 mb-8">
-            Register a new agent to enable identity verification.
-          </p>
+          <h1 className="text-3xl font-bold text-white mb-8">New AI Agent</h1>
 
           {error && (
             <div className="bg-red-900/30 border border-red-700 text-red-700 px-4 py-3 rounded mb-6">
@@ -191,7 +188,7 @@ export function NewAgent() {
             </div>
           )}
 
-          <div className="border border-[#555] p-6 rounded-lg">
+          <div className="bg-[#1f1f1f] border border-[#555] p-6 rounded-lg">
             <form onSubmit={handleRegister} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">

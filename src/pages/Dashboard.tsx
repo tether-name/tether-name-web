@@ -118,7 +118,7 @@ export function Dashboard() {
               <span className="text-[#61d397]">Dashboard</span>
             </h1>
             <p className="text-gray-400">
-              Manage your verified agents &middot; {user?.email}
+              {user?.email}
             </p>
           </div>
         </div>
@@ -133,7 +133,7 @@ export function Dashboard() {
         {agents.length > 0 ? (
           <div className="mb-8 space-y-4">
             {agents.map((agent) => (
-              <div key={agent.id} className="relative border border-[#555] p-5 rounded-lg flex items-start justify-between">
+              <div key={agent.id} className="relative bg-[#1f1f1f] border border-[#555] p-5 rounded-lg flex items-start justify-between">
                 {deleting === agent.id && (
                   <div className="absolute inset-0 bg-[#1f1f1f]/70 rounded-lg flex items-center justify-center z-10">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
@@ -161,9 +161,19 @@ export function Dashboard() {
             ))}
           </div>
         ) : (
-          <div className="mb-8 border border-[#555] rounded-lg p-12 text-center">
-            <p className="text-gray-500 text-lg mb-2">No agents registered yet</p>
-            <p className="text-gray-400 text-sm">Add your first agent to get started with identity verification.</p>
+          <div className="mb-8 flex gap-4">
+            <button
+              onClick={() => navigate('/dashboard/new')}
+              className="flex-1 bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            >
+              Add an AI Agent
+            </button>
+            <button
+              onClick={() => navigate('/challenge')}
+              className="flex-1 bg-[#61d397] hover:bg-[#52c488] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            >
+              Verify an AI Agent
+            </button>
           </div>
         )}
 
@@ -233,27 +243,22 @@ export function Dashboard() {
         </div>
 
         {/* CTAs */}
-        <div className="space-y-4">
-          <button
-            onClick={() => navigate('/dashboard/new')}
-            className="w-full bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
-          >
-            Add New Agent
-          </button>
-
-          <div className="flex items-center gap-4">
-            <div className="flex-1 border-t border-[#555]"></div>
-            <span className="text-gray-400 text-sm">or</span>
-            <div className="flex-1 border-t border-[#555]"></div>
+        {agents.length > 0 && (
+          <div className="flex gap-4">
+            <button
+              onClick={() => navigate('/dashboard/new')}
+              className="flex-1 bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            >
+              Add an AI Agent
+            </button>
+            <button
+              onClick={() => navigate('/challenge')}
+              className="flex-1 bg-[#61d397] hover:bg-[#52c488] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            >
+              Verify an AI Agent
+            </button>
           </div>
-
-          <button
-            onClick={() => navigate('/challenge')}
-            className="w-full border border-[#555] hover:border-gray-500 text-gray-300 hover:text-white py-3 px-4 rounded-md font-medium transition-colors"
-          >
-            Verify an Agent
-          </button>
-        </div>
+        )}
       </div>
     </div>
   );
