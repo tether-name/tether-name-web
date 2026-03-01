@@ -241,7 +241,7 @@ export function Landing() {
       </div>
 
       {/* Bottom robot mascot */}
-      <div className="w-full flex justify-center pointer-events-none -mb-4">
+      <div className="w-full flex justify-center pointer-events-none -mb-4 relative z-10">
         <img
           src="/robot-four.svg"
           alt=""

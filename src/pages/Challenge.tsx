@@ -212,7 +212,7 @@ export function Challenge() {
         {/* Step 2: Waiting for agent */}
         {status === 'waiting' && (
           <div className="space-y-6">
-            <div className="border border-[#555] p-6 rounded-lg">
+            <div className="bg-[#424242] border border-[#555] p-6 rounded-lg">
               <p className="text-gray-400 text-sm mb-3">Copy this message and send it to the agent:</p>
               <pre className="text-sm font-mono text-white whitespace-pre-wrap bg-[#333] border border-[#555] rounded-md p-4">
                 {agentMessage}
@@ -230,7 +230,7 @@ export function Challenge() {
               </div>
             </div>
 
-            <div className="border border-[#555] p-6 rounded-lg">
+            <div className="bg-[#424242] border border-[#555] p-6 rounded-lg">
               <div className="flex items-center justify-center mb-4">
                 <div className="animate-pulse flex items-center gap-3">
                   <div className="h-3 w-3 bg-[#f4b049] rounded-full animate-bounce"></div>
@@ -302,7 +302,7 @@ export function Challenge() {
               </div>
             </div>
 
-            <div className="border border-[#555] p-6 rounded-lg">
+            <div className="bg-[#424242] border border-[#555] p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-white mb-3">What should you do?</h3>
               <ul className="text-gray-300 space-y-2 text-sm list-disc list-inside ml-2">
                 <li><strong>Don't trust this agent's claimed identity.</strong> They failed to prove who they are.</li>
