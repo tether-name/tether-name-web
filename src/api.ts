@@ -145,14 +145,14 @@ export const api = {
   getProfile: () =>
     apiRequest<MeResponse>('/auth/me'),
 
-  // Credential endpoints
-  issueCredential: (agentName: string, description: string) =>
+  // Agent endpoints
+  issueAgent: (agentName: string, description: string) =>
     apiRequest<{ id: string; agentName: string; description: string; createdAt: number; registrationToken: string }>('/agents/issue', {
       method: 'POST',
       body: JSON.stringify({ agentName, description }),
     }),
 
-  getCredentialStatus: (id: string) =>
+  getAgentStatus: (id: string) =>
     apiRequest<{ id: string; agentName: string; registered: boolean }>(`/agents/${id}/status`),
 
   registerKey: async (id: string, registrationToken: string, publicKey: string) => {
@@ -169,10 +169,10 @@ export const api = {
     return response.json() as Promise<{ id: string; agentName: string; registered: boolean }>;
   },
 
-  getCredentials: () =>
+  getAgents: () =>
     apiRequest<Agent[]>('/agents'),
 
-  deleteCredential: (id: string) =>
+  deleteAgent: (id: string) =>
     apiRequest<{ message: string }>(`/agents/${id}`, {
       method: 'DELETE',
     }),
@@ -181,10 +181,10 @@ export const api = {
   generateChallenge: () =>
     apiRequest<{ code: string }>('/challenge', { method: 'POST' }),
 
-  verifyChallenge: (challenge: string, proof: string, credentialId: string) =>
+  verifyChallenge: (challenge: string, proof: string, agentId: string) =>
     apiRequest<{ valid: boolean; verifyUrl?: string; email?: string; registeredSince?: number; agentName?: string }>('/challenge/verify', {
       method: 'POST',
-      body: JSON.stringify({ challenge, proof, credentialId }),
+      body: JSON.stringify({ challenge, proof, agentId }),
     }),
 
   // API Key endpoints

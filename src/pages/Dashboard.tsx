@@ -45,7 +45,7 @@ export function Dashboard() {
   const loadData = async () => {
     try {
       const [agentsData, keysData] = await Promise.all([
-        api.getCredentials(),
+        api.getAgents(),
         api.getApiKeys(),
       ]);
       setAgents(agentsData);
@@ -65,7 +65,7 @@ export function Dashboard() {
     if (!confirm(`Delete agent "${agent.agentName}"? This cannot be undone.`)) return;
     setDeleting(agent.id);
     try {
-      await api.deleteCredential(agent.id);
+      await api.deleteAgent(agent.id);
       setAgents((prev) => prev.filter((a) => a.id !== agent.id));
     } catch (err) {
       if (err instanceof ApiError) {

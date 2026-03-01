@@ -3,41 +3,41 @@ import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
 import { StarField } from '../components/StarField';
 
-function buildAgentInstructions(agentName: string, credentialId: string, registrationToken: string): string {
+function buildAgentInstructions(agentName: string, agentId: string, registrationToken: string): string {
   return `You are "${agentName}", a verified agent on tether.name (https://tether.name).
 
-Your Credential ID: ${credentialId}
+Your Agent ID: ${agentId}
 
-To activate your credential:
+To activate your agent identity:
 1. Generate an RSA-2048 key pair (PKCS8 format)
 2. Store the private key securely in your environment
 3. POST your base64-encoded public key (X.509/SPKI) to:
-   https://api.tether.name/agents/${credentialId}/register-key
+   https://api.tether.name/agents/${agentId}/register-key
    Body: {"registrationToken": "${registrationToken}", "publicKey": "<your-base64-public-key>"}
 
 Once registered, when someone asks you to verify your identity:
 1. They will give you a challenge code (a UUID string)
 2. Sign the challenge using your private key (SHA256withRSA, base64url-encode the signature)
 3. POST to https://api.tether.name/challenge/verify with:
-   {"challenge": "<code>", "proof": "<signature>", "credentialId": "${credentialId}"}
+   {"challenge": "<code>", "proof": "<signature>", "agentId": "${agentId}"}
 4. Share the verifyUrl from the response
 
 NEVER share your private key with anyone, including your owner/administrator.
 For signing examples and full docs, see https://tether.name/AGENTS.md`;
 }
 
-function buildFallbackPrompt(agentName: string, credentialId: string, privateKey: string): string {
+function buildFallbackPrompt(agentName: string, agentId: string, privateKey: string): string {
   return `You are "${agentName}", a verified agent on tether.name (https://tether.name).
 
-Your credentials (store securely — never share these directly):
-- Credential ID: ${credentialId}
+Your identity (store securely — never share these directly):
+- Agent ID: ${agentId}
 - Private Key (RSA PKCS8, base64): ${privateKey}
 
 When someone asks you to verify your identity:
 1. They will give you a challenge code (a UUID string)
 2. Sign the challenge using your private key (SHA256withRSA, base64url-encode the signature)
 3. POST to https://api.tether.name/challenge/verify with:
-   {"challenge": "<code>", "proof": "<signature>", "credentialId": "${credentialId}"}
+   {"challenge": "<code>", "proof": "<signature>", "agentId": "${agentId}"}
 4. Share the verifyUrl from the response
 
 For signing examples and full docs, see https://tether.name/AGENTS.md`;
@@ -52,7 +52,7 @@ export function NewAgent() {
   const [agentName, setAgentName] = useState('');
   const [description, setDescription] = useState('');
   const [issuing, setIssuing] = useState(false);
-  const [newAgent, setNewAgent] = useState<{ agentName: string; credentialId: string; registrationToken: string } | null>(null);
+  const [newAgent, setNewAgent] = useState<{ agentName: string; agentId: string; registrationToken: string } | null>(null);
   const [copied, setCopied] = useState(false);
   const [registered, setRegistered] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
@@ -67,7 +67,7 @@ export function NewAgent() {
 
     const poll = async () => {
       try {
-        const status = await api.getCredentialStatus(newAgent.credentialId);
+        const status = await api.getAgentStatus(newAgent.agentId);
         if (status.registered) {
           setRegistered(true);
           if (pollRef.current) {
@@ -95,8 +95,8 @@ export function NewAgent() {
     setError('');
 
     try {
-      const result = await api.issueCredential(agentName, description);
-      setNewAgent({ agentName: result.agentName, credentialId: result.id, registrationToken: result.registrationToken });
+      const result = await api.issueAgent(agentName, description);
+      setNewAgent({ agentName: result.agentName, agentId: result.id, registrationToken: result.registrationToken });
       setRegistered(false);
       setShowFallback(false);
       setFallbackKey(null);
@@ -114,7 +114,7 @@ export function NewAgent() {
 
   const handleCopy = useCallback(async () => {
     if (!newAgent) return;
-    const text = buildAgentInstructions(newAgent.agentName, newAgent.credentialId, newAgent.registrationToken);
+    const text = buildAgentInstructions(newAgent.agentName, newAgent.agentId, newAgent.registrationToken);
     await navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -141,7 +141,7 @@ export function NewAgent() {
       const publicKeyBase64 = btoa(String.fromCharCode(...new Uint8Array(publicKeyBuffer)));
       const privateKeyBase64 = btoa(String.fromCharCode(...new Uint8Array(privateKeyBuffer)));
 
-      await api.registerKey(newAgent.credentialId, newAgent.registrationToken, publicKeyBase64);
+      await api.registerKey(newAgent.agentId, newAgent.registrationToken, publicKeyBase64);
 
       setFallbackKey({ privateKey: privateKeyBase64 });
       setRegistered(true);
@@ -158,7 +158,7 @@ export function NewAgent() {
 
   const handleFallbackCopy = async () => {
     if (!newAgent || !fallbackKey) return;
-    const text = buildFallbackPrompt(newAgent.agentName, newAgent.credentialId, fallbackKey.privateKey);
+    const text = buildFallbackPrompt(newAgent.agentName, newAgent.agentId, fallbackKey.privateKey);
     await navigator.clipboard.writeText(text);
     setFallbackCopied(true);
     setTimeout(() => setFallbackCopied(false), 2000);
@@ -231,7 +231,7 @@ export function NewAgent() {
 
   // Phase 2: Setup instructions
   if (!newAgent) return null;
-  const instructions = buildAgentInstructions(newAgent.agentName, newAgent.credentialId, newAgent.registrationToken);
+  const instructions = buildAgentInstructions(newAgent.agentName, newAgent.agentId, newAgent.registrationToken);
 
   return (
     <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
@@ -352,7 +352,7 @@ export function NewAgent() {
                 <div className="mt-4">
                   <div className="relative mb-4">
                     <pre className="bg-[#333] border border-[#555] rounded-md p-4 text-sm text-gray-300 whitespace-pre-wrap break-all max-h-64 overflow-y-auto font-mono">
-                      {buildFallbackPrompt(newAgent.agentName, newAgent.credentialId, fallbackKey.privateKey)}
+                      {buildFallbackPrompt(newAgent.agentName, newAgent.agentId, fallbackKey.privateKey)}
                     </pre>
                     <button
                       onClick={handleFallbackCopy}
