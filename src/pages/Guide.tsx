@@ -20,7 +20,7 @@ const bigFour: ClawVariant[] = [
     emoji: '🦞',
     name: 'OpenClaw',
     blurb:
-      'The OG. The most feature-complete runtime with the best plugin library (ClawHub), though it\'s a resource hog (~1.5 GB RAM). Security is mostly application-level permission checks.',
+      'The OG. The most feature-complete runtime with the best plugin library (ClawHub). Security is mostly application-level permission checks.',
     url: 'https://github.com/openclaw/openclaw',
   },
   {
