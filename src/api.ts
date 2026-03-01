@@ -39,7 +39,6 @@ export interface AuthResponse {
 }
 
 export interface MeResponse {
-  userId: string;
   email: string;
   createdAt: number;
 }
