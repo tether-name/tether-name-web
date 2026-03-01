@@ -12,7 +12,7 @@ To activate your credential:
 1. Generate an RSA-2048 key pair (PKCS8 format)
 2. Store the private key securely in your environment
 3. POST your base64-encoded public key (X.509/SPKI) to:
-   https://api.tether.name/credentials/${credentialId}/register-key
+   https://api.tether.name/agents/${credentialId}/register-key
    Body: {"registrationToken": "${registrationToken}", "publicKey": "<your-base64-public-key>"}
 
 Once registered, when someone asks you to verify your identity:

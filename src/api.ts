@@ -147,17 +147,17 @@ export const api = {
 
   // Credential endpoints
   issueCredential: (agentName: string, description: string) =>
-    apiRequest<{ id: string; agentName: string; description: string; createdAt: number; registrationToken: string }>('/credentials/issue', {
+    apiRequest<{ id: string; agentName: string; description: string; createdAt: number; registrationToken: string }>('/agents/issue', {
       method: 'POST',
       body: JSON.stringify({ agentName, description }),
     }),
 
   getCredentialStatus: (id: string) =>
-    apiRequest<{ id: string; agentName: string; registered: boolean }>(`/credentials/${id}/status`),
+    apiRequest<{ id: string; agentName: string; registered: boolean }>(`/agents/${id}/status`),
 
   registerKey: async (id: string, registrationToken: string, publicKey: string) => {
     const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-    const response = await fetch(`${API_BASE_URL}/credentials/${id}/register-key`, {
+    const response = await fetch(`${API_BASE_URL}/agents/${id}/register-key`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ registrationToken, publicKey }),
@@ -170,10 +170,10 @@ export const api = {
   },
 
   getCredentials: () =>
-    apiRequest<Agent[]>('/credentials'),
+    apiRequest<Agent[]>('/agents'),
 
   deleteCredential: (id: string) =>
-    apiRequest<{ message: string }>(`/credentials/${id}`, {
+    apiRequest<{ message: string }>(`/agents/${id}`, {
       method: 'DELETE',
     }),
 
