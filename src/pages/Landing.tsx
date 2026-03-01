@@ -19,9 +19,6 @@ export function Landing() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <div className="flex flex-col items-center">
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center mb-4">
-            catch the drift: verify AI agents are who they say they are.
-          </p>
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
             src="/hero.svg"
