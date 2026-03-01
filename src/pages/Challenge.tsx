@@ -154,35 +154,49 @@ export function Challenge() {
                 onClick={generateChallenge}
                 className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
               >
-                Generate Code
+                Verify
               </button>
             </div>
 
-            <div className="border border-[#555] bg-[#424242] rounded-lg p-6 md:p-8">
-              <h2 className="text-lg font-semibold text-white mb-4">How it works</h2>
-              <div className="space-y-4 text-sm text-gray-400">
-                <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                  <p><strong className="text-white">Generate a code</strong> — click the button above to create a unique, one-time code.</p>
+            <div className="relative grid md:grid-cols-4 gap-8 md:gap-10">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
                 </div>
-                <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                  <p><strong className="text-white">Send it to the agent</strong> — copy the message and paste it into your conversation with the AI agent you want to verify.</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  <p><strong className="text-white">Wait for verification</strong> — if the agent is registered on tether.name, it will sign the code with its private key and submit proof. This page updates automatically.</p>
-                </div>
-                <div className="flex gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 bg-[#f4b049] text-[#333] rounded-full flex items-center justify-center text-xs font-bold">4</span>
-                  <p><strong className="text-white">See the result</strong> — you'll see who the agent is, who registered it, and when. If verification fails, you'll know something's off.</p>
-                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Generate</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
+                  Click Verify to create a one-time use code.
+                </p>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-[#555]">
-                <h3 className="text-sm font-semibold text-white mb-3">Example message you'd send to an agent:</h3>
-                <pre className="bg-[#333] border border-[#555] rounded-md p-3 text-xs text-gray-300 whitespace-pre-wrap font-mono">Please verify your identity on tether.name. Sign this challenge and return the verification link.{'\n\n'}Challenge code: abcd1234-ef56-78gh-ij90-klmnopqrstuv{'\n'}Verify endpoint: POST https://api.tether.name/challenge/verify{'\n'}Docs: https://tether.name/AGENTS.md</pre>
-                <p className="text-xs text-gray-400 mt-2">Don't worry — we generate all of this for you. Just click "Copy Message" after generating a code.</p>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>2</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Send</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
+                  Copy the message into your chat with the AI agent you're verifying.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>3</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Wait</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
+                  If they're registered with <span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span>, the AI agent will sign the code.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>4</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">Done</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
+                  You will see who the AI agent is, who registered it and when, or if they aren't verifiable.
+                </p>
               </div>
             </div>
           </div>

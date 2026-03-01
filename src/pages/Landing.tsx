@@ -50,12 +50,12 @@ export function Landing() {
         <div className="mb-28 flex flex-col md:flex-row items-stretch gap-4 md:gap-3 max-w-5xl mx-auto">
           {/* Left Card — Chat bubbles */}
           <div className="border border-[#555] bg-[#424242] rounded-2xl p-5 flex-1 min-w-0 w-full">
-            <p className="text-gray-500 text-xs mb-4 uppercase tracking-wide">Example</p>
+            <p className="text-gray-500 text-sm font-semibold mb-4 uppercase tracking-wide">Example</p>
             <div className="flex flex-col gap-4">
               {/* Agent message */}
               <div className="flex justify-start">
                 <div className="bg-[#444] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-base leading-relaxed">
                     Hey, this is the Hotel Sol agent, letting you know your room
                     changed to room 451 for your upcoming stay.
                   </p>
@@ -65,11 +65,11 @@ export function Landing() {
               {/* User message */}
               <div className="flex justify-end">
                 <div className="bg-[#61d396] rounded-2xl rounded-br-sm px-4 py-3 max-w-[85%]">
-                  <p className="text-[#1a1a1a] text-sm leading-relaxed">
+                  <p className="text-[#1a1a1a] text-base leading-relaxed">
                     Please verify your identity on{' '}
                     <span className="font-semibold underline">tether.name</span>.
                     Verification code{' '}
-                    <span className="font-mono text-xs bg-[#4ec085] rounded px-1 py-0.5 break-all">
+                    <span className="font-mono text-sm bg-[#4ec085] rounded px-1 py-0.5 break-all">
                       02e0f359-b8dc-4284-b994-c0f27e1d9cb3
                     </span>
                   </p>
@@ -79,7 +79,7 @@ export function Landing() {
               {/* Agent verified message */}
               <div className="flex justify-start">
                 <div className="bg-[#444] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-base leading-relaxed">
                     Verified! ✅ Here's the link:{' '}
                     <span className="text-[#f4b049] underline break-all">
                       tether.name/check?challenge=02e0f359-b8dc-4284-b994-c0f27e1d9cb3
@@ -91,7 +91,7 @@ export function Landing() {
               {/* User reply */}
               <div className="flex justify-end">
                 <div className="bg-[#61d396] rounded-2xl rounded-br-sm px-4 py-3 max-w-[85%]">
-                  <p className="text-[#1a1a1a] text-sm leading-relaxed">
+                  <p className="text-[#1a1a1a] text-base leading-relaxed">
                     Great, thanks for confirming!
                   </p>
                 </div>
@@ -101,7 +101,7 @@ export function Landing() {
 
           {/* Right Card — Verification result */}
           <div className="border border-[#555] bg-[#424242] rounded-2xl p-5 flex-1 min-w-0 w-full">
-            <p className="text-gray-500 text-xs mb-4 uppercase tracking-wide">What you'll see</p>
+            <p className="text-gray-500 text-sm font-semibold mb-4 uppercase tracking-wide">What you'll see</p>
             <div className="bg-[#1f1f1f] border border-[#555] p-6 rounded-lg">
               <div className="text-center mb-5">
                 <div className="w-14 h-14 bg-[#f4b049] rounded-full mx-auto mb-3 flex items-center justify-center">
@@ -110,13 +110,13 @@ export function Landing() {
                   </svg>
                 </div>
                 <h2 className="text-2xl font-bold text-white mb-1">Verification Complete</h2>
-                <p className="text-gray-400 text-sm">The agent signed this code</p>
+                <p className="text-gray-400 text-base">The agent signed this code</p>
               </div>
 
               <div className="bg-[#333] p-5 rounded-lg border-2 border-[#61d397]">
-                <p className="text-center text-gray-400 text-sm mb-2">Verified agent</p>
+                <p className="text-center text-gray-400 text-base mb-2">Verified agent</p>
                 <p className="text-center text-xl font-bold text-white mb-1">Hotel Sol Agent</p>
-                <p className="text-center text-gray-400 text-xs mt-2">Member since 1/15/2026</p>
+                <p className="text-center text-gray-400 text-sm mt-2">Member since 1/15/2026</p>
               </div>
             </div>
           </div>
@@ -131,30 +131,30 @@ export function Landing() {
 
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
-                  <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Create</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-white mb-3">Create</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
                   <span className="text-[#f4b049]">tether</span><span className="text-[#61d396]">.name</span> generates a message with a <span className="whitespace-nowrap">one-time</span> code in it.
                 </p>
               </div>
 
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
-                  <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>2</span>
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>2</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Send</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-white mb-3">Send</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
                   Paste the message wherever you're chatting with an agent.
                 </p>
               </div>
 
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#f4b049] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
-                  <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>3</span>
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>3</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Done</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-white mb-3">Done</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
                   The page will update with the agent's status.
                 </p>
               </div>
@@ -171,30 +171,30 @@ export function Landing() {
 
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
-                  <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>1</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Create</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-white mb-3">Create</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
                   Sign up with just your email.
                 </p>
               </div>
 
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
-                  <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>2</span>
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>2</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Register</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-white mb-3">Register</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
                   Get a setup message to paste into your agent's instructions.
                 </p>
               </div>
 
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#61d397] rounded-full mx-auto mb-5 flex items-center justify-center relative z-10">
-                  <span className="text-xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>3</span>
+                  <span className="text-2xl font-bold text-[#1f1f1f]" style={{ fontFamily: "'Dosis', sans-serif" }}>3</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">Done</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
+                <h3 className="text-2xl font-bold text-white mb-3">Done</h3>
+                <p className="text-gray-400 leading-relaxed text-base">
                   Your agent's verifications trace back to the email it's registered under.
                 </p>
               </div>
@@ -241,11 +241,11 @@ export function Landing() {
       </div>
 
       {/* Bottom robot mascot */}
-      <div className="flex justify-center pointer-events-none -mb-4">
+      <div className="w-full flex justify-center pointer-events-none -mb-4">
         <img
           src="/robot-four.svg"
           alt=""
-          className="w-28 md:w-36 object-contain"
+          className="w-28 md:w-36 object-contain block mx-auto"
         />
       </div>
     </div>

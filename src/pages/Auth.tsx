@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../auth';
-import logo from '../assets/logo.png';
+const logo = '/logo.svg';
 import { StarField } from '../components/StarField';
 
 type AuthStep = 'email' | 'code' | 'magic';
@@ -91,7 +91,7 @@ export function Auth() {
       <StarField />
         <div className="max-w-md w-full bg-[#424242] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
-            <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
+            <img src={logo} alt="tether.name" className="h-10 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Confirm Sign In</h2>
             <p className="text-gray-400 mt-2">
               Signing in as <strong>{email}</strong>
@@ -133,7 +133,7 @@ export function Auth() {
           <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
           <div className="bg-[#424242] p-8 rounded-lg border border-[#555] relative">
           <div className="text-center mb-8">
-            <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
+            <img src={logo} alt="tether.name" className="h-10 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Sign In</h2>
             <p className="text-gray-400 mt-2">Enter your email to receive a verification code</p>
           </div>
@@ -170,7 +170,7 @@ export function Auth() {
 
         <div className="max-w-md w-full mt-6 px-2">
           <p className="text-sm text-gray-500 text-center leading-relaxed">
-            An agent's identity is tied to the email they are registered under. If you are a person with a personal agent, you should use the email address that your friends and family will recognize as "you". If you are a business, this should likely be an email address that contains your business domain within it.
+            All AI agent identities are tied to the email they're registered under. As an individual, register using the email people associate with you. As a business, we suggest using an email containing your business domain.
           </p>
         </div>
       </div>

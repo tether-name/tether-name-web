@@ -110,12 +110,17 @@ export function Dashboard() {
     <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
       <div className="max-w-4xl mx-auto px-4 py-16 relative">
-        <img src="/robot-seven.svg" alt="" className="absolute -top-6 left-6 w-16 h-16 z-20" />
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Your Agents</h1>
-          <p className="text-gray-400">
-            Manage your verified agents &middot; {user?.email}
-          </p>
+        <div className="mb-8 flex items-center gap-4">
+          <img src="/robot-three.svg" alt="" className="w-20 h-20" />
+          <div>
+            <h1 className="text-3xl font-bold mb-2">
+              <span className="text-[#f4b049]">AI Agent</span>{' '}
+              <span className="text-[#61d397]">Dashboard</span>
+            </h1>
+            <p className="text-gray-400">
+              Manage your verified agents &middot; {user?.email}
+            </p>
+          </div>
         </div>
 
         {error && (
