@@ -150,7 +150,6 @@ export function Challenge() {
         {status === 'idle' && (
           <div className="space-y-10">
             <div className="text-center relative">
-              <img src="/robot-lurk.svg" alt="" className="absolute -top-16 left-1/2 -translate-x-1/2 w-16 h-16 z-20" />
               <button
                 onClick={generateChallenge}
                 className="bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] px-10 py-4 rounded-lg font-semibold text-lg transition-colors"
@@ -159,7 +158,7 @@ export function Challenge() {
               </button>
             </div>
 
-            <div className="border border-[#555] rounded-lg p-6 md:p-8">
+            <div className="border border-[#555] bg-[#424242] rounded-lg p-6 md:p-8">
               <h2 className="text-lg font-semibold text-white mb-4">How it works</h2>
               <div className="space-y-4 text-sm text-gray-400">
                 <div className="flex gap-3">

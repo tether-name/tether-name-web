@@ -89,7 +89,7 @@ export function Auth() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
-        <div className="max-w-md w-full bg-[#1f1f1f] p-8 rounded-lg border border-[#555] ">
+        <div className="max-w-md w-full bg-[#424242] p-8 rounded-lg border border-[#555] ">
           <div className="text-center mb-8">
             <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Confirm Sign In</h2>
@@ -131,7 +131,7 @@ export function Auth() {
       <StarField />
         <div className="max-w-md w-full relative">
           <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
-          <div className="bg-[#1f1f1f] p-8 rounded-lg border border-[#555] relative">
+          <div className="bg-[#424242] p-8 rounded-lg border border-[#555] relative">
           <div className="text-center mb-8">
             <img src={logo} alt="tether.name" className="h-12 w-12 rounded-lg mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Sign In</h2>
@@ -182,7 +182,7 @@ export function Auth() {
       <StarField />
       <div className="max-w-md w-full relative">
         <img src="/robot-lurk.svg" alt="" className="absolute -top-14 left-2 w-16 h-16 z-20" />
-        <div className="bg-[#1f1f1f] p-8 rounded-lg border border-[#555] relative">
+        <div className="bg-[#424242] p-8 rounded-lg border border-[#555] relative">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-white">Enter Verification Code</h2>
           <p className="text-gray-400 mt-2">

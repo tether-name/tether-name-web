@@ -49,7 +49,7 @@ export function Landing() {
         {/* Example Section — Chat Demo + Verification Result */}
         <div className="mb-28 flex flex-col md:flex-row items-stretch gap-4 md:gap-3 max-w-5xl mx-auto">
           {/* Left Card — Chat bubbles */}
-          <div className="border border-[#555] bg-[#333] rounded-2xl p-5 flex-1 min-w-0 w-full">
+          <div className="border border-[#555] bg-[#424242] rounded-2xl p-5 flex-1 min-w-0 w-full">
             <p className="text-gray-500 text-xs mb-4 uppercase tracking-wide">Example</p>
             <div className="flex flex-col gap-4">
               {/* Agent message */}
@@ -100,7 +100,7 @@ export function Landing() {
           </div>
 
           {/* Right Card — Verification result */}
-          <div className="border border-[#555] bg-[#333] rounded-2xl p-5 flex-1 min-w-0 w-full">
+          <div className="border border-[#555] bg-[#424242] rounded-2xl p-5 flex-1 min-w-0 w-full">
             <p className="text-gray-500 text-xs mb-4 uppercase tracking-wide">What you'll see</p>
             <div className="bg-[#1f1f1f] border border-[#555] p-6 rounded-lg">
               <div className="text-center mb-5">
