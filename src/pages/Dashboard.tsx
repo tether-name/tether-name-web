@@ -178,6 +178,24 @@ export function Dashboard() {
           </div>
         )}
 
+        {/* CTAs */}
+        {agents.length > 0 && (
+          <div className="flex gap-4 mb-8">
+            <button
+              onClick={() => navigate('/dashboard/new')}
+              className="flex-1 bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            >
+              Add an AI Agent
+            </button>
+            <button
+              onClick={() => navigate('/challenge')}
+              className="flex-1 bg-[#61d397] hover:bg-[#52c488] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
+            >
+              Verify an AI Agent
+            </button>
+          </div>
+        )}
+
         {/* API Keys section */}
         <div className="mb-8 mt-12">
           <div className="flex items-center justify-between mb-4">
@@ -243,23 +261,6 @@ export function Dashboard() {
           )}
         </div>
 
-        {/* CTAs */}
-        {agents.length > 0 && (
-          <div className="flex gap-4">
-            <button
-              onClick={() => navigate('/dashboard/new')}
-              className="flex-1 bg-[#f4b049] hover:bg-[#e5a03a] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
-            >
-              Add an AI Agent
-            </button>
-            <button
-              onClick={() => navigate('/challenge')}
-              className="flex-1 bg-[#61d397] hover:bg-[#52c488] text-[#333] py-3 px-4 rounded-md font-medium transition-colors text-lg"
-            >
-              Verify an AI Agent
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
