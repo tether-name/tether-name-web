@@ -191,7 +191,7 @@ export function Check() {
                 </p>
                 <ul className="list-disc list-inside space-y-1 ml-2">
                   <li>The agent is not who it claims to be</li>
-                  <li>The agent's credentials have been revoked or rotated</li>
+                  <li>The agent has been revoked or its keys have been rotated</li>
                   <li>There was a technical error in the signing process</li>
                 </ul>
               </div>

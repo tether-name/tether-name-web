@@ -95,7 +95,7 @@ export function VerifiedResult({
             <div>
               <h4 className="text-sm font-semibold text-amber-800 mb-1">Outdated verification</h4>
               <p className="text-sm text-amber-700">
-                This code was completed <strong>{ageWarning.label}</strong>. A lot can change — credentials can be revoked, accounts can be compromised. You should request a fresh verification to confirm this agent's current identity.
+                This code was completed <strong>{ageWarning.label}</strong>. A lot can change — agents can be revoked, accounts can be compromised. You should request a fresh verification to confirm this agent's current identity.
               </p>
               <a
                 href="/challenge"
@@ -112,7 +112,7 @@ export function VerifiedResult({
         <h3 className="text-lg font-semibold text-white mb-3">What does this mean?</h3>
         <div className="text-gray-300 space-y-3 text-sm">
           <p>
-            This code confirms that the agent holds a valid cryptographic credential registered on tether.name. It does <strong>not</strong> automatically mean this agent is safe to trust.
+            This code confirms that the agent holds a valid cryptographic identity registered on tether.name. It does <strong>not</strong> automatically mean this agent is safe to trust.
           </p>
           <p className="font-medium text-white">You should now ask yourself:</p>
           <ul className="list-disc list-inside space-y-2 ml-2">
