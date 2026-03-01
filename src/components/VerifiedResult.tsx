@@ -1,6 +1,8 @@
 interface VerifiedResultProps {
   challenge: string;
   agentName?: string;
+  email?: string;
+  domain?: string;
   registeredSince?: number;
   createdAt?: number;
   verifiedAt?: number;
@@ -36,6 +38,8 @@ const getAgeWarning = (timestamp?: number): { stale: boolean; label: string } | 
 export function VerifiedResult({
   challenge,
   agentName,
+  email,
+  domain,
   registeredSince,
   createdAt,
   verifiedAt,
@@ -60,7 +64,15 @@ export function VerifiedResult({
         <div className="bg-[#333] p-6 rounded-lg border-2 border-[#61d397]">
           <p className="text-center text-gray-400 text-sm mb-2">Verified agent</p>
           <p className="text-center text-2xl font-bold text-white mb-1">{agentName || 'Unknown Agent'}</p>
-          <p className="text-center text-gray-400 text-sm mt-2">
+          {domain ? (
+            <p className="text-center text-[#61d397] text-sm mt-2 font-medium">
+              <span className="material-icons text-sm align-middle mr-1">verified</span>
+              {domain}
+            </p>
+          ) : email ? (
+            <p className="text-center text-gray-400 text-sm mt-2">{email}</p>
+          ) : null}
+          <p className="text-center text-gray-500 text-xs mt-1">
             Member since {formatDate(registeredSince)}
           </p>
         </div>

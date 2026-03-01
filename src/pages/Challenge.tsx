@@ -8,6 +8,8 @@ type Status = 'idle' | 'generating' | 'waiting' | 'verified' | 'invalid' | 'expi
 
 interface VerifiedResult {
   agentName?: string;
+  email?: string;
+  domain?: string;
   registeredSince?: number;
   createdAt?: number;
   verifiedAt?: number;
@@ -61,6 +63,8 @@ export function Challenge() {
           stopPolling();
           setResult({
             agentName: data.agentName,
+            email: data.email,
+            domain: data.domain,
             createdAt: data.createdAt,
             verifiedAt: data.verifiedAt,
           });
@@ -264,6 +268,8 @@ export function Challenge() {
           <VerifiedResult
             challenge={challenge || ''}
             agentName={result.agentName}
+            email={result.email}
+            domain={result.domain}
             registeredSince={result.registeredSince}
             createdAt={result.createdAt}
             verifiedAt={result.verifiedAt}

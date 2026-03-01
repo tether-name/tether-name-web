@@ -13,6 +13,23 @@ export interface Agent {
   lastVerifiedAt: number;
 }
 
+export interface Domain {
+  id: string;
+  domain: string;
+  verified: boolean;
+  verifiedAt: number;
+  lastCheckedAt: number;
+  createdAt: number;
+}
+
+export interface ClaimDomainResponse {
+  id: string;
+  domain: string;
+  txtRecord: string;
+  txtHost: string;
+  instructions: string;
+}
+
 export interface ApiKeyCreateResponse {
   id: string;
   key: string;
@@ -202,6 +219,26 @@ export const api = {
       method: 'DELETE',
     }),
 
+  // Domain endpoints
+  claimDomain: (domain: string) =>
+    apiRequest<ClaimDomainResponse>('/domains/claim', {
+      method: 'POST',
+      body: JSON.stringify({ domain }),
+    }),
+
+  verifyDomain: (id: string) =>
+    apiRequest<{ verified: boolean; domain: string; message: string; txtHost?: string; txtRecord?: string }>(`/domains/${id}/verify`, {
+      method: 'POST',
+    }),
+
+  getDomains: () =>
+    apiRequest<Domain[]>('/domains'),
+
+  deleteDomain: (id: string) =>
+    apiRequest<{ message: string }>(`/domains/${id}`, {
+      method: 'DELETE',
+    }),
+
   getStats: () =>
     apiRequest<{ totalVerifications: number; totalAgentsRegistered: number }>('/stats'),
 
@@ -211,6 +248,8 @@ export const api = {
       status: 'pending' | 'verified' | 'invalid' | 'not_found';
       createdAt?: number;
       agentName?: string;
+      email?: string;
+      domain?: string;
       registeredSince?: number;
       verifiedAt?: number;
       poll?: { intervalMs: number; maxAttempts: number };

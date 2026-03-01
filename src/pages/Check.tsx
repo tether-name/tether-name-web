@@ -9,6 +9,8 @@ interface ChallengeResult {
   status: 'pending' | 'verified' | 'invalid' | 'not_found';
   createdAt?: number;
   agentName?: string;
+  email?: string;
+  domain?: string;
   registeredSince?: number;
   verifiedAt?: number;
 }
@@ -113,6 +115,8 @@ export function Check() {
           <VerifiedResult
             challenge={result.challenge}
             agentName={result.agentName}
+            email={result.email}
+            domain={result.domain}
             registeredSince={result.registeredSince}
             createdAt={result.createdAt}
             verifiedAt={result.verifiedAt}

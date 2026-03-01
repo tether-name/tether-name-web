@@ -8,6 +8,7 @@ import { Auth } from './pages/Auth';
 import { Dashboard } from './pages/Dashboard';
 import { NewAgent } from './pages/NewAgent';
 import { NewApiKey } from './pages/NewApiKey';
+import { NewDomain } from './pages/NewDomain';
 import { Challenge } from './pages/Challenge';
 import { Check } from './pages/Check';
 import { Privacy } from './pages/Privacy';
@@ -53,6 +54,14 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <NewApiKey />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/dashboard/domains/new"
+                element={
+                  <ProtectedRoute>
+                    <NewDomain />
                   </ProtectedRoute>
                 }
               />
