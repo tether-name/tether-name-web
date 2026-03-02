@@ -9,6 +9,8 @@ export interface Agent {
   id: string;
   agentName: string;
   description: string;
+  domainId?: string;
+  domain?: string | null;
   createdAt: number;
   lastVerifiedAt: number;
 }
@@ -163,10 +165,10 @@ export const api = {
     apiRequest<MeResponse>('/auth/me'),
 
   // Agent endpoints
-  issueAgent: (agentName: string, description: string) =>
-    apiRequest<{ id: string; agentName: string; description: string; createdAt: number; registrationToken: string }>('/agents/issue', {
+  issueAgent: (agentName: string, description: string, domainId?: string) =>
+    apiRequest<{ id: string; agentName: string; description: string; domainId?: string; createdAt: number; registrationToken: string }>('/agents/issue', {
       method: 'POST',
-      body: JSON.stringify({ agentName, description }),
+      body: JSON.stringify({ agentName, description, ...(domainId ? { domainId } : {}) }),
     }),
 
   getAgentStatus: (id: string) =>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
+import type { Domain } from '../api';
 import { StarField } from '../components/StarField';
 
 function buildAgentInstructions(agentName: string, agentId: string, registrationToken: string): string {
@@ -51,6 +52,8 @@ export function NewAgent() {
   const [error, setError] = useState('');
   const [agentName, setAgentName] = useState('');
   const [description, setDescription] = useState('');
+  const [domains, setDomains] = useState<Domain[]>([]);
+  const [selectedDomainId, setSelectedDomainId] = useState('');
   const [issuing, setIssuing] = useState(false);
   const [newAgent, setNewAgent] = useState<{ agentName: string; agentId: string; registrationToken: string } | null>(null);
   const [copied, setCopied] = useState(false);
@@ -89,13 +92,26 @@ export function NewAgent() {
     };
   }, [newAgent, registered]);
 
+  // Load verified domains for optional per-agent domain selection
+  useEffect(() => {
+    const loadDomains = async () => {
+      try {
+        const allDomains = await api.getDomains();
+        setDomains(allDomains.filter((d) => d.verified));
+      } catch {
+        // Non-blocking: agent creation still works without domain selection
+      }
+    };
+    loadDomains();
+  }, []);
+
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setIssuing(true);
     setError('');
 
     try {
-      const result = await api.issueAgent(agentName, description);
+      const result = await api.issueAgent(agentName, description, selectedDomainId || undefined);
       setNewAgent({ agentName: result.agentName, agentId: result.id, registrationToken: result.registrationToken });
       setRegistered(false);
       setShowFallback(false);
@@ -215,6 +231,26 @@ export function NewAgent() {
                   placeholder="What does this agent do? (Only you will see this)"
                 />
               </div>
+              {domains.length > 0 && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Verification Domain <span className="text-gray-400">(optional)</span>
+                  </label>
+                  <select
+                    value={selectedDomainId}
+                    onChange={(e) => setSelectedDomainId(e.target.value)}
+                    className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                  >
+                    <option value="">Use account default (or email fallback)</option>
+                    {domains.map((domain) => (
+                      <option key={domain.id} value={domain.id}>{domain.domain}</option>
+                    ))}
+                  </select>
+                  <p className="text-xs text-gray-500 mt-1">
+                    If selected, this specific agent will prefer that domain on verification results.
+                  </p>
+                </div>
+              )}
               <button
                 type="submit"
                 disabled={issuing}

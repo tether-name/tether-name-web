@@ -193,6 +193,13 @@ export function Dashboard() {
                   {agent.description && (
                     <p className="text-gray-500 mt-1">{agent.description}</p>
                   )}
+                  {agent.domain && (
+                    <div className="mt-2">
+                      <span className="text-xs bg-green-900/40 text-[#61d397] px-2 py-0.5 rounded-full border border-green-800 font-medium">
+                        Domain: {agent.domain}
+                      </span>
+                    </div>
+                  )}
                   <div className="mt-3 flex gap-6 text-sm text-gray-500">
                     <span>Registered: {formatDate(agent.createdAt)}</span>
                     <span>Last verified: {timeAgo(agent.lastVerifiedAt)}</span>
