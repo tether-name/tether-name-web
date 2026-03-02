@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
 import { VerifiedResult } from '../components/VerifiedResult';
 import { StarField } from '../components/StarField';
+import verifyHeaderSvg from '../assets/verify-header.svg';
 
 type Status = 'idle' | 'generating' | 'waiting' | 'verified' | 'invalid' | 'expired';
 
@@ -140,8 +141,11 @@ export function Challenge() {
       <StarField />
       <div className="max-w-3xl mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-4">Verify an AI Agent</h1>
-
+          <img
+            src={verifyHeaderSvg}
+            alt="Verify an AI Agent"
+            className="w-full max-w-2xl mx-auto object-contain"
+          />
         </div>
 
         {error && (

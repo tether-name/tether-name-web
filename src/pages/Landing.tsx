@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
 import { StarField } from '../components/StarField';
-import heroSvg from '../assets/hero.svg';
+import websiteHeaderSvg from '../assets/website-header.svg';
 import robotFourSvg from '../assets/robot-four.svg';
 
 
@@ -23,13 +23,10 @@ export function Landing() {
         <div className="flex flex-col items-center">
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
-            src={heroSvg}
+            src={websiteHeaderSvg}
             alt="tether.name — verify AI agents are who they say they are"
             className="w-full max-w-4xl mx-auto object-contain"
           />
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-300 font-medium max-w-lg text-center -mt-8">
-            catch the drift: verify AI agents are who they say they are.
-          </p>
         </div>
 
         {/* CTA Buttons */}

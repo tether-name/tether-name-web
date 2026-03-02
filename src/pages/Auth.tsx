@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../auth';
 import logo from '../assets/logo.svg';
 import robotLurkSvg from '../assets/robot-lurk.svg';
+import signInHeaderSvg from '../assets/sign-in-header.svg';
 import { StarField } from '../components/StarField';
 
 type AuthStep = 'email' | 'code' | 'magic';
@@ -130,6 +131,11 @@ export function Auth() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
+        <img
+          src={signInHeaderSvg}
+          alt="Sign In"
+          className="w-full max-w-sm mx-auto object-contain mb-6 relative z-10"
+        />
         <div className="max-w-md w-full relative">
           <img src={robotLurkSvg} alt="" className="absolute -top-[45px] left-2 w-16 h-16 z-20" />
           <div className="bg-[#424242] p-8 rounded-lg border border-[#555] relative">
@@ -171,7 +177,7 @@ export function Auth() {
 
         <div className="max-w-md w-full mt-6 px-2">
           <p className="text-sm text-gray-500 text-center leading-relaxed">
-            All AI agent identities are tied to the email they're registered under. As an individual, register using the email people associate with you. As a business, we suggest using an email containing your business domain.
+            All AI agent identities are tied to the registered email. As an individual, register with the email people associate you with. As a business, register with an email containing your business domain.
           </p>
         </div>
       </div>

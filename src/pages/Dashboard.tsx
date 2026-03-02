@@ -6,6 +6,7 @@ import type { Agent, ApiKeyListItem, Domain } from '../api';
 import { StarField } from '../components/StarField';
 import { useSnackbar } from '../components/Snackbar';
 import robotThreeSvg from '../assets/robot-three.svg';
+import dashboardHeaderSvg from '../assets/dashboard-header.svg';
 
 function formatDate(timestamp: number): string {
   if (!timestamp) return 'Unknown';
@@ -156,17 +157,15 @@ export function Dashboard() {
     <div className="min-h-screen bg-[#1f1f1f] relative overflow-hidden">
       <StarField />
       <div className="max-w-4xl mx-auto px-4 py-16 relative">
-        <div className="mb-8 flex items-center gap-4">
-          <img src={robotThreeSvg} alt="" className="w-20 h-20" />
-          <div>
-            <h1 className="text-3xl font-bold mb-2">
-              <span className="text-[#f4b049]">AI Agent</span>{' '}
-              <span className="text-[#61d397]">Dashboard</span>
-            </h1>
-            <p className="text-gray-400">
-              {user?.email}
-            </p>
-          </div>
+        <div className="mb-8">
+          <img
+            src={dashboardHeaderSvg}
+            alt="AI Agent Dashboard"
+            className="w-full max-w-2xl mx-auto object-contain mb-4"
+          />
+          <p className="text-gray-400 text-center">
+            {user?.email}
+          </p>
         </div>
 
         {error && (
