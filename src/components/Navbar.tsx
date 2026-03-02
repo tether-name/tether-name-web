@@ -32,7 +32,7 @@ export function Navbar() {
                   </Link>
                 )}
                 <button
-                  onClick={logout}
+                  onClick={() => { void logout(); }}
                   className="border border-gray-500 hover:border-gray-400 text-gray-300 hover:text-white px-2 sm:px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap"
                 >
                   Logout

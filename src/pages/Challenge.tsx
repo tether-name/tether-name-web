@@ -74,7 +74,7 @@ export function Challenge() {
         // Silently retry on network errors
       }
     }, intervalMs);
-  }, [stopPolling]);
+  }, [navigate, stopPolling]);
 
   const generateChallenge = async () => {
     setStatus('generating');

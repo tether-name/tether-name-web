@@ -83,7 +83,9 @@ export function NewAgent() {
       }
     };
 
-    pollRef.current = setInterval(poll, 3000);
+    // Check once immediately, then back off to 5s polling to avoid edge 429s.
+    void poll();
+    pollRef.current = setInterval(poll, 5000);
     return () => {
       if (pollRef.current) {
         clearInterval(pollRef.current);

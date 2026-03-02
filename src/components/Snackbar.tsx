@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 type SnackbarType = 'info' | 'success' | 'error';
@@ -39,8 +40,9 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
 
   // Cleanup on unmount
   useEffect(() => {
+    const activeTimers = timers.current;
     return () => {
-      timers.current.forEach((t) => clearTimeout(t));
+      activeTimers.forEach((t) => clearTimeout(t));
     };
   }, []);
 

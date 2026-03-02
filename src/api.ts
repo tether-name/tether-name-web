@@ -160,6 +160,22 @@ export const api = {
       body: JSON.stringify({ refreshToken: token }),
     }),
 
+  logout: async (refreshToken: string) => {
+    const response = await fetch(`${API_BASE_URL}/auth/logout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ refreshToken }),
+    });
+
+    if (!response.ok) {
+      throw new ApiError(response.status, 'Logout failed');
+    }
+
+    return response.json() as Promise<{ message: string }>;
+  },
+
   // User endpoints
   getProfile: () =>
     apiRequest<MeResponse>('/auth/me'),
@@ -242,7 +258,7 @@ export const api = {
     }),
 
   getStats: () =>
-    apiRequest<{ totalVerifications: number; totalAgentsRegistered: number }>('/stats'),
+    apiRequest<{ totalVerifications: number; totalAgentsRegistered: number; totalDomainsVerified: number }>('/stats'),
 
   getChallengeStatus: (code: string) =>
     apiRequest<{
