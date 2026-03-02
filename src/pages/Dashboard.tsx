@@ -4,6 +4,7 @@ import { useAuth } from '../auth';
 import { api, ApiError } from '../api';
 import type { Agent, ApiKeyListItem, Domain } from '../api';
 import { StarField } from '../components/StarField';
+import { useSnackbar } from '../components/Snackbar';
 import robotThreeSvg from '../assets/robot-three.svg';
 
 function formatDate(timestamp: number): string {
@@ -31,6 +32,7 @@ function timeAgo(timestamp: number): string {
 export function Dashboard() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { showSnackbar } = useSnackbar();
   const [agents, setAgents] = useState<Agent[]>([]);
   const [apiKeys, setApiKeys] = useState<ApiKeyListItem[]>([]);
   const [domains, setDomains] = useState<Domain[]>([]);
@@ -89,12 +91,10 @@ export function Dashboard() {
     try {
       await api.deleteDomain(domain.id);
       setDomains((prev) => prev.filter((d) => d.id !== domain.id));
+      showSnackbar(`Domain "${domain.domain}" removed`, 'success');
     } catch (err) {
-      if (err instanceof ApiError) {
-        setError(err.message);
-      } else {
-        setError('Failed to remove domain');
-      }
+      const message = err instanceof ApiError ? err.message : 'Failed to remove domain';
+      showSnackbar(message, 'error');
     } finally {
       setDeletingDomain(null);
     }
@@ -102,25 +102,22 @@ export function Dashboard() {
 
   const handleVerifyDomain = async (domain: Domain) => {
     setVerifyingDomain(domain.id);
-    setError('');
     try {
       const result = await api.verifyDomain(domain.id);
       if (result.verified) {
         setDomains((prev) => prev.map((d) =>
           d.id === domain.id ? { ...d, verified: true, verifiedAt: Date.now(), lastCheckedAt: Date.now() } : d
         ));
+        showSnackbar(`${domain.domain} verified!`, 'success');
       } else {
-        setError(`DNS record not found for ${domain.domain}. It may take a few minutes to propagate.`);
         setDomains((prev) => prev.map((d) =>
           d.id === domain.id ? { ...d, lastCheckedAt: Date.now() } : d
         ));
+        showSnackbar(`DNS record not found for ${domain.domain}. It may take a few minutes to propagate.`, 'error');
       }
     } catch (err) {
-      if (err instanceof ApiError) {
-        setError(err.message);
-      } else {
-        setError('Verification check failed');
-      }
+      const message = err instanceof ApiError ? err.message : 'Verification check failed';
+      showSnackbar(message, 'error');
     } finally {
       setVerifyingDomain(null);
     }

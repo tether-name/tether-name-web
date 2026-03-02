@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../api';
 import type { ClaimDomainResponse } from '../api';
 import { StarField } from '../components/StarField';
+import { useSnackbar } from '../components/Snackbar';
 
 type Step = 'input' | 'dns' | 'verifying' | 'verified';
 
 export function NewDomain() {
   const navigate = useNavigate();
+  const { showSnackbar } = useSnackbar();
   const [step, setStep] = useState<Step>('input');
   const [domain, setDomain] = useState('');
   const [claimData, setClaimData] = useState<ClaimDomainResponse | null>(null);
@@ -129,7 +131,7 @@ export function NewDomain() {
                 <div className="flex items-center gap-2">
                   <code className="text-[#61d397] font-mono text-lg">{claimData.txtHost}</code>
                   <button
-                    onClick={() => navigator.clipboard.writeText(claimData.txtHost)}
+                    onClick={() => { navigator.clipboard.writeText(claimData.txtHost); showSnackbar('Host copied to clipboard', 'success'); }}
                     className="text-gray-500 hover:text-white transition-colors text-sm"
                     title="Copy"
                   >
@@ -142,7 +144,7 @@ export function NewDomain() {
                 <div className="flex items-center gap-2">
                   <code className="text-[#f4b049] font-mono break-all">{claimData.txtRecord}</code>
                   <button
-                    onClick={() => navigator.clipboard.writeText(claimData.txtRecord)}
+                    onClick={() => { navigator.clipboard.writeText(claimData.txtRecord); showSnackbar('TXT record copied to clipboard', 'success'); }}
                     className="text-gray-500 hover:text-white transition-colors text-sm flex-shrink-0"
                     title="Copy"
                   >

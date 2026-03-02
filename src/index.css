@@ -11,3 +11,18 @@ body {
   background-color: #1f1f1f;
   color: #e5e5e5;
 }
+
+@keyframes snackbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-snackbar-in {
+  animation: snackbar-in 0.2s ease-out;
+}

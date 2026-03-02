@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './auth';
+import { SnackbarProvider } from './components/Snackbar';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -20,6 +21,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 function App() {
   return (
     <AuthProvider>
+      <SnackbarProvider>
       <Router>
         <ScrollToTop />
         <div className="min-h-screen bg-[#1f1f1f] flex flex-col">
@@ -71,6 +73,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+      </SnackbarProvider>
     </AuthProvider>
   );
 }
