@@ -5,7 +5,6 @@ import { api, ApiError } from '../api';
 import type { Agent, ApiKeyListItem, Domain } from '../api';
 import { StarField } from '../components/StarField';
 import { useSnackbar } from '../components/Snackbar';
-import robotThreeSvg from '../assets/robot-three.svg';
 import dashboardHeaderSvg from '../assets/dashboard-header.svg';
 
 function formatDate(timestamp: number): string {
