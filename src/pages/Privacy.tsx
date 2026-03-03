@@ -49,7 +49,7 @@ export function Privacy() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">Data Storage</h2>
             <p>
-              Your data is stored securely in Google Cloud Firebase. Authentication tokens are stored in your browser's session storage and are cleared when you close the tab.
+              Your data is stored securely in Google Cloud Firebase. Session continuity uses a secure, httpOnly refresh cookie (not readable by JavaScript), and short-lived access tokens are kept in memory only.
             </p>
           </section>
 

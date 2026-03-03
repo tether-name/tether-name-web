@@ -1,6 +1,9 @@
-import { getAccessToken, setAccessToken, getRefreshToken, setRefreshToken } from './token';
+import { getAccessToken, setAccessToken } from './token';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+const COOKIE_SESSION_HEADERS = {
+  'X-Tether-Session-Mode': 'cookie',
+};
 
 export interface User {
   email: string;
@@ -75,18 +78,13 @@ export class ApiError extends Error {
 }
 
 export async function refreshTokens(): Promise<boolean> {
-  const refreshToken = getRefreshToken();
-  if (!refreshToken) {
-    return false;
-  }
-
   try {
     const response = await fetch(`${API_BASE_URL}/auth/refresh`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
-        'Content-Type': 'application/json',
+        ...COOKIE_SESSION_HEADERS,
       },
-      body: JSON.stringify({ refreshToken }),
     });
 
     if (!response.ok) {
@@ -94,8 +92,7 @@ export async function refreshTokens(): Promise<boolean> {
     }
 
     const data = await response.json();
-    setAccessToken(data.accessToken);
-    setRefreshToken(data.refreshToken);
+    setAccessToken(data.accessToken ?? null);
     return true;
   } catch {
     return false;
@@ -107,6 +104,7 @@ async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promi
     const token = getAccessToken();
     
     const config: RequestInit = {
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
         ...(token && { Authorization: `Bearer ${token}` }),
@@ -153,28 +151,36 @@ export const api = {
   verifyCode: (email: string, code: string) =>
     apiRequest<AuthResponse>('/auth/verify-code', {
       method: 'POST',
+      headers: {
+        ...COOKIE_SESSION_HEADERS,
+      },
       body: JSON.stringify({ email, code }),
     }),
 
   exchangeCode: (token: string) =>
     apiRequest<AuthResponse>('/auth/exchange-code', {
       method: 'POST',
+      headers: {
+        ...COOKIE_SESSION_HEADERS,
+      },
       body: JSON.stringify({ token }),
     }),
 
-  refreshToken: (token: string) =>
+  refreshToken: () =>
     apiRequest<{accessToken: string, refreshToken: string}>('/auth/refresh', {
       method: 'POST',
-      body: JSON.stringify({ refreshToken: token }),
+      headers: {
+        ...COOKIE_SESSION_HEADERS,
+      },
     }),
 
-  logout: async (refreshToken: string) => {
+  logout: async () => {
     const response = await fetch(`${API_BASE_URL}/auth/logout`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
-        'Content-Type': 'application/json',
+        ...COOKIE_SESSION_HEADERS,
       },
-      body: JSON.stringify({ refreshToken }),
     });
 
     if (!response.ok) {

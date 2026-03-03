@@ -2,14 +2,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { api, refreshTokens } from './api';
 import type { User } from './api';
-import {
-  getAccessToken,
-  setAccessToken,
-  setRefreshToken,
-  getRefreshToken,
-  hasRefreshToken,
-  clearAllTokens,
-} from './token';
+import { getAccessToken, setAccessToken, clearAllTokens } from './token';
 
 interface AuthContextType {
   user: User | null;
@@ -34,21 +27,18 @@ export function useAuth() {
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(() => hasRefreshToken());
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    if (!hasRefreshToken()) {
-      return;
-    }
-
-    // Silently restore session: refresh token → new access token → profile
+    // Silently restore session from httpOnly refresh cookie.
     refreshTokens()
       .then((ok) => {
-        if (!ok) throw new Error('refresh failed');
+        if (!ok) return null;
         setToken(getAccessToken());
         return api.getProfile();
       })
       .then((profile) => {
+        if (!profile) return;
         setUser({ email: profile.email, verified: true });
       })
       .catch(() => {
@@ -69,7 +59,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
     setUser(user);
     setAccessToken(response.accessToken);
-    setRefreshToken(response.refreshToken);
     setToken(response.accessToken);
   };
 
@@ -84,14 +73,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const logout = async () => {
-    const refreshToken = getRefreshToken();
-
-    if (refreshToken) {
-      try {
-        await api.logout(refreshToken);
-      } catch {
-        // Best-effort revoke. Always clear local session even if network fails.
-      }
+    try {
+      await api.logout();
+    } catch {
+      // Best-effort revoke. Always clear local session even if network fails.
     }
 
     setUser(null);
