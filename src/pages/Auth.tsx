@@ -33,7 +33,7 @@ export function Auth() {
       setStep('code');
     } catch (error) {
       console.error('Send code error:', error);
-      setError('Something went wrong sending the code. Please try again.');
+      setError(error instanceof Error ? error.message : 'Something went wrong sending the code. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -50,7 +50,7 @@ export function Auth() {
       navigate('/dashboard');
     } catch (error) {
       console.error('Verify code error:', error);
-      setError('Invalid or expired code. Please try again.');
+      setError(error instanceof Error ? error.message : 'Invalid or expired code. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -94,7 +94,7 @@ export function Auth() {
       navigate('/dashboard');
     } catch (error) {
       console.error('Magic link verify error:', error);
-      setError('Verification failed. The link may have expired — try signing in again.');
+      setError(error instanceof Error ? error.message : 'Verification failed. The link may have expired — try signing in again.');
     } finally {
       setLoading(false);
     }
