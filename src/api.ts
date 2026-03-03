@@ -1,3 +1,5 @@
+import { getAccessToken, setAccessToken, getRefreshToken, setRefreshToken } from './token';
+
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export interface User {
@@ -72,8 +74,8 @@ export class ApiError extends Error {
   }
 }
 
-async function refreshTokens(): Promise<boolean> {
-  const refreshToken = sessionStorage.getItem('refresh_token');
+export async function refreshTokens(): Promise<boolean> {
+  const refreshToken = getRefreshToken();
   if (!refreshToken) {
     return false;
   }
@@ -92,8 +94,8 @@ async function refreshTokens(): Promise<boolean> {
     }
 
     const data = await response.json();
-    sessionStorage.setItem('access_token', data.accessToken);
-    sessionStorage.setItem('refresh_token', data.refreshToken);
+    setAccessToken(data.accessToken);
+    setRefreshToken(data.refreshToken);
     return true;
   } catch {
     return false;
@@ -102,7 +104,7 @@ async function refreshTokens(): Promise<boolean> {
 
 async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const makeRequest = async (): Promise<Response> => {
-    const token = sessionStorage.getItem('access_token');
+    const token = getAccessToken();
     
     const config: RequestInit = {
       headers: {

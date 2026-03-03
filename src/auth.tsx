@@ -1,7 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { api } from './api';
+import { api, refreshTokens } from './api';
 import type { User } from './api';
+import {
+  getAccessToken,
+  setAccessToken,
+  setRefreshToken,
+  getRefreshToken,
+  hasRefreshToken,
+  clearAllTokens,
+} from './token';
 
 interface AuthContextType {
   user: User | null;
@@ -24,35 +32,30 @@ export function useAuth() {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(() => sessionStorage.getItem('access_token'));
-  const [loading, setLoading] = useState<boolean>(() => !!sessionStorage.getItem('access_token'));
+  const [token, setToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(() => hasRefreshToken());
 
   useEffect(() => {
-    // Using sessionStorage (not localStorage) — tokens are scoped to this tab and
-    // cleared on close. httpOnly cookies via a BFF proxy would be ideal but adds
-    // significant infrastructure complexity for marginal gain at current scale.
-    if (!token) {
+    if (!hasRefreshToken()) {
       return;
     }
 
-    // Try to get user profile
-    api.getProfile()
+    // Silently restore session: refresh token → new access token → profile
+    refreshTokens()
+      .then((ok) => {
+        if (!ok) throw new Error('refresh failed');
+        setToken(getAccessToken());
+        return api.getProfile();
+      })
       .then((profile) => {
-        // Map MeResponse to User interface
-        const user: User = {
-          email: profile.email,
-          verified: true,
-        };
-        setUser(user);
+        setUser({ email: profile.email, verified: true });
       })
       .catch(() => {
-        // Token is invalid, clear both tokens
-        sessionStorage.removeItem('access_token');
-        sessionStorage.removeItem('refresh_token');
+        clearAllTokens();
         setToken(null);
       })
       .finally(() => setLoading(false));
-  }, [token]);
+  }, []);
 
   const sendCode = async (email: string) => {
     await api.sendCode(email);
@@ -60,20 +63,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const verifyCode = async (email: string, code: string) => {
     const response = await api.verifyCode(email, code);
-    // Create a user object from the response
     const user: User = {
       email: response.email,
       verified: true,
     };
     setUser(user);
+    setAccessToken(response.accessToken);
+    setRefreshToken(response.refreshToken);
     setToken(response.accessToken);
-    // Using sessionStorage instead of localStorage for better security
-    sessionStorage.setItem('access_token', response.accessToken);
-    sessionStorage.setItem('refresh_token', response.refreshToken);
   };
 
   const logout = async () => {
-    const refreshToken = sessionStorage.getItem('refresh_token');
+    const refreshToken = getRefreshToken();
 
     if (refreshToken) {
       try {
@@ -85,9 +86,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     setUser(null);
     setToken(null);
-    // Clear tokens from sessionStorage
-    sessionStorage.removeItem('access_token');
-    sessionStorage.removeItem('refresh_token');
+    clearAllTokens();
   };
 
   return (
