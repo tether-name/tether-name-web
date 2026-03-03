@@ -102,15 +102,22 @@ export async function refreshTokens(): Promise<boolean> {
 async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const makeRequest = async (): Promise<Response> => {
     const token = getAccessToken();
-    
+
+    const headers = new Headers(options.headers ?? undefined);
+
+    // If we're sending a body and caller didn't specify content-type, default to JSON.
+    if (options.body !== undefined && !headers.has('Content-Type')) {
+      headers.set('Content-Type', 'application/json');
+    }
+
+    if (token && !headers.has('Authorization')) {
+      headers.set('Authorization', `Bearer ${token}`);
+    }
+
     const config: RequestInit = {
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        ...(token && { Authorization: `Bearer ${token}` }),
-        ...options.headers,
-      },
       ...options,
+      credentials: 'include',
+      headers,
     };
 
     return fetch(`${API_BASE_URL}${endpoint}`, config);
