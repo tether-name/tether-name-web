@@ -16,6 +16,7 @@ interface AuthContextType {
   token: string | null;
   sendCode: (email: string) => Promise<void>;
   verifyCode: (email: string, code: string) => Promise<void>;
+  exchangeMagicToken: (token: string) => Promise<void>;
   logout: () => Promise<void>;
   loading: boolean;
 }
@@ -61,8 +62,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await api.sendCode(email);
   };
 
-  const verifyCode = async (email: string, code: string) => {
-    const response = await api.verifyCode(email, code);
+  const applyAuthResponse = (response: { accessToken: string; refreshToken: string; email: string }) => {
     const user: User = {
       email: response.email,
       verified: true,
@@ -71,6 +71,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setAccessToken(response.accessToken);
     setRefreshToken(response.refreshToken);
     setToken(response.accessToken);
+  };
+
+  const verifyCode = async (email: string, code: string) => {
+    const response = await api.verifyCode(email, code);
+    applyAuthResponse(response);
+  };
+
+  const exchangeMagicToken = async (token: string) => {
+    const response = await api.exchangeCode(token);
+    applyAuthResponse(response);
   };
 
   const logout = async () => {
@@ -90,7 +100,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, sendCode, verifyCode, logout, loading }}>
+    <AuthContext.Provider value={{ user, token, sendCode, verifyCode, exchangeMagicToken, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

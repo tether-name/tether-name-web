@@ -10,16 +10,17 @@ type AuthStep = 'email' | 'code' | 'magic';
 
 export function Auth() {
   const [searchParams] = useSearchParams();
+  const magicToken = searchParams.get('token') || '';
   const magicEmail = searchParams.get('email') || '';
   const magicCode = searchParams.get('code') || '';
-  const hasMagicLink = !!(magicEmail && magicCode);
+  const hasMagicLink = !!magicToken || !!(magicEmail && magicCode);
 
   const [step, setStep] = useState<AuthStep>(hasMagicLink ? 'magic' : 'email');
   const [email, setEmail] = useState(magicEmail || '');
   const [code, setCode] = useState(magicCode || '');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { sendCode, verifyCode } = useAuth();
+  const { sendCode, verifyCode, exchangeMagicToken } = useAuth();
   const navigate = useNavigate();
 
   const handleSendCode = async (e: React.FormEvent) => {
@@ -72,12 +73,24 @@ export function Auth() {
     setCode(formatted);
   };
 
+  const resetToEmail = () => {
+    setStep('email');
+    setEmail('');
+    setCode('');
+    setError('');
+    navigate('/auth', { replace: true });
+  };
+
   const handleMagicVerify = async () => {
     setError('');
     setLoading(true);
 
     try {
-      await verifyCode(email, code);
+      if (magicToken) {
+        await exchangeMagicToken(magicToken);
+      } else {
+        await verifyCode(email, code);
+      }
       navigate('/dashboard');
     } catch (error) {
       console.error('Magic link verify error:', error);
@@ -96,7 +109,11 @@ export function Auth() {
             <img src={logo} alt="tether.name" className="h-10 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-white">Confirm Sign In</h2>
             <p className="text-gray-400 mt-2">
-              Signing in as <strong>{email}</strong>
+              {email ? (
+                <>Signing in as <strong>{email}</strong></>
+              ) : (
+                <>Secure sign-in link detected</>
+              )}
             </p>
           </div>
 
@@ -116,7 +133,7 @@ export function Auth() {
 
           <div className="text-center mt-6">
             <button
-              onClick={() => { setStep('email'); setEmail(''); setCode(''); setError(''); }}
+              onClick={resetToEmail}
               className="text-[#f4b049] hover:text-[#e5a03a] text-sm font-medium"
             >
               ← Use a different email

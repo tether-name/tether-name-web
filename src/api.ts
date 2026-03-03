@@ -156,6 +156,12 @@ export const api = {
       body: JSON.stringify({ email, code }),
     }),
 
+  exchangeCode: (token: string) =>
+    apiRequest<AuthResponse>('/auth/exchange-code', {
+      method: 'POST',
+      body: JSON.stringify({ token }),
+    }),
+
   refreshToken: (token: string) =>
     apiRequest<{accessToken: string, refreshToken: string}>('/auth/refresh', {
       method: 'POST',
