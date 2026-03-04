@@ -26,6 +26,29 @@
     <meta name="twitter:title" content="AI Agent Verification & Agentic Verification | tether.name" />
     <meta name="twitter:description" content="Verify AI agent identity with signed one-time challenges and prevent impersonation in real conversations." />
     <meta name="twitter:image" content="https://tether.name/og.png" />
+
+    <script type="application/ld+json" id="structured-data-home">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "tether.name",
+            "url": "https://tether.name/",
+            "logo": "https://tether.name/og.png",
+            "sameAs": [
+              "https://github.com/orgs/tether-name/repositories"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "name": "tether.name",
+            "url": "https://tether.name/",
+            "description": "AI agent verification and agentic verification with signed one-time challenge links."
+          }
+        ]
+      }
+    </script>
     <!-- Dev CSP: unsafe-inline + localhost needed for HMR. Production CSP is injected by vite.config.ts cspPlugin. -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.tether.name http://localhost:3000 http://127.0.0.1:3000; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'" />
   </head>

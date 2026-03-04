@@ -267,6 +267,12 @@ export function Landing() {
                 See our guide
               </Link>
             </p>
+            <p className="text-gray-500">
+              Want a deeper breakdown of AI agent verification?{' '}
+              <Link to="/ai-agent-verification" className="text-[#f4b049] hover:underline font-medium">
+                Read the verification guide
+              </Link>
+            </p>
           </div>
 
           {stats && (stats.totalVerifications > 0 || stats.totalAgentsRegistered > 0) && (

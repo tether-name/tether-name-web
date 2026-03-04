@@ -73,7 +73,11 @@ export function Support() {
               className="text-[#f4b049] underline hover:no-underline"
             >
               docs.tether.name
-            </a>
+            </a>{' '}
+            and our{' '}
+            <Link to="/ai-agent-verification" className="text-[#f4b049] underline hover:no-underline">
+              AI agent verification guide
+            </Link>
             .
           </p>
           <p>

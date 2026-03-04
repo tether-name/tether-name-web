@@ -76,6 +76,18 @@ function getSeoConfig(rawPathname: string): SeoConfig {
     };
   }
 
+  if (pathname === '/ai-agent-verification') {
+    return {
+      title: 'AI Agent Verification Guide | tether.name',
+      description:
+        'Learn how to verify AI agents with signed one-time challenges and reduce impersonation risk in agentic workflows.',
+      keywords:
+        'ai agent verification, verify ai agent, agentic verification, ai identity verification',
+      robots: 'index,follow',
+      canonicalPath: '/ai-agent-verification/',
+    };
+  }
+
   if (pathname === '/privacy' || pathname === '/terms' || pathname === '/support') {
     return {
       title: `tether.name ${pathname.slice(1).charAt(0).toUpperCase()}${pathname.slice(2)}`,

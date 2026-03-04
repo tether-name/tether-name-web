@@ -7,6 +7,7 @@ export function Footer() {
           <a href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy</a>
           <a href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">Terms</a>
           <a href="/support" className="text-sm text-gray-400 hover:text-white transition-colors">Support</a>
+          <a href="/ai-agent-verification" className="text-sm text-gray-400 hover:text-white transition-colors">AI Agent Verification</a>
           <a
             href="https://github.com/orgs/tether-name/repositories"
             target="_blank"
