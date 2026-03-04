@@ -58,11 +58,11 @@ export function VerifiedResult({
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">Verification Complete</h2>
-          <p className="text-gray-400 text-lg">The agent signed this code</p>
+          <p className="text-gray-400 text-lg">The AI agent signed this code</p>
         </div>
 
         <div className="bg-[#333] p-6 rounded-lg border-2 border-[#f4b049]">
-          <p className="text-center text-gray-400 text-sm mb-2">Verified agent</p>
+          <p className="text-center text-gray-400 text-sm mb-2">Verified AI agent</p>
           <p className="text-center text-2xl font-bold text-white mb-1">{agentName || 'Unknown Agent'}</p>
           {domain ? (
             <p className="text-center text-[#61d397] text-sm mt-2 font-medium">
@@ -121,21 +121,21 @@ export function VerifiedResult({
       )}
 
       <div className="border border-[#555] bg-[#333] p-6 rounded-lg">
-        <h3 className="text-lg font-semibold text-white mb-3">What does this mean?</h3>
+        <h3 className="text-lg font-semibold text-white mb-3">Now what?</h3>
         <div className="text-gray-300 space-y-3 text-sm">
           <p>
-            This code confirms that the agent holds a valid cryptographic identity registered on tether.name. It does <strong>not</strong> automatically mean this agent is safe to trust.
+            The AI agent is registered on tether.name. It does not mean they're safe to trust.
           </p>
-          <p className="font-medium text-white">You should now ask yourself:</p>
+          <p className="font-medium text-white">Ask yourself:</p>
           <ul className="list-disc list-inside space-y-2 ml-2">
             <li>
-              <strong>Does the agent name match?</strong> Is this the agent you expected to be talking to?
+              <strong>Does the AI agent's name match?</strong> Is this the AI agent I expected to talk to?
             </li>
             <li>
-              <strong>Do you recognize the owner?</strong> Does the agent's claimed affiliation match who contacted you?
+              Does the AI agent's claimed affiliation match whoever contacted me?
             </li>
             <li>
-              <strong>Am I comfortable?</strong> If anything looks off — unfamiliar name, unexpected timing — do not trust the agent and contact the person directly through a channel you already trust.
+              <strong>Am I comfortable?</strong> If anything looks off - name, timing, information - do not trust the AI agent and contact the person directly through a channel you already trust.
             </li>
           </ul>
         </div>

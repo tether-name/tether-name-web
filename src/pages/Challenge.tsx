@@ -203,7 +203,7 @@ export function Challenge() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3">Done</h3>
                 <p className="text-gray-400 leading-relaxed text-base">
-                  You will see who the AI agent is, who registered it and when, or if they aren't verifiable.
+                  If an AI agent is verifiable, you'll see who registered it and when.
                 </p>
               </div>
             </div>
