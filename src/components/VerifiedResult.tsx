@@ -61,7 +61,7 @@ export function VerifiedResult({
           <p className="text-gray-400 text-lg">The agent signed this code</p>
         </div>
 
-        <div className="bg-[#333] p-6 rounded-lg border-2 border-[#61d397]">
+        <div className="bg-[#333] p-6 rounded-lg border-2 border-[#f4b049]">
           <p className="text-center text-gray-400 text-sm mb-2">Verified agent</p>
           <p className="text-center text-2xl font-bold text-white mb-1">{agentName || 'Unknown Agent'}</p>
           {domain ? (
