@@ -20,6 +20,13 @@ export interface Agent {
   lastVerifiedAt: number;
 }
 
+export interface UpdateAgentResponse {
+  id: string;
+  domainId: string;
+  domain?: string | null;
+  message: string;
+}
+
 export interface Domain {
   id: string;
   domain: string;
@@ -231,6 +238,12 @@ export const api = {
   deleteAgent: (id: string) =>
     apiRequest<{ message: string }>(`/agents/${id}`, {
       method: 'DELETE',
+    }),
+
+  updateAgentDomain: (id: string, domainId: string) =>
+    apiRequest<UpdateAgentResponse>(`/agents/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ domainId }),
     }),
 
   // Challenge endpoints

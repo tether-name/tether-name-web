@@ -39,6 +39,8 @@ export function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [deleting, setDeleting] = useState<string | null>(null);
+  const [updatingAgent, setUpdatingAgent] = useState<string | null>(null);
+  const [agentDomainDrafts, setAgentDomainDrafts] = useState<Record<string, string>>({});
   const [revoking, setRevoking] = useState<string | null>(null);
   const [deletingDomain, setDeletingDomain] = useState<string | null>(null);
   const [verifyingDomain, setVerifyingDomain] = useState<string | null>(null);
@@ -55,6 +57,9 @@ export function Dashboard() {
         api.getDomains(),
       ]);
       setAgents(agentsData);
+      setAgentDomainDrafts(
+        Object.fromEntries(agentsData.map((agent) => [agent.id, agent.domainId ?? '']))
+      );
       setApiKeys(keysData);
       setDomains(domainsData);
     } catch (err) {
@@ -74,6 +79,11 @@ export function Dashboard() {
     try {
       await api.deleteAgent(agent.id);
       setAgents((prev) => prev.filter((a) => a.id !== agent.id));
+      setAgentDomainDrafts((prev) => {
+        const next = { ...prev };
+        delete next[agent.id];
+        return next;
+      });
     } catch (err) {
       if (err instanceof ApiError) {
         setError(err.message);
@@ -82,6 +92,26 @@ export function Dashboard() {
       }
     } finally {
       setDeleting(null);
+    }
+  };
+
+  const handleUpdateAgentDomain = async (agent: Agent) => {
+    const selectedDomainId = agentDomainDrafts[agent.id] ?? '';
+    setUpdatingAgent(agent.id);
+
+    try {
+      const result = await api.updateAgentDomain(agent.id, selectedDomainId);
+      setAgents((prev) => prev.map((a) => (
+        a.id === agent.id
+          ? { ...a, domainId: result.domainId, domain: result.domain ?? null }
+          : a
+      )));
+      showSnackbar(result.message, 'success');
+    } catch (err) {
+      const message = err instanceof ApiError ? err.message : 'Failed to update agent';
+      showSnackbar(message, 'error');
+    } finally {
+      setUpdatingAgent(null);
     }
   };
 
@@ -144,6 +174,8 @@ export function Dashboard() {
     return `${prefix.slice(0, 9)}...${prefix.slice(-4)}`;
   }
 
+  const verifiedDomains = domains.filter((domain) => domain.verified);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-[#1f1f1f] flex items-center justify-center">
@@ -176,40 +208,79 @@ export function Dashboard() {
         {/* Agent list */}
         {agents.length > 0 ? (
           <div className="mb-8 space-y-4">
-            {agents.map((agent) => (
-              <div key={agent.id} className="relative bg-[#1f1f1f] border border-[#555] p-5 rounded-lg flex items-start justify-between">
-                {deleting === agent.id && (
-                  <div className="absolute inset-0 bg-[#1f1f1f]/70 rounded-lg flex items-center justify-center z-10">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
-                  </div>
-                )}
-                <div>
-                  <h3 className="text-lg font-semibold text-white">{agent.agentName}</h3>
-                  {agent.description && (
-                    <p className="text-gray-500 mt-1">{agent.description}</p>
-                  )}
-                  {agent.domain && (
-                    <div className="mt-2">
-                      <span className="text-xs bg-green-900/40 text-[#61d397] px-2 py-0.5 rounded-full border border-green-800 font-medium">
-                        Domain: {agent.domain}
-                      </span>
+            {agents.map((agent) => {
+              const selectedDomainId = agentDomainDrafts[agent.id] ?? (agent.domainId ?? '');
+              const isSaving = updatingAgent === agent.id;
+              const hasChanged = selectedDomainId !== (agent.domainId ?? '');
+
+              return (
+                <div key={agent.id} className="relative bg-[#1f1f1f] border border-[#555] p-5 rounded-lg flex items-start justify-between gap-4">
+                  {(deleting === agent.id || isSaving) && (
+                    <div className="absolute inset-0 bg-[#1f1f1f]/70 rounded-lg flex items-center justify-center z-10">
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#555]"></div>
                     </div>
                   )}
-                  <div className="mt-3 flex gap-6 text-sm text-gray-500">
-                    <span>Registered: {formatDate(agent.createdAt)}</span>
-                    <span>Last verified: {timeAgo(agent.lastVerifiedAt)}</span>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-white">{agent.agentName}</h3>
+                    {agent.description && (
+                      <p className="text-gray-500 mt-1">{agent.description}</p>
+                    )}
+                    {agent.domain ? (
+                      <div className="mt-2">
+                        <span className="text-xs bg-green-900/40 text-[#61d397] px-2 py-0.5 rounded-full border border-green-800 font-medium">
+                          Domain: {agent.domain}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="mt-2">
+                        <span className="text-xs bg-[#333] text-gray-400 px-2 py-0.5 rounded-full border border-[#555] font-medium">
+                          Showing account email
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="mt-4 flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3">
+                      <div className="min-w-0 sm:min-w-[280px]">
+                        <label className="block text-xs text-gray-400 mb-1">Verification identity shown</label>
+                        <select
+                          value={selectedDomainId}
+                          onChange={(e) => setAgentDomainDrafts((prev) => ({
+                            ...prev,
+                            [agent.id]: e.target.value,
+                          }))}
+                          className="w-full px-3 py-2 bg-[#333] border border-[#555] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-[#f4b049] focus:border-[#f4b049]"
+                        >
+                          <option value="">Account email</option>
+                          {verifiedDomains.map((domain) => (
+                            <option key={domain.id} value={domain.id}>{domain.domain}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <button
+                        onClick={() => handleUpdateAgentDomain(agent)}
+                        disabled={!hasChanged || isSaving}
+                        className="px-4 py-2 bg-[#f4b049] hover:bg-[#e5a03a] disabled:bg-gray-600 text-[#333] rounded-md text-sm font-medium transition-colors"
+                      >
+                        Save
+                      </button>
+                    </div>
+
+                    <div className="mt-3 flex gap-6 text-sm text-gray-500 flex-wrap">
+                      <span>Registered: {formatDate(agent.createdAt)}</span>
+                      <span>Last verified: {timeAgo(agent.lastVerifiedAt)}</span>
+                    </div>
                   </div>
+                  <button
+                    onClick={() => handleDelete(agent)}
+                    disabled={deleting === agent.id || isSaving}
+                    className="p-2 text-gray-400 hover:text-red-600 transition-colors disabled:opacity-50"
+                    title="Delete agent"
+                  >
+                    <span className="material-icons text-xl">delete</span>
+                  </button>
                 </div>
-                <button
-                  onClick={() => handleDelete(agent)}
-                  disabled={deleting === agent.id}
-                  className="p-2 text-gray-400 hover:text-red-600 transition-colors disabled:opacity-50"
-                  title="Delete agent"
-                >
-                  <span className="material-icons text-xl">delete</span>
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="mb-8 flex gap-4">
