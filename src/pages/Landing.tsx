@@ -44,7 +44,7 @@ export function Landing() {
             to={myAgentsHref}
             className="bg-[#61d397] hover:bg-[#52c488] text-[#333] px-10 py-3 rounded-lg font-semibold text-lg transition-colors"
           >
-            My Agents
+            My AI Agents
           </Link>
         </div>
 
