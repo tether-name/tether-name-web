@@ -6,22 +6,22 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tether.name/guide</loc>
+    <loc>https://tether.name/guide/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tether.name/support</loc>
+    <loc>https://tether.name/support/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tether.name/privacy</loc>
+    <loc>https://tether.name/privacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://tether.name/terms</loc>
+    <loc>https://tether.name/terms/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

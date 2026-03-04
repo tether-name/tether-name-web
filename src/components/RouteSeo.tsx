@@ -42,7 +42,16 @@ function setCanonical(url: string) {
   canonical.setAttribute('href', url);
 }
 
-function getSeoConfig(pathname: string): SeoConfig {
+function normalizePathname(pathname: string): string {
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return pathname.slice(0, -1);
+  }
+  return pathname;
+}
+
+function getSeoConfig(rawPathname: string): SeoConfig {
+  const pathname = normalizePathname(rawPathname);
+
   if (pathname === '/') {
     return {
       title: 'AI Agent Verification & Agentic Verification | tether.name',
@@ -63,7 +72,7 @@ function getSeoConfig(pathname: string): SeoConfig {
       keywords:
         'build ai agent, ai agent runtime, verify ai agent, ai agent verification',
       robots: 'index,follow',
-      canonicalPath: '/guide',
+      canonicalPath: '/guide/',
     };
   }
 
@@ -73,7 +82,7 @@ function getSeoConfig(pathname: string): SeoConfig {
       description: 'tether.name legal and support information.',
       keywords: 'tether.name',
       robots: 'index,follow',
-      canonicalPath: pathname,
+      canonicalPath: `${pathname}/`,
     };
   }
 
