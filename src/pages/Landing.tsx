@@ -25,7 +25,7 @@ export function Landing() {
           <img
             src={websiteHeaderSvg}
             alt="tether.name — verify AI agents are who they say they are"
-            className="w-full max-w-4xl mx-auto object-contain"
+            className="w-[70%] max-w-4xl mx-auto object-contain"
           />
         </div>
 
