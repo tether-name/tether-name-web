@@ -1,8 +1,13 @@
-# tether.name
+# tether.name web
 
 [![Deploy](https://github.com/tether-name/tether-name-web/actions/workflows/deploy.yml/badge.svg)](https://github.com/tether-name/tether-name-web/actions/workflows/deploy.yml)
 
 Frontend for [tether.name](https://tether.name) — AI agent identity verification.
+
+## Requirements
+
+- Node.js 20+
+- npm
 
 ## Development
 
@@ -11,21 +16,36 @@ npm install
 npm run dev
 ```
 
-API URL defaults to `http://localhost:3000` in dev, `https://api.tether.name` in production (see `.env.production`).
+Dev server runs on Vite defaults (usually `http://localhost:5173`).
+
+## Environment
+
+- Development API URL defaults to `http://localhost:3000`
+- Production API URL is set in `.env.production` (`https://api.tether.name`)
+
+You can copy `.env.example` for local overrides.
 
 ## Build
 
 ```bash
 npm run build
+npm run preview
+```
+
+## Test & Lint
+
+```bash
+npm run test
+npm run lint
 ```
 
 ## Deploy
 
 ```bash
-./deploy.sh
+npm run deploy
 ```
 
-Builds and deploys to Firebase Hosting (`tether-name` project).
+This runs a production build and deploys to Firebase Hosting.
 
 ## License
 
