@@ -13,6 +13,7 @@
     "agent_status": "GET /agents/{id}/status",
     "agents_issue": "POST /agents/issue",
     "agents_list": "GET /agents",
+    "agents_update": "PATCH /agents/{id}",
     "agents_delete": "DELETE /agents/{id}",
     "domain_claim": "POST /domains/claim",
     "domain_verify": "POST /domains/{id}/verify",
