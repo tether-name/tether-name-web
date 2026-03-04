@@ -88,6 +88,18 @@ function getSeoConfig(rawPathname: string): SeoConfig {
     };
   }
 
+  if (pathname === '/verify-ai-agent') {
+    return {
+      title: 'Verify AI Agent Checklist | tether.name',
+      description:
+        'Step-by-step checklist to verify AI agent identity using one-time challenges and signed verification links.',
+      keywords:
+        'verify ai agent, ai agent verification checklist, agent identity verification, agentic verification',
+      robots: 'index,follow',
+      canonicalPath: '/verify-ai-agent/',
+    };
+  }
+
   if (pathname === '/privacy' || pathname === '/terms' || pathname === '/support') {
     return {
       title: `tether.name ${pathname.slice(1).charAt(0).toUpperCase()}${pathname.slice(2)}`,

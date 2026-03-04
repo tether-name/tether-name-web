@@ -77,6 +77,10 @@ export function Support() {
             and our{' '}
             <Link to="/ai-agent-verification" className="text-[#f4b049] underline hover:no-underline">
               AI agent verification guide
+            </Link>{' '}
+            plus the{' '}
+            <Link to="/verify-ai-agent" className="text-[#f4b049] underline hover:no-underline">
+              verify AI agent checklist
             </Link>
             .
           </p>

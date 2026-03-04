@@ -17,6 +17,7 @@ import { Terms } from './pages/Terms';
 import { Support } from './pages/Support';
 import { Guide } from './pages/Guide';
 import { AiAgentVerification } from './pages/AiAgentVerification';
+import { VerifyAiAgent } from './pages/VerifyAiAgent';
 import { NotFound } from './pages/NotFound';
 import { ScrollToTop } from './components/ScrollToTop';
 import { RouteSeo } from './components/RouteSeo';
@@ -40,6 +41,7 @@ function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/guide" element={<Guide />} />
               <Route path="/ai-agent-verification" element={<AiAgentVerification />} />
+              <Route path="/verify-ai-agent" element={<VerifyAiAgent />} />
               <Route path="/support" element={<Support />} />
               <Route
                 path="/dashboard"

@@ -73,6 +73,47 @@ const routeSeo = {
       ],
     },
   },
+  'verify-ai-agent': {
+    title: 'Verify AI Agent Checklist | tether.name',
+    description:
+      'Step-by-step checklist to verify AI agent identity using one-time challenges and signed verification links.',
+    keywords: 'verify ai agent, ai agent verification checklist, agent identity verification, agentic verification',
+    robots: 'index,follow',
+    canonical: 'https://tether.name/verify-ai-agent/',
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          name: 'Verify AI Agent Checklist',
+          url: 'https://tether.name/verify-ai-agent/',
+          description:
+            'Step-by-step checklist to verify AI agent identity using one-time challenges and signed verification links.',
+        },
+        {
+          '@type': 'HowTo',
+          name: 'How to verify an AI agent',
+          step: [
+            {
+              '@type': 'HowToStep',
+              name: 'Generate challenge',
+              text: 'Generate a one-time challenge code in tether.name.',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Send to agent',
+              text: 'Send the challenge code to the AI agent in the live conversation.',
+            },
+            {
+              '@type': 'HowToStep',
+              name: 'Confirm result',
+              text: 'Open the returned check link and confirm verified identity and domain.',
+            },
+          ],
+        },
+      ],
+    },
+  },
   support: {
     title: 'Support | tether.name',
     description: 'Support resources for tether.name AI agent verification and agentic verification.',
