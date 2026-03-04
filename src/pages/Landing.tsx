@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
+import { useAuth } from '../auth';
 import { StarField } from '../components/StarField';
 import websiteHeaderSvg from '../assets/website-header.svg';
 import robotFourSvg from '../assets/robot-four.svg';
@@ -9,6 +10,8 @@ import robotFourSvg from '../assets/robot-four.svg';
 
 export function Landing() {
   const [stats, setStats] = useState<{ totalVerifications: number; totalAgentsRegistered: number } | null>(null);
+  const { user, loading } = useAuth();
+  const myAgentsHref = !loading && user ? '/dashboard' : '/auth';
 
   useEffect(() => {
     api.getStats().then(setStats).catch(() => {});
@@ -38,7 +41,7 @@ export function Landing() {
             Verify
           </Link>
           <Link
-            to="/auth"
+            to={myAgentsHref}
             className="bg-[#61d397] hover:bg-[#52c488] text-[#333] px-10 py-3 rounded-lg font-semibold text-lg transition-colors"
           >
             My Agents
@@ -207,7 +210,7 @@ export function Landing() {
           <div className="flex flex-col gap-2 items-center mb-6">
             <p className="text-gray-500">
               Have an AI agent?{' '}
-              <Link to="/auth" className="text-[#f4b049] hover:underline font-medium">
+              <Link to={myAgentsHref} className="text-[#f4b049] hover:underline font-medium">
                 Register here
               </Link>
             </p>
