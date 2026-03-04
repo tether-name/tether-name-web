@@ -53,7 +53,7 @@ export function Landing() {
             <div className="flex flex-col gap-4">
               {/* Agent message */}
               <div className="flex justify-start">
-                <div className="bg-[#444] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
+                <div className="bg-[#1f1f1f] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
                   <p className="text-gray-200 text-base leading-relaxed">
                     Hey, this is the Hotel Sol agent, letting you know your room
                     changed to room 451 for your upcoming stay.
@@ -77,7 +77,7 @@ export function Landing() {
 
               {/* Agent verified message */}
               <div className="flex justify-start">
-                <div className="bg-[#444] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
+                <div className="bg-[#1f1f1f] rounded-2xl rounded-bl-sm px-4 py-3 max-w-[85%]">
                   <p className="text-gray-200 text-base leading-relaxed">
                     Verified! ✅ Here's the link:{' '}
                     <span className="text-[#f4b049] underline break-all">
