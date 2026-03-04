@@ -112,9 +112,10 @@ export function Landing() {
                 <p className="text-gray-400 text-base">The agent signed this code</p>
               </div>
 
-              <div className="bg-[#333] p-5 rounded-lg border-2 border-[#61d397]">
+              <div className="bg-[#333] p-5 rounded-lg border-2 border-[#f4b049]">
                 <p className="text-center text-gray-400 text-base mb-2">Verified agent</p>
                 <p className="text-center text-xl font-bold text-white mb-1">Hotel Sol Agent</p>
+                <p className="text-center text-[#61d397] text-sm font-medium">Verified domain: hotelsol.com</p>
                 <p className="text-center text-gray-400 text-sm mt-2">Member since 1/15/2026</p>
               </div>
             </div>
