@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pages": "npm run build && node scripts/prepare-pages.mjs",
     "lint": "eslint .",
     "test": "vitest run",
     "preview": "vite preview",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build:pages && echo 'Deploy is handled by .github/workflows/deploy.yml on push to main'"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.0",
