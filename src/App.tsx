@@ -18,6 +18,7 @@ import { Support } from './pages/Support';
 import { Guide } from './pages/Guide';
 import { NotFound } from './pages/NotFound';
 import { ScrollToTop } from './components/ScrollToTop';
+import { RouteSeo } from './components/RouteSeo';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <SnackbarProvider>
       <Router>
         <ScrollToTop />
+        <RouteSeo />
         <div className="min-h-screen bg-[#1f1f1f] flex flex-col">
           <Navbar />
           <div className="flex-1">

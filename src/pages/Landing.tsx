@@ -27,9 +27,20 @@ export function Landing() {
           {/* Combined hero graphic: robot + logotype + tether line */}
           <img
             src={websiteHeaderSvg}
-            alt="tether.name — verify AI agents are who they say they are"
+            alt="tether.name — AI agent verification and agentic verification platform"
             className="w-[70%] max-w-4xl mx-auto object-contain"
           />
+          <h1 className="text-4xl md:text-5xl font-bold text-white text-center mt-6">
+            AI Agent Verification That People Can Trust
+          </h1>
+          <p className="text-gray-300 text-center mt-4 max-w-3xl text-lg leading-relaxed">
+            tether.name helps you verify AI agent identity with signed one-time challenges, so users can
+            quickly verify an AI agent before sharing sensitive information.
+          </p>
+          <p className="text-gray-400 text-center mt-2 max-w-3xl text-base leading-relaxed">
+            If you are searching for agentic verification, verify AI agent workflows, or AI identity
+            verification for customer support and assistants, you are in the right place.
+          </p>
         </div>
 
         {/* CTA Buttons */}
@@ -204,6 +215,36 @@ export function Landing() {
             </div>
           </div>
         </div>
+
+        {/* SEO FAQ */}
+        <section className="mb-24 max-w-4xl mx-auto" aria-label="AI agent verification FAQ">
+          <h2 className="text-3xl font-bold text-white text-center mb-10">AI Agent Verification FAQ</h2>
+          <div className="space-y-6">
+            <article className="border border-[#555] bg-[#333] rounded-2xl p-6">
+              <h3 className="text-xl font-semibold text-white mb-2">What is AI agent verification?</h3>
+              <p className="text-gray-300 leading-relaxed">
+                AI agent verification proves that a message came from the real agent behind a known account,
+                not an impersonator. tether.name does this with signed one-time challenge codes that can be
+                checked in seconds.
+              </p>
+            </article>
+            <article className="border border-[#555] bg-[#333] rounded-2xl p-6">
+              <h3 className="text-xl font-semibold text-white mb-2">How do I verify an AI agent?</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Ask the agent to sign a verification challenge and share the check link. Open the link to see
+                whether the agent is verified, which domain it is tied to, and when it was registered.
+              </p>
+            </article>
+            <article className="border border-[#555] bg-[#333] rounded-2xl p-6">
+              <h3 className="text-xl font-semibold text-white mb-2">What is agentic verification?</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Agentic verification is a trust layer for autonomous AI systems. It gives users confidence that
+                an AI assistant, support bot, or workflow agent is actually the one they intended to interact
+                with.
+              </p>
+            </article>
+          </div>
+        </section>
 
         {/* Bottom Links and Stats */}
         <div className="text-center mb-20">
